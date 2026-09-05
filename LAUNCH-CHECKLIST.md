@@ -73,3 +73,24 @@ Nicht angefasst: Layout, Farben, Struktur, Bilder, `noindex`.
 - Kein WhatsApp als Launch-Kanal.
 - Packmer und ZÜGELKLAR bleiben getrennt — die Website zeigt keine Verbindung.
 - Deutsch only im ersten Launch.
+
+---
+
+## 6. Platzhalter in `v9.html` (Entwurf der neuen Startseite)
+
+Alles hier ist bewusst offen gelassen und im Code markiert — Suchen &amp; Ersetzen genügt.
+
+| Marker | Wo | Was einsetzen |
+|---|---|---|
+| `[[FOTO-01]]` | Über uns | Porträt des Inhabers (vor dem Fahrzeug oder im Büro) |
+| `[[FOTO-02]]` | Über uns | Teamfoto vor den Fahrzeugen — ersetzt später die Symbolbilder |
+| `[NAME DES INHABERS]` | Über uns | Vor- und Nachname |
+| `[STANDORT]` | Einsatzgebiet (3×) | Ort der Basis, z. B. „Mellingen" |
+| `[TELEFON]` | Topbar, Hero, Formular, Footer, Menü | Geschäftsnummer (auch in `href="tel:"`) |
+| `[E-MAIL]` | Topbar, Footer | Geschäfts-E-Mail (auch in `href="mailto:"`) |
+| `[ADRESSE]` | Footer | Vollständige Postadresse |
+| `ab CHF ___` | 4 Leistungskarten | Einstiegspreise — oder die Preiszeile entfernen |
+
+Neu in `v9.html` gegenüber `index.html`: Mobile-Navigation, feste Aktionsleiste auf dem Handy,
+klickbare Telefon-/E-Mail-Links, dunkles Abnahmegarantie-Band, Routen-Ablauf, Abschnitt „Über uns",
+Abschnitt „Einsatzgebiet", Foto-Upload im Formular, Consent-Checkbox, FAQ-Akkordeon mit FAQPage-Schema.
