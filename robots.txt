@@ -1,0 +1,12 @@
+# ZÜGELKLAR — robots.txt
+# STATUS: PREVIEW. Die Seite ist bewusst für Suchmaschinen gesperrt.
+#
+# ZUM GO-LIVE:
+#   1. die Zeile "Disallow: /" unten löschen
+#   2. in index.html <meta name="robots" content="noindex,nofollow"> entfernen
+#   3. Sitemap in der Google Search Console einreichen
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://zuegelklar.ch/sitemap.xml

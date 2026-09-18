@@ -1,96 +1,81 @@
 # ZÜGELKLAR — Launch-Checkliste
 
-**Baseline:** V8 · Build `V8-PREVIEW-2026-09-05`
-**Status:** Preview (`noindex,nofollow` — bleibt bis zum Go-live gesetzt)
-**Repo:** `nuronesys/zuegelklar-site.` · Branch `main` · GitHub Pages `main / root`
+**Stand:** 18.09.2026 · Build `V9-2026-09-18`
+**Domain:** https://zuegelklar.ch (aktiv, HTTPS) · Weiterleitungs-Domains: `zeugelklar.ch`, `zueglklar.ch`
+**Hosting:** GitHub Pages · Repo `nuronesys/zuegelklar-site.` · Branch `main` / root
+**Status:** PREVIEW — `noindex,nofollow` in `index.html` **und** `Disallow: /` in `robots.txt`
 
 ---
 
-## 1. Erledigt (06.09.2026)
+## 1. Erledigt
 
-| # | Änderung | Datei |
-|---|---|---|
-| 1 | Escapten HTML-Kommentar entfernt (wurde als sichtbarer Text gerendert) | `index.html` |
-| 2 | Datei formatiert (war 2 Zeilen minifiziert → 1524 Zeilen, editierbar) | `index.html` |
-| 3 | Build-Meta korrigiert: `V7-LIVE` → `V8-PREVIEW-2026-09-05` | `index.html` |
-| 4 | Favicon-Set aus der Dachmarke des Logos erzeugt (kein Redesign) | `favicon.ico`, `assets/favicon-*.png`, `assets/apple-touch-icon.png` |
-| 5 | Open Graph / Twitter Card + `theme-color` ergänzt | `index.html`, `assets/og-image.jpg` |
-| 6 | CTA-Wording entschärft: „Kostenlose Offerte“ → „Offerte anfragen“ (Gratis-Offerte ist nicht final entschieden) | `index.html` |
-| 7 | „Mit Fokus auf Zürich“ → „mit Schwerpunkt in der Deutschschweiz“ (kein Sitz-Claim für Zürich) | `index.html` |
-| 8 | KI-Bilder mit Personen als **Symbolbild** gekennzeichnet + ehrliche `alt`-Texte (Team, Beratung, Übergabe) | `index.html` |
-
-Nicht angefasst: Layout, Farben, Struktur, Bilder, `noindex`.
+| Bereich | Was |
+|---|---|
+| Domain | `zuegelklar.ch` registriert, DNS auf GitHub Pages (4× A, 4× AAAA, www CNAME), `CNAME`-Datei im Repo, HTTPS aktiv |
+| E-Mail-DNS | MX, SPF, DKIM, DMARC bei Hostpoint unverändert — Mailversand bleibt intakt |
+| Startseite | Neues Design V9 ist jetzt `index.html` (Route-Hero mit Dach-Chevron, dunkles Abnahmegarantie-Band, Ablauf-Route, Über uns, Einsatzgebiet) |
+| Mobile | Burger-Navigation, feste Aktionsleiste (Anrufen / Offerte), keine horizontalen Überläufe bei 390 px geprüft |
+| Formular | Leistung, Von/Nach, Termin, Zimmer, Kontakt, **Foto-Upload**, **Consent-Checkbox** mit Link zur Datenschutzerklärung |
+| SEO-Technik | Title + Description mit „Umzugsfirma Aargau", `canonical`, Open Graph auf die echte Domain, FAQPage-Schema, `robots.txt`, `sitemap.xml`, Favicon-Set |
+| Ehrlichkeit | Alle KI-Bilder mit Personen als **Symbolbild** gekennzeichnet; keine erfundenen Bewertungen, Zahlen oder Standorte |
 
 ---
 
-## 2. Blockiert — wartet auf echte Daten
+## 2. Platzhalter — Suchen & Ersetzen in `index.html`
 
-| Thema | Fehlt | Wirkung auf die Website |
-|---|---|---|
-| Handelsregister-Eintrag | Firma, HR-Amt, Eintragsdatum | „GmbH“ darf erst danach als Rechtsform stehen |
-| Adresse | Strasse, Nr., PLZ, Ort | `[ADRESSE]` in Footer + Impressum |
-| Telefon | Geschäftsnummer | `[TELEFON]` in Topbar + Footer |
-| E-Mail | Geschäftsadresse | `[E-MAIL]` in Topbar + Footer |
-| UID / MWST | `CHE-xxx.xxx.xxx` | Impressum, spätere Rechnungen |
-| Vertretungsberechtigte Person | Name + Funktion laut HR | Impressum |
-| Domain `zuegelklar.ch` | Registrierung nicht bestätigt | Canonical, OG-URLs, `CNAME`, E-Mail |
-| CRM-Endpoint | API-Contract, Auth | Offerte-Formular ist aktuell ohne Funktion |
-| Haftpflicht | Versicherer, Summe | Keine Deckungszahl auf die Website |
-
-**Empfehlung:** sobald die Firmendaten vorliegen, an **einer** Stelle pflegen und von dort in Footer / Impressum / Schema / Formular ziehen — nicht an fünf Stellen im HTML.
+| Marker | Wo |
+|---|---|
+| `[[FOTO-01]]` | Über uns — Porträt des Inhabers |
+| `[[FOTO-02]]` | Über uns — Teamfoto vor den Fahrzeugen |
+| `[NAME DES INHABERS]` | Über uns |
+| `[STANDORT]` | Einsatzgebiet (3×) |
+| `[TELEFON]` | Topbar, Hero, Menü, Formular, Footer — auch in `href="tel:"` |
+| `[E-MAIL]` | Topbar, Footer — auch in `href="mailto:"` |
+| `[ADRESSE]` | Footer |
+| `ab CHF ___` | 4 Leistungskarten |
 
 ---
 
-## 3. Offene Entscheide (kein Datenproblem — Entscheid nötig)
+## 3. Blockiert — wartet auf echte Daten
 
-- **Rechtsseiten publizieren?** AGB / Datenschutz / Impressum liegen als *Entwurf V1* vor. Footer-Links zeigen aktuell auf `#`. Optionen: (a) als klar markierte Entwürfe veröffentlichen, (b) erst nach Rechtsprüfung publizieren.
-- **„GmbH“ im Logo und Footer** — steht bereits auf dem Logo (`Umzug GmbH`), Firma aber noch nicht eingetragen. Vor Public Launch angleichen.
-- **„Einpacken komplett“** — V8 verspricht Full-Packing-Service. Als Launch-Leistung bestätigen oder Text auf Schutz-/Verpackungsmaterial reduzieren.
-- **Formular-UX** — finales Data Model ist definiert (20+ Felder). Empfehlung: 4-stufiger Flow statt einer langen Liste.
-- **Repo-Name** — `zuegelklar-site.` mit Punkt am Ende. Vor der Domain-Anbindung auf `zuegelklar-site` umbenennen.
-
----
-
-## 4. Go-live-Gates (in dieser Reihenfolge)
-
-1. Handelsregister-Eintrag liegt vor → Firmendaten eintragen
-2. Domain registriert + DNS auf GitHub Pages → `CNAME` + `.nojekyll` ergänzen
-3. Kontaktdaten live (Telefon + E-Mail funktionieren)
-4. Rechtsseiten publiziert und verlinkt
-5. Offerte-Formular sendet echt (CRM, `source=website`, Consent-Checkbox, Spam-Schutz, Fehlerbehandlung)
-6. Echte Team-/Fahrzeugfotos ersetzen die Symbolbilder
-7. QA: Mobile, Tastatur, Kontrast, Ladezeit, Formular-Ende-zu-Ende
-8. **Erst dann:** `noindex,nofollow` entfernen · `canonical` · `robots.txt` · `sitemap.xml` · `LocalBusiness`-Schema · Search Console · Google Business Profile
+| Thema | Fehlt |
+|---|---|
+| Handelsregister | Eintrag, HR-Amt, UID `CHE-…`, vertretungsberechtigte Person |
+| Adresse | Strasse, PLZ, Ort |
+| Telefon / E-Mail | Geschäftsnummer, Geschäfts-Mailadresse |
+| Preise | Einstiegspreise pro Leistung |
+| Fotos | Team, Fahrzeuge, Besichtigung, Übergabe |
+| Haftpflicht | Versicherer, Deckungssumme |
+| CRM | Endpoint, Auth, API-Contract für das Formular |
 
 ---
 
-## 5. Regeln, die bestehen bleiben
+## 4. Go-live-Reihenfolge
 
-- Keine Fake-Reviews, Fake-Standorte, Fake-Zahlen, Fake-Zertifikate.
-- Keine Nachhaltigkeits-/Recycling-Claims ohne Nachweis — nur „fachgerechte Entsorgung“.
-- „10+ Jahre Branchenerfahrung“ = Erfahrung der Personen, nicht Alter der Gesellschaft.
-- Kein Firmenumzug / B2B im Launch-Scope.
-- Kein WhatsApp als Launch-Kanal.
-- Packmer und ZÜGELKLAR bleiben getrennt — die Website zeigt keine Verbindung.
-- Deutsch only im ersten Launch.
+1. Firmendaten eintragen (Abschnitt 2)
+2. Rechtsseiten `/agb`, `/datenschutz`, `/impressum` erstellen und im Footer verlinken
+3. Formular an das CRM anbinden (`source=website`, Spam-Schutz, Fehlerbehandlung)
+4. Echte Fotos ersetzen die Symbolbilder
+5. LocalBusiness-Schema unten in `index.html` einkommentieren und ausfüllen
+6. QA: Mobile, Tastatur, Kontrast, Ladezeit, Formular Ende-zu-Ende
+7. **Erst dann:** `noindex,nofollow` aus `index.html` entfernen **und** `Disallow: /` aus `robots.txt` löschen
+8. Google Search Console + Google Business Profile einrichten, Sitemap einreichen
 
 ---
 
-## 6. Platzhalter in `v9.html` (Entwurf der neuen Startseite)
+## 5. Offene Aufgaben ausserhalb des Codes
 
-Alles hier ist bewusst offen gelassen und im Code markiert — Suchen &amp; Ersetzen genügt.
+- **Domain-Weiterleitung** bei Hostpoint: `zeugelklar.ch` und `zueglklar.ch` → 301 auf `zuegelklar.ch`
+- **Repo-Name** `zuegelklar-site.` (mit Punkt) — kann jetzt umbenannt werden, die Domain bleibt davon unberührt
+- **Bewertungen** ab dem ersten Auftrag systematisch einsammeln (Google-Review-Link nach Abschluss)
 
-| Marker | Wo | Was einsetzen |
-|---|---|---|
-| `[[FOTO-01]]` | Über uns | Porträt des Inhabers (vor dem Fahrzeug oder im Büro) |
-| `[[FOTO-02]]` | Über uns | Teamfoto vor den Fahrzeugen — ersetzt später die Symbolbilder |
-| `[NAME DES INHABERS]` | Über uns | Vor- und Nachname |
-| `[STANDORT]` | Einsatzgebiet (3×) | Ort der Basis, z. B. „Mellingen" |
-| `[TELEFON]` | Topbar, Hero, Formular, Footer, Menü | Geschäftsnummer (auch in `href="tel:"`) |
-| `[E-MAIL]` | Topbar, Footer | Geschäfts-E-Mail (auch in `href="mailto:"`) |
-| `[ADRESSE]` | Footer | Vollständige Postadresse |
-| `ab CHF ___` | 4 Leistungskarten | Einstiegspreise — oder die Preiszeile entfernen |
+---
 
-Neu in `v9.html` gegenüber `index.html`: Mobile-Navigation, feste Aktionsleiste auf dem Handy,
-klickbare Telefon-/E-Mail-Links, dunkles Abnahmegarantie-Band, Routen-Ablauf, Abschnitt „Über uns",
-Abschnitt „Einsatzgebiet", Foto-Upload im Formular, Consent-Checkbox, FAQ-Akkordeon mit FAQPage-Schema.
+## 6. Regeln, die bleiben
+
+- Keine Fake-Bewertungen, -Standorte, -Zahlen, -Zertifikate.
+- Keine Nachhaltigkeits-Claims ohne Nachweis — nur „fachgerechte Entsorgung".
+- „10+ Jahre Branchenerfahrung" = Erfahrung der Personen, nicht Alter der Gesellschaft.
+- „GmbH" erst als Rechtsform führen, wenn der Handelsregistereintrag vorliegt.
+- Kein Firmenumzug / B2B im Launch-Scope. Kein WhatsApp als Launch-Kanal.
+- Packmer und ZÜGELKLAR bleiben getrennt.

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ZÜGELKLAR sitemap
+  Aktuell nur die Startseite. Weitere Einträge kommen dazu, sobald die
+  Leistungs- und Regionenseiten existieren (siehe LAUNCH-CHECKLIST.md).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://zuegelklar.ch/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
