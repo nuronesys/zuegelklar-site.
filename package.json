@@ -1,0 +1,12 @@
+{
+  "name": "zuegelklar-site",
+  "private": true,
+  "version": "0.9.5",
+  "description": "Statische Website von ZÜGELKLAR (GitHub Pages). Kein Build-Schritt.",
+  "type": "module",
+  "scripts": {
+    "check:site": "node scripts/prelaunch-check.mjs",
+    "check:launch": "node scripts/prelaunch-check.mjs --launch"
+  },
+  "engines": { "node": ">=18" }
+}
