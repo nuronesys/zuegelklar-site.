@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<meta name="zk-build" content="V9.3-2026-09-24" />
+<meta name="zk-build" content="V10.0-2026-09-25" />
 <link rel="canonical" href="https://zuegelklar.ch/" />
 <title>Umzugsfirma Aargau &amp; schweizweit | ZÜGELKLAR</title>
 <meta name="description" content="Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Entsorgung – schweizweit, mit eigenem Team und einem festen Ansprechpartner. Offerte innert 24 Std." />
@@ -40,6 +40,7 @@
   --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
@@ -124,7 +125,7 @@ p{margin:0}
 .svc-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:11px;flex:1}
 .svc h3{font-size:24px}
 .svc .tag{display:inline-block;align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
-.price{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.price{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:12px;min-height:1px}
 .price small{font-size:13px;color:var(--muted)}
 .price .amt{font-family:var(--display);font-weight:700;font-size:19px;color:var(--ink);white-space:nowrap}
 .blank{display:inline-block;min-width:64px;border-bottom:2px dotted #B9C6D2;color:transparent}
@@ -267,7 +268,7 @@ p{margin:0}
       <span>Europa auf Anfrage</span>
     </div>
     <div class="tb-r">
-      <a href="tel:[TELEFON]">[TELEFON]</a>
+      <a href="tel:+41799333111">079 933 31 11</a>
       <a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a>
     </div>
   </div>
@@ -286,15 +287,15 @@ p{margin:0}
       <a href="#ueber-uns">Über uns</a>
       <a class="btn btn-blue" href="#offerte" style="min-height:46px;padding:0 22px">Offerte anfragen</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+    <button class="burger" id="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14181D" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
   </div>
 </header>
 
-<div class="drawer" id="drawer">
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
   <div class="drawer-in">
-    <button class="drawer-close" id="drawerClose" aria-label="Menü schliessen">&times;</button>
+    <button class="drawer-close" id="drawerClose" type="button" aria-label="Menü schliessen">&times;</button>
     <a href="#leistungen">Leistungen</a>
     <a href="#garantie">Abnahmegarantie</a>
     <a href="#ablauf">Ablauf</a>
@@ -304,7 +305,7 @@ p{margin:0}
     <a href="#einsatzgebiet">Einsatzgebiet</a>
     <a href="#faq">Häufige Fragen</a>
     <a class="btn btn-blue" href="#offerte" style="margin-top:18px;border:none">Offerte anfragen</a>
-    <a class="btn btn-ghost" href="tel:[TELEFON]" style="margin-top:10px">[TELEFON] anrufen</a>
+    <a class="btn btn-ghost" href="tel:+41799333111" style="margin-top:10px">079 933 31 11 anrufen</a>
   </div>
 </div>
 
@@ -320,24 +321,27 @@ p{margin:0}
       <p class="lead">Ein Team für Transport, Montage, Umzugsreinigung mit Abnahmegarantie und Entsorgung — mit einem festen Ansprechpartner vom ersten Anruf bis zur Wohnungsabgabe.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#offerte">Offerte in 2 Minuten anfragen</a>
-        <a class="btn btn-ghost" href="tel:[TELEFON]">[TELEFON]</a>
+        <a class="btn btn-ghost" href="tel:+41799333111">079 933 31 11</a>
       </div>
       <div class="hero-note">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Unverbindlich</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Antwort innert 24 Stunden</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Antwort innert 24 Stunden an Werktagen</span>
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Festpreis oder Stundenpreis</span>
       </div>
     </div>
 
     <div class="heromedia">
       <div class="heroclip">
-        <img src="assets/hero-desktop.webp" alt="ZÜGELKLAR Umzugsfahrzeug in der Schweiz" width="1672" height="941" fetchpriority="high" />
+        <picture>
+          <source media="(max-width: 650px)" srcset="assets/hero-mobile.webp" width="900" height="1599" />
+          <img src="assets/hero-desktop.webp" alt="ZÜGELKLAR Umzugsfahrzeug in der Schweiz" width="1672" height="941" fetchpriority="high" decoding="async" />
+        </picture>
       </div>
       <span class="sym">Symbolbild</span>
       <div class="proof">
         <div><b>10+</b><small>Jahre Branchenerfahrung</small></div>
         <div class="sep"></div>
-        <div><b style="color:var(--blue)">Eigenes</b><small>Team, keine Aushilfen</small></div>
+        <div><b style="color:var(--blue)">Eigenes</b><small>Team, eingespielt</small></div>
       </div>
     </div>
   </div>
@@ -369,8 +373,8 @@ p{margin:0}
         <div class="svc-img"><img src="assets/privatumzug.webp" alt="Symbolbild: Privatumzug" loading="lazy" width="1200" height="900" /><span class="sym">Symbolbild</span></div>
         <div class="svc-body">
           <h3>Privatumzug</h3>
-          <p class="small">Von der Wohnung bis zum Einfamilienhaus. Planung, Transport, Demontage und Montage — sorgfältig vorbereitet und koordiniert ausgeführt.</p>
-          <div class="price"><small>Festpreis oder Stundenpreis</small><span class="amt">ab CHF <span class="blank">___</span></span></div>
+          <p class="small">Von der Wohnung bis zum Einfamilienhaus. Planung, Transport, Demontage und Montage — sorgfältig vorbereitet und koordiniert ausgeführt. Ein- und Auspackservice auf Wunsch.</p>
+          <div class="price"><small>Festpreis oder Stundenpreis</small></div>
         </div>
       </article>
 
@@ -380,7 +384,7 @@ p{margin:0}
           <span class="tag">Mit Abnahmegarantie</span>
           <h3>Umzugsreinigung</h3>
           <p class="small">Endreinigung inklusive kostenloser Nachbesserung bei berechtigten Beanstandungen — im vereinbarten Leistungsumfang.</p>
-          <div class="price"><small>Pauschal pro Objekt</small><span class="amt">ab CHF <span class="blank">___</span></span></div>
+          <div class="price"><small>Pauschale nach Objekt und Aufwand</small></div>
         </div>
       </article>
 
@@ -389,7 +393,7 @@ p{margin:0}
         <div class="svc-body">
           <h3>Räumung &amp; Entsorgung</h3>
           <p class="small">Keller, Wohnungen oder ganze Häuser. Wiederverwendbares und Entsorgung werden sauber getrennt und fachgerecht abgeführt.</p>
-          <div class="price"><small>Nach Aufwand</small><span class="amt">ab CHF <span class="blank">___</span></span></div>
+          <div class="price"><small>Nach Aufwand</small></div>
         </div>
       </article>
 
@@ -398,7 +402,7 @@ p{margin:0}
         <div class="svc-body">
           <h3>Demontage &amp; Montage</h3>
           <p class="small">Schränke, Betten und weitere Möbel werden fachgerecht demontiert und am neuen Ort wieder aufgebaut.</p>
-          <div class="price"><small>Pro Stunde</small><span class="amt">ab CHF <span class="blank">___</span></span></div>
+          <div class="price"><small>Individuell nach Leistungsumfang</small></div>
         </div>
       </article>
 
@@ -567,7 +571,7 @@ p{margin:0}
       <p class="lead" style="margin-top:20px">ZÜGELKLAR ist neu gegründet — die Erfahrung dahinter nicht. Der Gründer arbeitet seit über zehn Jahren im Umzugsgeschäft: als Träger, als Vorarbeiter und in der Planung von Aufträgen vom Kellerabteil bis zum ganzen Haus.</p>
       <p class="lead" style="margin-top:16px">Daraus ist ZÜGELKLAR entstanden: eigenes Team, eigene Fahrzeuge, eigenes Material — und ein Ansprechpartner, der den Auftrag von der Besichtigung bis zur Wohnungsabgabe begleitet.</p>
       <div class="facts">
-        <div class="fact"><b>Eigenes Team</b><small>Dieselben Leute, keine wechselnden Aushilfen.</small></div>
+        <div class="fact"><b>Ein eingespieltes Team</b><small>Dieselben Leute, mit klarer Einsatzleitung.</small></div>
         <div class="fact"><b>Zwei Fahrzeuge</b><small>Eigener Fuhrpark, eigenes Packmaterial.</small></div>
         <div class="fact"><b>Ein Ansprechpartner</b><small>Vom ersten Anruf bis zur Übergabe.</small></div>
       </div>
@@ -605,57 +609,58 @@ p{margin:0}
 <section class="offer" id="offerte">
   <div class="wrap offergrid">
     <div>
-      <div class="kicker" style="margin-bottom:14px">Kostenlose Offerte</div>
+      <div class="kicker" style="margin-bottom:14px">Offerte anfragen</div>
       <h2 style="font-size:clamp(30px,3.6vw,46px)">Sagen Sie uns,<br />was Sie vorhaben.</h2>
       <p class="lead" style="margin-top:20px">Die Anfrage ist unverbindlich. Wir melden uns persönlich und klären die Details für Ihre passende Offerte.</p>
       <div class="checks">
         <div class="check">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          <div><b>Antwort innert 24 Stunden</b><p>An Werktagen meist deutlich schneller.</p></div>
+          <div><b>Antwort innert 24 Stunden an Werktagen</b><p>In der Regel deutlich schneller.</p></div>
         </div>
         <div class="check">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           <div><b>Umzug und Reinigung kombinierbar</b><p>Als ein Auftrag, mit einem Team.</p></div>
         </div>
       </div>
-      <p class="small" style="margin-top:28px">Lieber telefonisch? <a href="tel:[TELEFON]" style="color:var(--blue);font-weight:600">[TELEFON]</a></p>
+      <p class="small" style="margin-top:28px">Lieber telefonisch? <a href="tel:+41799333111" style="color:var(--blue);font-weight:600">079 933 31 11</a><br />Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</p>
     </div>
 
     <div class="card">
-      <form id="offerForm" novalidate>
+      <form id="offerForm">
         <div class="fields">
           <div class="field full">
             <label for="f-leistung">Welche Leistung?</label>
-            <select id="f-leistung">
-              <option>Privatumzug</option>
-              <option>Umzugsreinigung mit Abnahmegarantie</option>
-              <option>Umzug + Reinigung kombiniert</option>
-              <option>Räumung &amp; Entsorgung</option>
-              <option>Internationaler Umzug</option>
+            <select id="f-leistung" name="service" required>
+              <option value="privatumzug">Privatumzug</option>
+              <option value="umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
+              <option value="umzug_und_reinigung">Umzug + Reinigung kombiniert</option>
+              <option value="raeumung">Räumung &amp; Entsorgung</option>
+              <option value="international">Internationaler Umzug</option>
             </select>
           </div>
-          <div class="field"><label for="f-von">Von (PLZ / Ort)</label><input id="f-von" type="text" placeholder="z. B. 5507 Mellingen" /></div>
-          <div class="field"><label for="f-nach">Nach (PLZ / Ort)</label><input id="f-nach" type="text" placeholder="z. B. 8000 Zürich" /></div>
-          <div class="field"><label for="f-datum">Wunschtermin</label><input id="f-datum" type="date" /></div>
+          <div class="field"><label for="f-von">Von (PLZ / Ort)</label><input id="f-von" name="origin" type="text" placeholder="z. B. 5507 Mellingen" /></div>
+          <div class="field"><label for="f-nach">Nach (PLZ / Ort)</label><input id="f-nach" name="destination" type="text" placeholder="z. B. 8000 Zürich" /></div>
+          <div class="field"><label for="f-datum">Wunschtermin</label><input id="f-datum" name="moveDate" type="date" /></div>
           <div class="field"><label for="f-zimmer">Zimmer</label>
-            <select id="f-zimmer"><option>1–2 Zimmer</option><option>2,5–3,5 Zimmer</option><option>4–4,5 Zimmer</option><option>5,5+ Zimmer / Haus</option></select>
+            <select id="f-zimmer" name="rooms"><option value="1-2">1–2 Zimmer</option><option value="2.5-3.5">2,5–3,5 Zimmer</option><option value="4-4.5">4–4,5 Zimmer</option><option value="5.5+">5,5+ Zimmer / Haus</option></select>
           </div>
-          <div class="field"><label for="f-name">Vorname / Name</label><input id="f-name" type="text" autocomplete="name" /></div>
-          <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" type="tel" autocomplete="tel" /></div>
-          <div class="field full"><label for="f-mail">E-Mail</label><input id="f-mail" type="email" autocomplete="email" /></div>
+          <div class="field"><label for="f-name">Vorname / Name</label><input id="f-name" name="customerName" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="phone" type="tel" autocomplete="tel" required /></div>
+          <div class="field full"><label for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required /></div>
           <div class="field full">
             <label for="f-fotos">Fotos der Wohnung (optional)</label>
-            <input id="f-fotos" type="file" accept="image/*" multiple />
-            <span style="font-size:12px;color:var(--muted)">Ein paar Fotos beschleunigen die Offerte — oft ist dann keine Besichtigung nötig.</span>
+            <input id="f-fotos" name="files" type="file" accept="image/jpeg,image/png,image/webp" multiple aria-describedby="f-fotos-hint" />
+            <span id="f-fotos-hint" style="font-size:12px;color:var(--muted)">Ein paar Fotos beschleunigen die Offerte — oft ist dann keine Besichtigung nötig.<br />Maximal 10 Dateien, je 8 MB, insgesamt 40 MB. Formate: JPEG, PNG, WebP.</span>
+            <span id="f-fotos-error" role="alert" aria-live="polite" style="display:none;font-size:12px;color:var(--red);font-weight:600;margin-top:6px"></span>
           </div>
-          <div class="field full"><label for="f-msg">Kurz beschreiben (optional)</label><textarea id="f-msg" placeholder="Lift vorhanden, Klavier, Keller, gewünschte Zusatzleistungen …"></textarea></div>
+          <div class="field full"><label for="f-msg">Kurz beschreiben (optional)</label><textarea id="f-msg" name="message" placeholder="Lift vorhanden, Klavier, Keller, gewünschte Zusatzleistungen …"></textarea></div>
           <div class="consent">
-            <input id="f-consent" type="checkbox" />
-            <label for="f-consent">Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="#">Datenschutzerklärung</a>.</label>
+            <input id="f-consent" name="consentPrivacy" type="checkbox" required />
+            <label for="f-consent">Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
           </div>
         </div>
-        <button class="btn btn-blue" type="submit" style="width:100%;margin-top:22px">Anfrage senden</button>
-        <p class="fine">Vorschau — das Formular wird vor dem definitiven Livegang aktiviert.</p>
+        <button class="btn btn-blue" type="submit" style="width:100%;margin-top:22px">Unverbindliche Offerte anfragen</button>
+        <p class="fine">Vorschau — das Formular wird vor dem definitiven Livegang aktiviert. Bitte melden Sie sich bis dahin telefonisch unter <a href="tel:+41799333111">079 933 31 11</a> oder per E-Mail an <a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a>.</p>
       </form>
     </div>
   </div>
@@ -685,7 +690,7 @@ p{margin:0}
       </details>
       <details>
         <summary>Wie schnell erhalte ich eine Antwort?</summary>
-        <p>Wir melden uns innert 24 Stunden, an Werktagen in der Regel deutlich schneller. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist.</p>
+        <p>Wir melden uns an Werktagen innerhalb von 24 Stunden – in der Regel deutlich schneller. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist.</p>
       </details>
     </div>
   </div>
@@ -722,22 +727,23 @@ p{margin:0}
       <div>
         <h4>Kontakt</h4>
         <ul>
-          <li><a href="tel:[TELEFON]">[TELEFON]</a></li>
+          <li><a href="tel:+41799333111">079 933 31 11</a></li>
           <li><a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a></li>
           <li>Obere Bahnhofstrasse 24<br />5507 Mellingen</li>
+          <li>Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</li>
         </ul>
       </div>
     </div>
     <div class="ftr-bot">
       <span>© 2026 ZÜGELKLAR</span>
-      <span style="display:flex;gap:22px"><a href="#">AGB</a><a href="#">Datenschutz</a><a href="#">Impressum</a></span>
+      <span style="display:flex;gap:22px"><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></span>
     </div>
   </div>
 </footer>
 
 <!-- ── mobile action bar ── -->
 <div class="mbar">
-  <a class="btn btn-ghost" href="tel:[TELEFON]">Anrufen</a>
+  <a class="btn btn-ghost" href="tel:+41799333111">Anrufen</a>
   <a class="btn btn-blue" href="#offerte">Offerte anfragen</a>
 </div>
 
@@ -757,10 +763,67 @@ p{margin:0}
   drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { toggle(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggle(false); });
 
+  // Foto-Upload: Client-seitige Grenzen (Owner-Entscheid 19).
+  // Diese Pruefung ist Komfort, keine Sicherheit. Dieselben Grenzen muessen bei der
+  // Aktivierung des Formulars server-seitig erzwungen werden.
+  var MAX_FILES = 10;
+  var MAX_BYTES_PER_FILE = 8 * 1024 * 1024;
+  var MAX_BYTES_TOTAL = 40 * 1024 * 1024;
+  var ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+
+  var fotos = document.getElementById('f-fotos');
+  var fotosError = document.getElementById('f-fotos-error');
+
+  function mb(bytes) { return (bytes / 1048576).toFixed(1).replace('.', ',') + ' MB'; }
+
+  function showUploadError(msg) {
+    fotosError.textContent = msg;
+    fotosError.style.display = msg ? 'block' : 'none';
+  }
+
+  function validateFiles() {
+    var files = fotos.files;
+    showUploadError('');
+    if (!files || !files.length) return true;
+
+    if (files.length > MAX_FILES) {
+      showUploadError('Maximal ' + MAX_FILES + ' Dateien. Ausgewaehlt: ' + files.length + '.');
+      fotos.value = '';
+      return false;
+    }
+
+    var total = 0;
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i];
+      total += f.size;
+      if (ALLOWED_TYPES.indexOf(f.type) === -1) {
+        showUploadError('Nicht unterstuetztes Format: ' + f.name + '. Erlaubt sind JPEG, PNG und WebP.');
+        fotos.value = '';
+        return false;
+      }
+      if (f.size > MAX_BYTES_PER_FILE) {
+        showUploadError('Zu gross: ' + f.name + ' (' + mb(f.size) + '). Maximal 8 MB je Datei.');
+        fotos.value = '';
+        return false;
+      }
+    }
+    if (total > MAX_BYTES_TOTAL) {
+      showUploadError('Insgesamt zu gross (' + mb(total) + '). Maximal 40 MB fuer alle Dateien zusammen.');
+      fotos.value = '';
+      return false;
+    }
+    return true;
+  }
+
+  fotos.addEventListener('change', validateFiles);
+
+  // Das Formular ist bewusst inaktiv: kein action, kein method, kein Endpoint.
+  // Es wird nichts gesendet und keine Erfolgsmeldung vorgetaeuscht.
   document.getElementById('offerForm').addEventListener('submit', function (e) {
     e.preventDefault();
+    validateFiles();
     var note = document.querySelector('#offerForm .fine');
-    note.textContent = 'Vorschau — das Formular wird vor dem definitiven Livegang aktiviert.';
+    note.textContent = 'Vorschau — das Formular wird vor dem definitiven Livegang aktiviert. Bitte melden Sie sich bis dahin telefonisch unter 079 933 31 11 oder per E-Mail an info@zuegelklar.ch.';
     note.style.color = '#E30613';
   });
 })();
@@ -775,51 +838,60 @@ p{margin:0}
     {"@type":"Question","name":"Was bedeutet Reinigung mit Abnahmegarantie genau?","acceptedAnswer":{"@type":"Answer","text":"Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft kostenlos nach — im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen."}},
     {"@type":"Question","name":"Festpreis oder Stundenpreis — was ist besser?","acceptedAnswer":{"@type":"Answer","text":"Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen günstiger sein."}},
     {"@type":"Question","name":"Ist eine Besichtigung nötig?","acceptedAnswer":{"@type":"Answer","text":"Nicht immer. Je nach Auftrag genügen digitale Informationen wie Fotos und Angaben zu Zugang und Inventar. Bei grösseren Umzügen ist eine Besichtigung vor Ort sinnvoll."}},
-    {"@type":"Question","name":"Wie schnell erhalte ich eine Antwort?","acceptedAnswer":{"@type":"Answer","text":"Wir melden uns innert 24 Stunden, an Werktagen in der Regel deutlich schneller. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist."}}
+    {"@type":"Question","name":"Wie schnell erhalte ich eine Antwort?","acceptedAnswer":{"@type":"Answer","text":"Wir melden uns an Werktagen innerhalb von 24 Stunden – in der Regel deutlich schneller. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist."}}
   ]
 }
 </script>
 
 <!--
-  VOR LAUNCH ERGÄNZEN (siehe LAUNCH-CHECKLIST.md):
-  PLATZHALTER auf dieser Seite:
-    [[FOTO-01]]  Porträt des Inhabers            → Abschnitt "Über uns"
-    [[FOTO-02]]  Teamfoto vor den Fahrzeugen     → Abschnitt "Über uns"
-    [NAME DES INHABERS]                          → Abschnitt "Über uns"
-    Aargau                                   → Abschnitt "Einsatzgebiet" (3x)
-    [TELEFON] info@zuegelklar.ch Obere Bahnhofstrasse 24, 5507 Mellingen                 → Topbar, Hero, Formular, Footer
-    ab CHF ___                                   → 4 Leistungskarten
+  VOR LAUNCH — offene Punkte (Stand 25.09.2026)
+  Massgeblich ist docs/seo-rebuild/07_FINAL_IMPLEMENTATION_PLAN.md, Abschnitt "IMPLEMENT BEFORE LAUNCH".
 
-  1. [TELEFON] / info@zuegelklar.ch / Obere Bahnhofstrasse 24, 5507 Mellingen überall ersetzen (auch in href="tel:" und href="mailto:")
-  2. Preise "ab CHF ___" einsetzen — oder die Preiszeilen entfernen
-  3. AGB / Datenschutz / Impressum verlinken (aktuell href="#")
-  4. Formular an das CRM anbinden (source=website) inkl. Spam-Schutz
-  5. LocalBusiness-Schema mit den echten Firmendaten ergänzen
-  6. noindex,nofollow entfernen (hier UND in robots.txt: Disallow-Zeile loeschen)
-  7. LocalBusiness-Schema mit echter Adresse/Telefon ergaenzen (Block unten einkommentieren)
+  Erledigt am 25.09.2026 (Runden 1-4):
+    - Telefonnummer eingebaut (079 933 31 11 / tel:+41799333111)
+    - Preiszeilen ohne Betraege (Entscheid 14: keine Preisangaben in Franken)
+    - AGB / Datenschutz / Impressum verlinkt
+    - Oeffnungszeiten Mo-Fr 08:00-18:00 sichtbar
+
+  Offen, sichtbar auf dieser Seite:
+    Symbolbild "Ueber uns"  -> echtes Portraet des Inhabers, nur falls er oeffentlich auftreten will
+    Symbolbild Team         -> echtes Teamfoto vor den Fahrzeugen (Minimum vor dem Entfernen von noindex)
+    "Der Gruender"          -> Name erst nach Owner-Entscheid (Entscheid 23: verschoben)
+
+  Offen, technisch:
+    L-1  info@zuegelklar.ch aktivieren und bestaetigen
+    L-5  Formular an das CRM anbinden (source=website) inkl. Spam-Schutz und Rueckmeldung
+    L-6  Upload-Grenzen server-seitig erzwingen (10 Dateien / 8 MB / 40 MB)
+    L-11 LocalBusiness-Schema unten einkommentieren und ausfuellen
+    L-15 noindex,nofollow entfernen — hier UND in robots.txt die Disallow-Zeile loeschen
+         ERST wenn L-1 bis L-8 und L-11 erledigt sind. Danach: npm run check:launch
 -->
 
-<!-- ══ VOR LAUNCH EINKOMMENTIEREN: LocalBusiness-Schema ══
-     Erst ausfüllen, wenn Adresse, Telefon und Öffnungszeiten feststehen.
+<!-- ══ VOR LAUNCH EINKOMMENTIEREN: LocalBusiness-Schema ══ (L-11)
+     Stand 25.09.2026: Telefon, Adresse und Öffnungszeiten sind bestätigt und eingetragen.
+     Es fehlen noch: legalName (braucht den Handelsregistereintrag, L-3) und priceRange
+     (braucht die Pricing-Phase, L-9/L-10). priceRange darf auch ganz entfallen.
      Keine erfundenen Werte — ein falsches Schema schadet mehr als keines.
+     Samstag ist bewusst KEINE Öffnungszeit (Entscheid 9) und gehört nicht in dieses Schema.
+     Keine Profil-Verweise ins Schema, solange keine echten Profile existieren (Entscheid 18).
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MovingCompany",
   "name": "ZÜGELKLAR",
-  "legalName": "[LEGALER FIRMENNAME LAUT HANDELSREGISTER]",
+  "legalName": "NOCH OFFEN — erst nach Handelsregistereintrag eintragen, sonst diese Zeile loeschen",
   "url": "https://zuegelklar.ch/",
   "logo": "https://zuegelklar.ch/assets/logo.webp",
   "image": "https://zuegelklar.ch/assets/og-image.jpg",
-  "telephone": "[TELEFON IM FORMAT +41xxxxxxxxx]",
+  "telephone": "+41799333111",
   "email": "info@zuegelklar.ch",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "[STRASSE NR]",
-    "postalCode": "[PLZ]",
-    "addressLocality": "[ORT]",
-    "addressRegion": "[KANTON]",
+    "streetAddress": "Obere Bahnhofstrasse 24",
+    "postalCode": "5507",
+    "addressLocality": "Mellingen",
+    "addressRegion": "Aargau",
     "addressCountry": "CH"
   },
   "areaServed": [
@@ -835,10 +907,10 @@ p{margin:0}
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    "opens": "[07:00]",
-    "closes": "[18:00]"
+    "opens": "08:00",
+    "closes": "18:00"
   }],
-  "priceRange": "[CHF]",
+  "priceRange": "NOCH OFFEN — nach der Pricing-Phase setzen oder diese Zeile loeschen",
   "knowsLanguage": ["de"]
 }
 </script>
