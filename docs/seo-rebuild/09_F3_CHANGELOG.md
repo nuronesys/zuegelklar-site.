@@ -56,3 +56,17 @@ Die Seite bleibt auf `noindex` und `Disallow: /`. Go-live erst nach Phase 4 (Rec
   - Dünn: Brugg, Aarau (Gemeindeseiten waren für Robots gesperrt) — manuell ergänzen.
 - **Ratgeber** neu: `/ratgeber/` (Übersicht) plus `umzugscheckliste`, `wohnungsabgabe`, `halteverbot-umzug`, `umzugskosten` (ohne Preise), mit Quellen (OR, ch.ch, ag.ch, Mieterverband, Post, Serafe).
 - Navigation und Footer mit Ratgeber; FAQ der Startseite verlinkt die Ratgeber. Sitemap: 21 URLs.
+
+## Nachtrag 2 (31.10.2026) — Grossaufträge und weitere Leistungen
+
+- **Owner-Entscheid:** Fokus auf Grossaufträge (Villen & Anwesen, Museen & Kunst, Firmen & Büros). Slogan: **«Wir machen Unmögliches möglich.»** Damit ist die frühere Regel «Kein Firmenumzug / B2B im Launch-Scope» (LAUNCH-CHECKLIST §6) aufgehoben.
+- Neue Seiten:
+  - `/grossauftraege/` (Hub), `/villen-anwesen/`, `/museum-kunst/`, `/firmenumzug/`
+  - `/seniorenumzug/`, `/kleinumzug/`, `/klaviertransport/`
+- Leitplanke für die Texte: Beschrieben wird Planung und Ablauf. Nicht behauptet werden eigene Klimafahrzeuge, Kunstversicherung, Zertifikate oder Referenzen. Besondere Anforderungen werden «individuell in der Offerte» bzw. mit Fachpartnern nach Absprache geklärt.
+- Startseite:
+  - neuer Abschnitt «Grossaufträge & Spezialprojekte» mit Slogan
+  - Navigation «Grossaufträge» (statt «Ablauf»)
+  - 6 neue Formular-Optionen
+  - Slogan im Footer
+- Sitemap: 28 URLs.

@@ -239,7 +239,7 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
   .nav{display:none}
   .burger{display:flex}
   .sec,.offer,.band{padding:64px 0}
-  .svcs{grid-template-columns:1fr}
+  .svcs{grid-template-columns:1fr !important}
   .trust .wrap{grid-template-columns:1fr 1fr}
   .trust div{padding:20px 18px 20px 0}
   .trust div+div{padding-left:18px}
@@ -290,7 +290,7 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
       <a href="#reinigung">Reinigung</a>
       <a href="#raeumung">Räumung</a>
       <a href="#europa">Europa</a>
-      <a href="#ablauf">Ablauf</a>
+      <a href="#grossauftraege">Grossaufträge</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="ratgeber/">Ratgeber</a>
       <a class="btn btn-blue" href="#offerte" style="min-height:46px;padding:0 22px">Offerte anfragen</a>
@@ -306,6 +306,7 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
     <button class="drawer-close" id="drawerClose" type="button" aria-label="Menü schliessen">&times;</button>
     <a href="#leistungen">Leistungen</a>
     <a href="#garantie">Abnahmegarantie</a>
+    <a href="grossauftraege/">Grossaufträge</a>
     <a href="#ablauf">Ablauf</a>
     <a href="#europa">Europa</a>
     <a href="#besichtigung">Besichtigung</a>
@@ -418,6 +419,30 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ── grossaufträge ── -->
+<section class="sec" id="grossauftraege" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker" style="margin-bottom:12px">Grossaufträge &amp; Spezialprojekte</div>
+        <h2>Wir machen Unmögliches<br />möglich.</h2>
+      </div>
+      <p class="small" style="max-width:40ch">Villen, Museen, Firmen: Je anspruchsvoller der Auftrag, desto wichtiger die Planung — Besichtigung, schriftlicher Ablaufplan und ein fester Ansprechpartner vom ersten Gespräch bis zur Übergabe.</p>
+    </div>
+    <div class="svcs" style="grid-template-columns:repeat(3,1fr)">
+      <article class="svc"><div class="svc-body"><span class="tag">Privat</span><h3>Villen &amp; Anwesen</h3><p class="small">Grosse Häuser mit wertvollem Mobiliar, Antiquitäten und Kunst im Haushalt — diskret geplant, mit Schutz für Böden und Treppen und auf Wunsch über mehrere Tage.</p><div class="price"><a href="villen-anwesen/" style="color:var(--blue);font-weight:600;font-size:14px">Mehr erfahren →</a></div></div></article>
+      <article class="svc"><div class="svc-body"><span class="tag">Kultur</span><h3>Museen &amp; Kunst</h3><p class="small">Sammlungen, Galerien, Depots und empfindliche Einzelstücke — mit Verpackung nach Mass und Dokumentation. Besondere Anforderungen klären wir individuell in der Offerte.</p><div class="price"><a href="museum-kunst/" style="color:var(--blue);font-weight:600;font-size:14px">Mehr erfahren →</a></div></div></article>
+      <article class="svc"><div class="svc-body"><span class="tag">Business</span><h3>Firmen &amp; Büros</h3><p class="small">Büro- und Firmenumzüge mit möglichst wenig Unterbruch — abends oder am Wochenende nach Vereinbarung, mit Raumplan, Etikettierung und Entsorgung von Altmobiliar.</p><div class="price"><a href="firmenumzug/" style="color:var(--blue);font-weight:600;font-size:14px">Mehr erfahren →</a></div></div></article>
+    </div>
+    <div class="regions" style="margin-top:28px">
+      <a href="grossauftraege/" class="region base">Alle Grossaufträge</a>
+      <a href="seniorenumzug/" class="region">Seniorenumzug</a>
+      <a href="kleinumzug/" class="region">Kleinumzug</a>
+      <a href="klaviertransport/" class="region">Klavier- &amp; Flügeltransport</a>
     </div>
   </div>
 </section>
@@ -652,6 +677,12 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
               <option value="Räumung &amp; Entsorgung">Räumung &amp; Entsorgung</option>
               <option value="Demontage &amp; Montage">Demontage &amp; Montage</option>
               <option value="Internationaler Umzug">Internationaler Umzug</option>
+              <option value="Firmen- / Büroumzug">Firmen- / Büroumzug</option>
+              <option value="Villa / Anwesen">Villa / Anwesen</option>
+              <option value="Museum / Kunst / Sammlung">Museum / Kunst / Sammlung</option>
+              <option value="Seniorenumzug">Seniorenumzug</option>
+              <option value="Klavier- / Flügeltransport">Klavier- / Flügeltransport</option>
+              <option value="Kleinumzug">Kleinumzug</option>
             </select>
           </div>
           <div class="field"><label for="f-von">Von (PLZ / Ort)</label><input id="f-von" name="origin" type="text" placeholder="z. B. 5507 Mellingen" /></div>
@@ -737,6 +768,7 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
       <div>
         <img class="ftr-logo" src="assets/logo-white.png" alt="ZÜGELKLAR" width="520" height="170" />
         <p style="font-size:15px;line-height:1.7;max-width:38ch">Umzugsfirma aus Mellingen AG: Umzug, Reinigung, Räumung &amp; Entsorgung im Aargau, im Raum Zürich und schweizweit. Europa auf Anfrage.</p>
+        <p style="font-family:var(--display);font-weight:800;font-size:20px;color:#fff;margin-top:14px;letter-spacing:-.02em">Wir machen Unmögliches möglich.</p>
       </div>
       <div>
         <h3 class="fh">Leistungen</h3>
@@ -746,6 +778,12 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
           <li><a href="raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li>
           <li><a href="montage/">Demontage &amp; Montage</a></li>
           <li><a href="international/">Umzug in Europa</a></li>
+          <li><a href="grossauftraege/">Grossaufträge</a></li>
+          <li><a href="firmenumzug/">Firmenumzug</a></li>
+          <li><a href="villen-anwesen/">Villen &amp; Anwesen</a></li>
+          <li><a href="museum-kunst/">Museen &amp; Kunst</a></li>
+          <li><a href="seniorenumzug/">Seniorenumzug</a></li>
+          <li><a href="klaviertransport/">Klaviertransport</a></li>
         </ul>
       </div>
       <div>

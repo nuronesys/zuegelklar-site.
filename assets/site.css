@@ -209,7 +209,7 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
   .nav{display:none}
   .burger{display:flex}
   .sec,.offer,.band{padding:64px 0}
-  .svcs{grid-template-columns:1fr}
+  .svcs{grid-template-columns:1fr !important}
   .trust .wrap{grid-template-columns:1fr 1fr}
   .trust div{padding:20px 18px 20px 0}
   .trust div+div{padding-left:18px}
