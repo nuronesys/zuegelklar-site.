@@ -4,10 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<meta name="zk-build" content="V10.0-2026-09-25" />
+<meta name="zk-build" content="V10.1-2026-10-31" />
 <link rel="canonical" href="https://zuegelklar.ch/" />
-<title>Umzugsfirma Aargau &amp; schweizweit | ZÜGELKLAR</title>
-<meta name="description" content="Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Entsorgung – schweizweit, mit eigenem Team und einem festen Ansprechpartner. Offerte innert 24 Std." />
+<title>Umzugsfirma Aargau &amp; Zürich: Umzug, Reinigung | ZÜGELKLAR</title>
+<meta name="description" content="Umzugsfirma aus Mellingen AG: Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Montage im Aargau und Raum Zürich. Unverbindliche Offerte." />
 
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
@@ -17,16 +17,15 @@
 <meta property="og:url" content="https://zuegelklar.ch/" />
 <meta property="og:site_name" content="ZÜGELKLAR" />
 <meta property="og:locale" content="de_CH" />
-<meta property="og:title" content="Umzugsfirma Aargau &amp; schweizweit | ZÜGELKLAR" />
-<meta property="og:description" content="Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Entsorgung. Eigenes Team, ein fester Ansprechpartner." />
+<meta property="og:title" content="Umzugsfirma Aargau &amp; Zürich: Umzug, Reinigung | ZÜGELKLAR" />
+<meta property="og:description" content="Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Montage im Aargau und Raum Zürich. Ein Team, ein fester Ansprechpartner." />
 <meta property="og:image" content="https://zuegelklar.ch/assets/og-image.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preload" as="image" href="assets/hero-desktop.webp" media="(min-width: 651px)" fetchpriority="high" />
 <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 650px)" fetchpriority="high" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-grotesque-latin-var.woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
 
 <style>
 :root{
@@ -36,7 +35,7 @@
   --dark:#0C1015; --dark-2:#141A21;
   --wrap:1280px; --r:16px;
   --display:'Bricolage Grotesque',system-ui,sans-serif;
-  --serif:'Instrument Serif',Georgia,serif;
+  --serif:var(--display);
   --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
@@ -63,11 +62,16 @@ p{margin:0}
 .btn-light{background:#fff;color:var(--ink)}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:var(--blue-d)}
+.btn-wa{background:#1FA855;color:#fff}
+.btn-wa:hover{background:#178A45}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;color:var(--ink);padding:12px 18px;border-radius:8px;font-weight:600}
+.skip:focus{left:12px}
 
 /* ---------- topbar ---------- */
 .topbar{background:var(--dark);color:rgba(255,255,255,.82);font-size:13px}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:42px;gap:16px}
 .topbar a:hover{color:#fff}
+.topbar .tb-l{display:flex;gap:20px;align-items:center}
 .topbar .tb-r{display:flex;gap:22px;align-items:center}
 .dot{width:6px;height:6px;border-radius:99px;background:var(--red);display:inline-block;flex:none}
 
@@ -87,7 +91,7 @@ p{margin:0}
 /* ---------- hero ---------- */
 .hero{position:relative;padding:56px 0 0}
 .hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(36px,4.5vw,64px);margin:22px 0 0;overflow-wrap:break-word;hyphens:auto}
+.hero h1{font-size:clamp(36px,4.5vw,64px);margin:22px 0 0;overflow-wrap:break-word;hyphens:manual}
 .hero h1 b{color:var(--blue);font-weight:800}
 .hero .lead{margin-top:22px;max-width:46ch;font-size:18px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
@@ -97,7 +101,7 @@ p{margin:0}
 .heroclip{position:absolute;inset:0;overflow:hidden;border-radius:0 var(--r) var(--r) 0;
   clip-path:polygon(20% 0,100% 0,100% 100%,0 100%,0 24%)}
 .heroclip img{width:100%;height:100%;object-fit:cover}
-.sym{position:absolute;right:14px;bottom:12px;background:rgba(12,16,21,.66);color:#fff;padding:6px 11px;border-radius:6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;z-index:3}
+.sym{position:absolute;right:14px;bottom:12px;background:rgba(12,16,21,.66);color:#fff;padding:6px 11px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;z-index:3}
 .proof{position:absolute;left:-46px;bottom:44px;background:#fff;border-radius:18px;padding:20px 24px;box-shadow:0 22px 54px rgba(9,32,54,.15);display:flex;gap:24px;align-items:center;z-index:4}
 .proof b{display:block;font-family:var(--display);font-size:27px;font-weight:800;letter-spacing:-.03em;line-height:1}
 .proof small{display:block;font-size:12px;color:var(--muted);margin-top:4px}
@@ -133,7 +137,7 @@ p{margin:0}
 /* dark band */
 .band{background:var(--dark);color:#EDF1F5;padding:104px 0}
 .band-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:76px;align-items:start}
-.band h2{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;font-size:clamp(32px,4vw,52px);line-height:1.06}
+.band h2{font-family:var(--serif);font-weight:800;letter-spacing:-.035em;font-size:clamp(32px,4vw,52px);line-height:1.06}
 .band h2 em{font-style:italic;color:#7FB2EC}
 .band .kicker{color:rgba(237,241,245,.5)}
 .band p{color:rgba(237,241,245,.66)}
@@ -174,6 +178,7 @@ p{margin:0}
 .regions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .region{border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-size:15px;font-weight:500;background:#fff}
 .region.base{border-color:var(--blue);color:var(--blue);font-weight:600}
+a.region:hover{border-color:var(--blue);color:var(--blue)}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
 .fact{border-top:2px solid var(--ink);padding-top:14px}
 .fact b{display:block;font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-.02em}
@@ -207,7 +212,7 @@ p{margin:0}
 /* footer */
 .ftr{background:var(--dark);color:rgba(237,241,245,.62);padding:72px 0 34px;font-size:15px}
 .ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px}
-.ftr h4{font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#EDF1F5;margin:0 0 16px}
+.ftr .fh{font-family:var(--body);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#EDF1F5;margin:0 0 16px}
 .ftr ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
 .ftr a:hover{color:#fff}
 .ftr-logo{width:180px;height:auto;margin-bottom:18px}
@@ -215,12 +220,12 @@ p{margin:0}
 
 /* mobile bar */
 .mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
-.mbar .btn{flex:1;min-height:50px;padding:0 14px;font-size:15px}
+.mbar .btn{flex:1;min-height:50px;padding:0 10px;font-size:14px;gap:6px}
 
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
   .hero .wrap{grid-template-columns:1fr;gap:34px}
-  .heromedia{height:auto;aspect-ratio:16/10;min-height:0;order:-1}
+  .heromedia{height:auto;aspect-ratio:16/10;min-height:0}
   .heroclip{clip-path:polygon(14% 0,100% 0,100% 100%,0 100%,0 18%);border-radius:var(--r)}
   .proof{left:auto;right:16px;bottom:-28px}
   .band-grid,.split,.offergrid{grid-template-columns:1fr;gap:40px}
@@ -245,7 +250,7 @@ p{margin:0}
   .ftr-grid{grid-template-columns:1fr 1fr;gap:32px}
   .mbar{display:flex}
   body{padding-bottom:74px}
-  .topbar .tb-l{display:none}
+  .topbar .tb-l,.topbar .tb-mail{display:none}
   .topbar .wrap{justify-content:flex-end;gap:22px}
   .topbar a{white-space:nowrap}
   .logo{width:168px}
@@ -259,17 +264,19 @@ p{margin:0}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
 
 <!-- ── topbar ── -->
 <div class="topbar">
   <div class="wrap">
-    <div class="tb-l" style="display:flex;gap:20px;align-items:center">
-      <span style="display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Schweizweit für Sie unterwegs</span>
+    <div class="tb-l">
+      <span style="display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Aus Mellingen AG · Aargau &amp; Raum Zürich</span>
       <span>Europa auf Anfrage</span>
     </div>
     <div class="tb-r">
       <a href="tel:+41799333111">079 933 31 11</a>
-      <a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a>
+      <a href="https://wa.me/41799333111" rel="noopener">WhatsApp</a>
+      <a class="tb-mail" href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a>
     </div>
   </div>
 </div>
@@ -279,9 +286,9 @@ p{margin:0}
   <div class="wrap">
     <a href="#top"><img class="logo" src="assets/logo.webp" alt="ZÜGELKLAR — Umzug, Reinigung, Räumung" width="726" height="238" /></a>
     <nav class="nav">
-      <a href="#leistungen">Umzug</a>
-      <a href="#garantie">Reinigung</a>
-      <a href="#leistungen">Räumung</a>
+      <a href="#umzug">Umzug</a>
+      <a href="#reinigung">Reinigung</a>
+      <a href="#raeumung">Räumung</a>
       <a href="#europa">Europa</a>
       <a href="#ablauf">Ablauf</a>
       <a href="#ueber-uns">Über uns</a>
@@ -306,26 +313,29 @@ p{margin:0}
     <a href="#faq">Häufige Fragen</a>
     <a class="btn btn-blue" href="#offerte" style="margin-top:18px;border:none">Offerte anfragen</a>
     <a class="btn btn-ghost" href="tel:+41799333111" style="margin-top:10px">079 933 31 11 anrufen</a>
+    <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener" style="margin-top:10px;border:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp schreiben</a>
   </div>
 </div>
 
+<main id="main">
 <!-- ── hero ── -->
 <section class="hero" id="top">
   <div class="wrap">
     <div>
       <span class="eyebrow">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 12 5l9 15"/></svg>
-        Umzugsfirma · Aargau &amp; schweizweit
+        Umzugsfirma in Mellingen · Aargau &amp; Raum Zürich
       </span>
-      <h1>Ihr Umzug, von der ersten Kiste<br />bis zur <b>Schl&shy;üssel&shy;übergabe</b>.</h1>
+      <h1>Ihr Umzug, von der ersten Kiste<br />bis zur <b>Schlüssel&shy;übergabe</b>.</h1>
       <p class="lead">Ein Team für Transport, Montage, Umzugsreinigung mit Abnahmegarantie und Entsorgung — mit einem festen Ansprechpartner vom ersten Anruf bis zur Wohnungsabgabe.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#offerte">Offerte in 2 Minuten anfragen</a>
+        <a class="btn btn-primary" href="#offerte">Offerte anfragen</a>
+        <a class="btn btn-wa" href="https://wa.me/41799333111?text=Gr%C3%BCezi%2C%20ich%20m%C3%B6chte%20eine%20Offerte%20f%C3%BCr%20meinen%20Umzug." rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
         <a class="btn btn-ghost" href="tel:+41799333111">079 933 31 11</a>
       </div>
       <div class="hero-note">
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Unverbindlich</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Antwort innert 24 Stunden an Werktagen</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fotos per WhatsApp genügen oft</span>
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Festpreis oder Stundenpreis</span>
       </div>
     </div>
@@ -334,12 +344,12 @@ p{margin:0}
       <div class="heroclip">
         <picture>
           <source media="(max-width: 650px)" srcset="assets/hero-mobile.webp" width="900" height="1599" />
-          <img src="assets/hero-desktop.webp" alt="ZÜGELKLAR Umzugsfahrzeug in der Schweiz" width="1672" height="941" fetchpriority="high" decoding="async" />
+          <img src="assets/hero-desktop.webp" alt="Symbolbild: Umzugswagen in der Schweiz" width="1672" height="941" fetchpriority="high" decoding="async" />
         </picture>
       </div>
       <span class="sym">Symbolbild</span>
       <div class="proof">
-        <div><b>10+</b><small>Jahre Branchenerfahrung</small></div>
+        <div><b>10+</b><small>Jahre Erfahrung des Gründers</small></div>
         <div class="sep"></div>
         <div><b style="color:var(--blue)">Eigenes</b><small>Team, eingespielt</small></div>
       </div>
@@ -348,9 +358,9 @@ p{margin:0}
 
   <div class="trust">
     <div class="wrap">
-      <div><b>10+</b><small>Jahre Branchenerfahrung</small></div>
-      <div><b>2</b><small>Eigene Umzugsfahrzeuge</small></div>
+      <div><b>10+</b><small>Jahre Erfahrung des Gründers</small></div>
       <div><b>1</b><small>Fester Ansprechpartner</small></div>
+      <div><b>AG</b><small>Basis in Mellingen</small></div>
       <div><b style="color:var(--blue)">CH</b><small>Schweizweit im Einsatz</small></div>
     </div>
   </div>
@@ -362,47 +372,47 @@ p{margin:0}
     <div class="sec-head">
       <div>
         <div class="kicker" style="margin-bottom:12px">Leistungen</div>
-        <h2>Alles aus einer Hand.<br />Ein Ansprechpartner.</h2>
+        <h2>Umzug, Reinigung, Räumung.<br />Aus einer Hand.</h2>
       </div>
-      <p class="small" style="max-width:36ch">Transparente Preise, klar definierter Leistungsumfang — Festpreis oder Stundenpreis, ohne versteckte Kosten.</p>
+      <p class="small" style="max-width:36ch">Klar definierter Leistungsumfang in der schriftlichen Offerte — als Festpreis oder nach Stunden, wie es zum Auftrag passt.</p>
     </div>
 
     <div class="svcs">
 
-      <article class="svc">
+      <article class="svc" id="umzug">
         <div class="svc-img"><img src="assets/privatumzug.webp" alt="Symbolbild: Privatumzug" loading="lazy" width="1200" height="900" /><span class="sym">Symbolbild</span></div>
         <div class="svc-body">
           <h3>Privatumzug</h3>
           <p class="small">Von der Wohnung bis zum Einfamilienhaus. Planung, Transport, Demontage und Montage — sorgfältig vorbereitet und koordiniert ausgeführt. Ein- und Auspackservice auf Wunsch.</p>
-          <div class="price"><small>Festpreis oder Stundenpreis</small></div>
+          <div class="price"><small>Festpreis oder Stundenpreis</small><a href="umzug/" style="color:var(--blue);font-weight:600;font-size:14px;white-space:nowrap">Mehr erfahren →</a></div>
         </div>
       </article>
 
-      <article class="svc">
+      <article class="svc" id="reinigung">
         <div class="svc-img"><img src="assets/cleaning.webp" alt="Symbolbild: Umzugsreinigung" loading="lazy" width="1200" height="900" /><span class="sym">Symbolbild</span></div>
         <div class="svc-body">
           <span class="tag">Mit Abnahmegarantie</span>
           <h3>Umzugsreinigung</h3>
           <p class="small">Endreinigung inklusive kostenloser Nachbesserung bei berechtigten Beanstandungen — im vereinbarten Leistungsumfang.</p>
-          <div class="price"><small>Pauschale nach Objekt und Aufwand</small></div>
+          <div class="price"><small>Pauschale nach Objekt und Aufwand</small><a href="umzugsreinigung/" style="color:var(--blue);font-weight:600;font-size:14px;white-space:nowrap">Mehr erfahren →</a></div>
         </div>
       </article>
 
-      <article class="svc">
+      <article class="svc" id="raeumung">
         <div class="svc-img"><img src="assets/clearing.webp" alt="Symbolbild: Räumung und Entsorgung" loading="lazy" width="1200" height="900" /><span class="sym">Symbolbild</span></div>
         <div class="svc-body">
           <h3>Räumung &amp; Entsorgung</h3>
           <p class="small">Keller, Wohnungen oder ganze Häuser. Wiederverwendbares und Entsorgung werden sauber getrennt und fachgerecht abgeführt.</p>
-          <div class="price"><small>Nach Aufwand</small></div>
+          <div class="price"><small>Nach Aufwand</small><a href="raeumung-entsorgung/" style="color:var(--blue);font-weight:600;font-size:14px;white-space:nowrap">Mehr erfahren →</a></div>
         </div>
       </article>
 
-      <article class="svc">
+      <article class="svc" id="montage">
         <div class="svc-img"><img src="assets/montage.webp" alt="Symbolbild: Demontage und Montage" loading="lazy" width="1200" height="900" /><span class="sym">Symbolbild</span></div>
         <div class="svc-body">
           <h3>Demontage &amp; Montage</h3>
-          <p class="small">Schränke, Betten und weitere Möbel werden fachgerecht demontiert und am neuen Ort wieder aufgebaut.</p>
-          <div class="price"><small>Individuell nach Leistungsumfang</small></div>
+          <p class="small">Schränke, Betten und weitere Möbel werden fachgerecht demontiert und am neuen Ort wieder aufgebaut. Küchen sowie Arbeiten an Strom, Gas und Wasser sind nicht enthalten.</p>
+          <div class="price"><small>Individuell nach Leistungsumfang</small><a href="montage/" style="color:var(--blue);font-weight:600;font-size:14px;white-space:nowrap">Mehr erfahren →</a></div>
         </div>
       </article>
 
@@ -508,7 +518,7 @@ p{margin:0}
     <div>
       <div class="kicker" style="margin-bottom:14px">Schweiz &amp; Europa</div>
       <h2 style="font-size:clamp(28px,3.4vw,44px)">Wenn der neue Anfang<br />weiter weg liegt.</h2>
-      <p class="lead" style="margin-top:20px">Internationale Umzüge planen wir vor allem innerhalb Europas und in die Nachbarländer der Schweiz. Route, Zeitfenster und Leistungsumfang werden vorab klar definiert.</p>
+      <p class="lead" style="margin-top:20px">Internationale Umzüge planen wir vor allem innerhalb Europas und in die Nachbarländer der Schweiz. Route, Zeitfenster und Leistungsumfang werden vorab klar definiert. <a href="international/" style="color:var(--blue);font-weight:600">Mehr zum Umzug ins Ausland →</a></p>
       <div class="checks">
         <div class="check">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
@@ -569,10 +579,10 @@ p{margin:0}
       <div class="kicker" style="margin-bottom:14px">Über uns</div>
       <h2 style="font-size:clamp(28px,3.4vw,44px)">Kein Startup.<br />Nur eine neue Firma.</h2>
       <p class="lead" style="margin-top:20px">ZÜGELKLAR ist neu gegründet — die Erfahrung dahinter nicht. Der Gründer arbeitet seit über zehn Jahren im Umzugsgeschäft: als Träger, als Vorarbeiter und in der Planung von Aufträgen vom Kellerabteil bis zum ganzen Haus.</p>
-      <p class="lead" style="margin-top:16px">Daraus ist ZÜGELKLAR entstanden: eigenes Team, eigene Fahrzeuge, eigenes Material — und ein Ansprechpartner, der den Auftrag von der Besichtigung bis zur Wohnungsabgabe begleitet.</p>
+      <p class="lead" style="margin-top:16px">Daraus ist ZÜGELKLAR entstanden: ein eingespieltes Team, eigenes Packmaterial — und ein Ansprechpartner, der den Auftrag von der Besichtigung bis zur Wohnungsabgabe begleitet.</p>
       <div class="facts">
         <div class="fact"><b>Ein eingespieltes Team</b><small>Dieselben Leute, mit klarer Einsatzleitung.</small></div>
-        <div class="fact"><b>Zwei Fahrzeuge</b><small>Eigener Fuhrpark, eigenes Packmaterial.</small></div>
+        <div class="fact"><b>Passende Fahrzeuge</b><small>Lieferwagen oder LKW, je nach Umfang des Auftrags.</small></div>
         <div class="fact"><b>Ein Ansprechpartner</b><small>Vom ersten Anruf bis zur Übergabe.</small></div>
       </div>
       </div>
@@ -590,11 +600,13 @@ p{margin:0}
       <p class="small" style="max-width:38ch">Unsere Basis ist Mellingen im Kanton Aargau. Von dort planen wir Einsätze in der ganzen Schweiz — und auf Anfrage in Europa.</p>
     </div>
     <div class="regions">
-      <span class="region base">Mellingen · Basis</span>
-      <span class="region">Baden</span>
-      <span class="region">Aarau</span>
-      <span class="region">Brugg</span>
-      <span class="region">Zürich</span>
+      <a href="umzug-mellingen/" class="region base">Mellingen · Basis</a>
+      <a href="umzug-baden/" class="region">Baden</a>
+      <a href="umzug-wettingen/" class="region">Wettingen</a>
+      <a href="umzug-lenzburg/" class="region">Lenzburg</a>
+      <a href="umzug-aarau/" class="region">Aarau</a>
+      <a href="umzug-brugg/" class="region">Brugg</a>
+      <a href="umzug-zuerich/" class="region">Zürich</a>
       <span class="region">Winterthur</span>
       <span class="region">Zug</span>
       <span class="region">Luzern</span>
@@ -615,52 +627,53 @@ p{margin:0}
       <div class="checks">
         <div class="check">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          <div><b>Antwort innert 24 Stunden an Werktagen</b><p>In der Regel deutlich schneller.</p></div>
+          <div><b>Persönliche Rückmeldung</b><p>Per Telefon oder WhatsApp — dort geht es meist am schnellsten.</p></div>
         </div>
         <div class="check">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           <div><b>Umzug und Reinigung kombinierbar</b><p>Als ein Auftrag, mit einem Team.</p></div>
         </div>
       </div>
-      <p class="small" style="margin-top:28px">Lieber telefonisch? <a href="tel:+41799333111" style="color:var(--blue);font-weight:600">079 933 31 11</a><br />Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</p>
+      <p class="small" style="margin-top:28px">Lieber direkt? <a href="tel:+41799333111" style="color:var(--blue);font-weight:600">079 933 31 11</a> · <a href="https://wa.me/41799333111" rel="noopener" style="color:#178A45;font-weight:600">WhatsApp</a><br />Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</p>
     </div>
 
     <div class="card">
-      <form id="offerForm">
+      <form id="offerForm" novalidate>
         <div class="fields">
           <div class="field full">
-            <label for="f-leistung">Welche Leistung?</label>
+            <label for="f-leistung">Welche Leistung? *</label>
             <select id="f-leistung" name="service" required>
-              <option value="privatumzug">Privatumzug</option>
-              <option value="umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
-              <option value="umzug_und_reinigung">Umzug + Reinigung kombiniert</option>
-              <option value="raeumung">Räumung &amp; Entsorgung</option>
-              <option value="international">Internationaler Umzug</option>
+              <option value="" disabled selected>Bitte wählen</option>
+              <option value="Privatumzug">Privatumzug</option>
+              <option value="Umzugsreinigung mit Abnahmegarantie">Umzugsreinigung mit Abnahmegarantie</option>
+              <option value="Umzug + Reinigung kombiniert">Umzug + Reinigung kombiniert</option>
+              <option value="Räumung &amp; Entsorgung">Räumung &amp; Entsorgung</option>
+              <option value="Demontage &amp; Montage">Demontage &amp; Montage</option>
+              <option value="Internationaler Umzug">Internationaler Umzug</option>
             </select>
           </div>
           <div class="field"><label for="f-von">Von (PLZ / Ort)</label><input id="f-von" name="origin" type="text" placeholder="z. B. 5507 Mellingen" /></div>
           <div class="field"><label for="f-nach">Nach (PLZ / Ort)</label><input id="f-nach" name="destination" type="text" placeholder="z. B. 8000 Zürich" /></div>
           <div class="field"><label for="f-datum">Wunschtermin</label><input id="f-datum" name="moveDate" type="date" /></div>
           <div class="field"><label for="f-zimmer">Zimmer</label>
-            <select id="f-zimmer" name="rooms"><option value="1-2">1–2 Zimmer</option><option value="2.5-3.5">2,5–3,5 Zimmer</option><option value="4-4.5">4–4,5 Zimmer</option><option value="5.5+">5,5+ Zimmer / Haus</option></select>
+            <select id="f-zimmer" name="rooms"><option value="" selected>Bitte wählen</option><option value="1–1,5 Zimmer">1–1,5 Zimmer</option><option value="2–2,5 Zimmer">2–2,5 Zimmer</option><option value="3–3,5 Zimmer">3–3,5 Zimmer</option><option value="4–4,5 Zimmer">4–4,5 Zimmer</option><option value="5,5+ Zimmer / Haus">5,5+ Zimmer / Haus</option></select>
           </div>
-          <div class="field"><label for="f-name">Vorname / Name</label><input id="f-name" name="customerName" type="text" autocomplete="name" required /></div>
-          <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="phone" type="tel" autocomplete="tel" required /></div>
-          <div class="field full"><label for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required /></div>
-          <div class="field full">
-            <label for="f-fotos">Fotos der Wohnung (optional)</label>
-            <input id="f-fotos" name="files" type="file" accept="image/jpeg,image/png,image/webp" multiple aria-describedby="f-fotos-hint" />
-            <span id="f-fotos-hint" style="font-size:12px;color:var(--muted)">Ein paar Fotos beschleunigen die Offerte — oft ist dann keine Besichtigung nötig.<br />Maximal 10 Dateien, je 8 MB, insgesamt 40 MB. Formate: JPEG, PNG, WebP.</span>
-            <span id="f-fotos-error" role="alert" aria-live="polite" style="display:none;font-size:12px;color:var(--red);font-weight:600;margin-top:6px"></span>
+          <div class="field full"><label for="f-stock">Stockwerk &amp; Lift</label>
+            <select id="f-stock" name="floor"><option value="" selected>Bitte wählen</option><option value="Erdgeschoss">Erdgeschoss</option><option value="Obergeschoss mit Lift">Obergeschoss mit Lift</option><option value="Obergeschoss ohne Lift">Obergeschoss ohne Lift</option><option value="Unterschiedlich (Auszug / Einzug)">Unterschiedlich bei Auszug und Einzug</option></select>
           </div>
-          <div class="field full"><label for="f-msg">Kurz beschreiben (optional)</label><textarea id="f-msg" name="message" placeholder="Lift vorhanden, Klavier, Keller, gewünschte Zusatzleistungen …"></textarea></div>
+          <div class="field"><label for="f-name">Vorname / Name *</label><input id="f-name" name="customerName" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="f-tel">Telefon *</label><input id="f-tel" name="phone" type="tel" autocomplete="tel" required /></div>
+          <div class="field full"><label for="f-mail">E-Mail (optional)</label><input id="f-mail" name="email" type="email" autocomplete="email" /></div>
+          <div class="field full"><label for="f-msg">Kurz beschreiben (optional)</label><textarea id="f-msg" name="message" placeholder="Klavier, Keller, Estrich, Halteverbot nötig, gewünschte Zusatzleistungen …"></textarea></div>
           <div class="consent">
             <input id="f-consent" name="consentPrivacy" type="checkbox" required />
-            <label for="f-consent">Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+            <label for="f-consent">Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden (<a href="datenschutz.html">Datenschutzerklärung</a>). Für Aufträge gelten die <a href="agb.html">AGB</a>.</label>
           </div>
         </div>
-        <button class="btn btn-blue" type="submit" style="width:100%;margin-top:22px">Unverbindliche Offerte anfragen</button>
-        <p class="fine">Vorschau — das Formular wird vor dem definitiven Livegang aktiviert. Bitte melden Sie sich bis dahin telefonisch unter <a href="tel:+41799333111">079 933 31 11</a> oder per E-Mail an <a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a>.</p>
+        <span id="f-error" role="alert" aria-live="polite" style="display:none;font-size:13px;color:var(--red);font-weight:600;margin-top:14px"></span>
+        <button class="btn btn-wa" type="submit" data-channel="wa" style="width:100%;margin-top:22px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Anfrage per WhatsApp senden</button>
+        <button class="btn btn-ghost" type="submit" data-channel="mail" style="width:100%;margin-top:10px">Stattdessen per E-Mail senden</button>
+        <p class="fine">WhatsApp bzw. Ihr E-Mail-Programm öffnet sich mit Ihrer vorbereiteten Anfrage. Erst wenn Sie dort auf Senden tippen, erhalten wir Ihre Angaben. Fotos der Wohnung können Sie im Chat direkt anhängen — oft ist dann keine Besichtigung nötig.</p>
       </form>
     </div>
   </div>
@@ -690,11 +703,29 @@ p{margin:0}
       </details>
       <details>
         <summary>Wie schnell erhalte ich eine Antwort?</summary>
-        <p>Wir melden uns an Werktagen innerhalb von 24 Stunden – in der Regel deutlich schneller. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist.</p>
+        <p>Wir melden uns persönlich zurück — am schnellsten geht es per Telefon oder WhatsApp. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist.</p>
+      </details>
+      <details>
+        <summary>Wer kümmert sich um das Halteverbot oder den Parkplatz?</summary>
+        <p>Grundsätzlich ist der Kunde für eine Halteverbotszone oder einen Parkplatz vor dem Haus verantwortlich. Auf Wunsch organisieren wir die Bewilligung bei der Gemeinde. Gebühren der Gemeinde und Signalisation werden separat verrechnet und in der Offerte ausgewiesen.</p>
+      </details>
+      <details>
+        <summary>Stellen Sie Umzugskartons zur Verfügung?</summary>
+        <p>Ja. Umzugskartons und Schutzmaterial können Sie bei uns mieten. Menge und Lieferung werden in der Offerte festgehalten.</p>
+      </details>
+      <details>
+        <summary>Was ist beim Möbelmontage-Service nicht enthalten?</summary>
+        <p>Wir demontieren und montieren Möbel wie Schränke und Betten. Nicht enthalten sind Küchen und Spezialanfertigungen sowie Arbeiten an Strom-, Gas- und Wasseranschlüssen — dafür braucht es eine Fachperson.</p>
+      </details>
+      <details>
+        <summary>Wann und wie wird bezahlt?</summary>
+        <p>Zahlungsbedingungen und eine allfällige Anzahlung stehen in Ihrer Offerte bzw. Auftragsbestätigung. Ist nichts anderes vereinbart, ist die Rechnung nach Abschluss der Leistung fällig.</p>
       </details>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ── footer ── -->
 <footer class="ftr">
@@ -702,19 +733,20 @@ p{margin:0}
     <div class="ftr-grid">
       <div>
         <img class="ftr-logo" src="assets/logo-white.png" alt="ZÜGELKLAR" width="520" height="170" />
-        <p style="font-size:15px;line-height:1.7;max-width:38ch">Umzug, Reinigung, Räumung &amp; Entsorgung. Schweizweit unterwegs, Europa auf Anfrage.</p>
+        <p style="font-size:15px;line-height:1.7;max-width:38ch">Umzugsfirma aus Mellingen AG: Umzug, Reinigung, Räumung &amp; Entsorgung im Aargau, im Raum Zürich und schweizweit. Europa auf Anfrage.</p>
       </div>
       <div>
-        <h4>Leistungen</h4>
+        <h3 class="fh">Leistungen</h3>
         <ul>
-          <li><a href="#leistungen">Privatumzug</a></li>
-          <li><a href="#garantie">Umzugsreinigung</a></li>
-          <li><a href="#leistungen">Räumung &amp; Entsorgung</a></li>
-          <li><a href="#europa">Umzug in Europa</a></li>
+          <li><a href="umzug/">Privatumzug</a></li>
+          <li><a href="umzugsreinigung/">Umzugsreinigung</a></li>
+          <li><a href="raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li>
+          <li><a href="montage/">Demontage &amp; Montage</a></li>
+          <li><a href="international/">Umzug in Europa</a></li>
         </ul>
       </div>
       <div>
-        <h4>Unternehmen</h4>
+        <h3 class="fh">Unternehmen</h3>
         <ul>
           <li><a href="#ueber-uns">Über uns</a></li>
           <li><a href="#einsatzgebiet">Einsatzgebiet</a></li>
@@ -725,9 +757,10 @@ p{margin:0}
         </ul>
       </div>
       <div>
-        <h4>Kontakt</h4>
+        <h3 class="fh">Kontakt</h3>
         <ul>
           <li><a href="tel:+41799333111">079 933 31 11</a></li>
+          <li><a href="https://wa.me/41799333111" rel="noopener">WhatsApp</a></li>
           <li><a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a></li>
           <li>Obere Bahnhofstrasse 24<br />5507 Mellingen</li>
           <li>Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</li>
@@ -735,7 +768,7 @@ p{margin:0}
       </div>
     </div>
     <div class="ftr-bot">
-      <span>© 2026 ZÜGELKLAR</span>
+      <span>© 2026 ZÜGELKLAR · Zügelklar Umzug GmbH in Gründung</span>
       <span style="display:flex;gap:22px"><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></span>
     </div>
   </div>
@@ -744,7 +777,8 @@ p{margin:0}
 <!-- ── mobile action bar ── -->
 <div class="mbar">
   <a class="btn btn-ghost" href="tel:+41799333111">Anrufen</a>
-  <a class="btn btn-blue" href="#offerte">Offerte anfragen</a>
+  <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+  <a class="btn btn-blue" href="#offerte">Offerte</a>
 </div>
 
 <script>
@@ -763,68 +797,47 @@ p{margin:0}
   drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { toggle(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toggle(false); });
 
-  // Foto-Upload: Client-seitige Grenzen (Owner-Entscheid 19).
-  // Diese Pruefung ist Komfort, keine Sicherheit. Dieselben Grenzen muessen bei der
-  // Aktivierung des Formulars server-seitig erzwungen werden.
-  var MAX_FILES = 10;
-  var MAX_BYTES_PER_FILE = 8 * 1024 * 1024;
-  var MAX_BYTES_TOTAL = 40 * 1024 * 1024;
-  var ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
-
-  var fotos = document.getElementById('f-fotos');
-  var fotosError = document.getElementById('f-fotos-error');
-
-  function mb(bytes) { return (bytes / 1048576).toFixed(1).replace('.', ',') + ' MB'; }
-
-  function showUploadError(msg) {
-    fotosError.textContent = msg;
-    fotosError.style.display = msg ? 'block' : 'none';
-  }
-
-  function validateFiles() {
-    var files = fotos.files;
-    showUploadError('');
-    if (!files || !files.length) return true;
-
-    if (files.length > MAX_FILES) {
-      showUploadError('Maximal ' + MAX_FILES + ' Dateien. Ausgewaehlt: ' + files.length + '.');
-      fotos.value = '';
-      return false;
-    }
-
-    var total = 0;
-    for (var i = 0; i < files.length; i++) {
-      var f = files[i];
-      total += f.size;
-      if (ALLOWED_TYPES.indexOf(f.type) === -1) {
-        showUploadError('Nicht unterstuetztes Format: ' + f.name + '. Erlaubt sind JPEG, PNG und WebP.');
-        fotos.value = '';
-        return false;
-      }
-      if (f.size > MAX_BYTES_PER_FILE) {
-        showUploadError('Zu gross: ' + f.name + ' (' + mb(f.size) + '). Maximal 8 MB je Datei.');
-        fotos.value = '';
-        return false;
-      }
-    }
-    if (total > MAX_BYTES_TOTAL) {
-      showUploadError('Insgesamt zu gross (' + mb(total) + '). Maximal 40 MB fuer alle Dateien zusammen.');
-      fotos.value = '';
-      return false;
-    }
-    return true;
-  }
-
-  fotos.addEventListener('change', validateFiles);
-
-  // Das Formular ist bewusst inaktiv: kein action, kein method, kein Endpoint.
-  // Es wird nichts gesendet und keine Erfolgsmeldung vorgetaeuscht.
-  document.getElementById('offerForm').addEventListener('submit', function (e) {
+  // Anfrage ohne Server: Die Angaben werden als Nachricht für WhatsApp oder E-Mail
+  // vorbereitet. Gesendet wird erst, wenn die Kundin dort selbst auf "Senden" tippt.
+  var form = document.getElementById('offerForm');
+  var err = document.getElementById('f-error');
+  var channel = 'wa';
+  form.querySelectorAll('button[type=submit]').forEach(function (b) {
+    b.addEventListener('click', function () { channel = b.getAttribute('data-channel'); });
+  });
+  function val(id) { var el = document.getElementById(id); return (el && el.value || '').trim(); }
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
-    validateFiles();
-    var note = document.querySelector('#offerForm .fine');
-    note.textContent = 'Vorschau — das Formular wird vor dem definitiven Livegang aktiviert. Bitte melden Sie sich bis dahin telefonisch unter 079 933 31 11 oder per E-Mail an info@zuegelklar.ch.';
-    note.style.color = '#E30613';
+    var missing = [];
+    if (!val('f-leistung')) missing.push('Leistung');
+    if (!val('f-name')) missing.push('Name');
+    if (!val('f-tel')) missing.push('Telefon');
+    if (!document.getElementById('f-consent').checked) missing.push('Einverständnis Datenschutz');
+    if (missing.length) {
+      err.textContent = 'Bitte ergänzen: ' + missing.join(', ') + '.';
+      err.style.display = 'block';
+      return;
+    }
+    err.style.display = 'none';
+    var d = val('f-datum');
+    if (d) { var p = d.split('-'); d = p[2] + '.' + p[1] + '.' + p[0]; }
+    var lines = [
+      'Offertanfrage über zuegelklar.ch',
+      'Leistung: ' + val('f-leistung'),
+      val('f-von') ? 'Von: ' + val('f-von') : '',
+      val('f-nach') ? 'Nach: ' + val('f-nach') : '',
+      d ? 'Wunschtermin: ' + d : '',
+      val('f-zimmer') ? 'Zimmer: ' + val('f-zimmer') : '',
+      val('f-stock') ? 'Stockwerk/Lift: ' + val('f-stock') : '',
+      'Name: ' + val('f-name'),
+      'Telefon: ' + val('f-tel'),
+      val('f-mail') ? 'E-Mail: ' + val('f-mail') : '',
+      val('f-msg') ? 'Beschreibung: ' + val('f-msg') : ''
+    ].filter(Boolean).join('\n');
+    var url = channel === 'mail'
+      ? 'mailto:info@zuegelklar.ch?subject=' + encodeURIComponent('Offertanfrage: ' + val('f-leistung')) + '&body=' + encodeURIComponent(lines)
+      : 'https://wa.me/41799333111?text=' + encodeURIComponent(lines);
+    window.location.href = url;
   });
 })();
 </script>
@@ -838,54 +851,27 @@ p{margin:0}
     {"@type":"Question","name":"Was bedeutet Reinigung mit Abnahmegarantie genau?","acceptedAnswer":{"@type":"Answer","text":"Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft kostenlos nach — im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen."}},
     {"@type":"Question","name":"Festpreis oder Stundenpreis — was ist besser?","acceptedAnswer":{"@type":"Answer","text":"Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen günstiger sein."}},
     {"@type":"Question","name":"Ist eine Besichtigung nötig?","acceptedAnswer":{"@type":"Answer","text":"Nicht immer. Je nach Auftrag genügen digitale Informationen wie Fotos und Angaben zu Zugang und Inventar. Bei grösseren Umzügen ist eine Besichtigung vor Ort sinnvoll."}},
-    {"@type":"Question","name":"Wie schnell erhalte ich eine Antwort?","acceptedAnswer":{"@type":"Answer","text":"Wir melden uns an Werktagen innerhalb von 24 Stunden – in der Regel deutlich schneller. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist."}}
+    {"@type": "Question", "name": "Wie schnell erhalte ich eine Antwort?", "acceptedAnswer": {"@type": "Answer", "text": "Wir melden uns persönlich zurück — am schnellsten geht es per Telefon oder WhatsApp. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist."}},
+    {"@type": "Question", "name": "Wer kümmert sich um das Halteverbot oder den Parkplatz?", "acceptedAnswer": {"@type": "Answer", "text": "Grundsätzlich ist der Kunde für eine Halteverbotszone oder einen Parkplatz vor dem Haus verantwortlich. Auf Wunsch organisieren wir die Bewilligung bei der Gemeinde. Gebühren der Gemeinde und Signalisation werden separat verrechnet und in der Offerte ausgewiesen."}},
+    {"@type": "Question", "name": "Stellen Sie Umzugskartons zur Verfügung?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Umzugskartons und Schutzmaterial können Sie bei uns mieten. Menge und Lieferung werden in der Offerte festgehalten."}},
+    {"@type": "Question", "name": "Was ist beim Möbelmontage-Service nicht enthalten?", "acceptedAnswer": {"@type": "Answer", "text": "Wir demontieren und montieren Möbel wie Schränke und Betten. Nicht enthalten sind Küchen und Spezialanfertigungen sowie Arbeiten an Strom-, Gas- und Wasseranschlüssen — dafür braucht es eine Fachperson."}},
+    {"@type": "Question", "name": "Wann und wie wird bezahlt?", "acceptedAnswer": {"@type": "Answer", "text": "Zahlungsbedingungen und eine allfällige Anzahlung stehen in Ihrer Offerte bzw. Auftragsbestätigung. Ist nichts anderes vereinbart, ist die Rechnung nach Abschluss der Leistung fällig."}}
   ]
 }
 </script>
 
-<!--
-  VOR LAUNCH — offene Punkte (Stand 25.09.2026)
-  Massgeblich ist docs/seo-rebuild/07_FINAL_IMPLEMENTATION_PLAN.md, Abschnitt "IMPLEMENT BEFORE LAUNCH".
+<!-- Offene Punkte: siehe Projekt-Dokument 03-aktionsplan.md (Stand 31.10.2026). -->
 
-  Erledigt am 25.09.2026 (Runden 1-4):
-    - Telefonnummer eingebaut (079 933 31 11 / tel:+41799333111)
-    - Preiszeilen ohne Betraege (Entscheid 14: keine Preisangaben in Franken)
-    - AGB / Datenschutz / Impressum verlinkt
-    - Oeffnungszeiten Mo-Fr 08:00-18:00 sichtbar
-
-  Offen, sichtbar auf dieser Seite:
-    Symbolbild "Ueber uns"  -> echtes Portraet des Inhabers, nur falls er oeffentlich auftreten will
-    Symbolbild Team         -> echtes Teamfoto vor den Fahrzeugen (Minimum vor dem Entfernen von noindex)
-    "Der Gruender"          -> Name erst nach Owner-Entscheid (Entscheid 23: verschoben)
-
-  Offen, technisch:
-    L-1  info@zuegelklar.ch aktivieren und bestaetigen
-    L-5  Formular an das CRM anbinden (source=website) inkl. Spam-Schutz und Rueckmeldung
-    L-6  Upload-Grenzen server-seitig erzwingen (10 Dateien / 8 MB / 40 MB)
-    L-11 LocalBusiness-Schema unten einkommentieren und ausfuellen
-    L-15 noindex,nofollow entfernen — hier UND in robots.txt die Disallow-Zeile loeschen
-         ERST wenn L-1 bis L-8 und L-11 erledigt sind. Danach: npm run check:launch
--->
-
-<!-- ══ VOR LAUNCH EINKOMMENTIEREN: LocalBusiness-Schema ══ (L-11)
-     Stand 25.09.2026: Telefon, Adresse und Öffnungszeiten sind bestätigt und eingetragen.
-     Es fehlen noch: legalName (braucht den Handelsregistereintrag, L-3) und priceRange
-     (braucht die Pricing-Phase, L-9/L-10). priceRange darf auch ganz entfallen.
-     Keine erfundenen Werte — ein falsches Schema schadet mehr als keines.
-     Samstag ist bewusst KEINE Öffnungszeit (Entscheid 9) und gehört nicht in dieses Schema.
-     Keine Profil-Verweise ins Schema, solange keine echten Profile existieren (Entscheid 18).
-
+<!-- LocalBusiness-Schema: aktiv seit 31.10.2026. legalName und email folgen nach HR-Eintrag bzw. funktionierendem Postfach. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MovingCompany",
   "name": "ZÜGELKLAR",
-  "legalName": "NOCH OFFEN — erst nach Handelsregistereintrag eintragen, sonst diese Zeile loeschen",
   "url": "https://zuegelklar.ch/",
   "logo": "https://zuegelklar.ch/assets/logo.webp",
   "image": "https://zuegelklar.ch/assets/og-image.jpg",
   "telephone": "+41799333111",
-  "email": "info@zuegelklar.ch",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Obere Bahnhofstrasse 24",
@@ -898,7 +884,11 @@ p{margin:0}
     {"@type": "Country", "name": "Schweiz"},
     {"@type": "AdministrativeArea", "name": "Aargau"},
     {"@type": "City", "name": "Zürich"},
+    {"@type": "City", "name": "Mellingen"},
     {"@type": "City", "name": "Baden"},
+    {"@type": "City", "name": "Wettingen"},
+    {"@type": "City", "name": "Brugg"},
+    {"@type": "City", "name": "Lenzburg"},
     {"@type": "City", "name": "Aarau"},
     {"@type": "City", "name": "Zug"},
     {"@type": "City", "name": "Luzern"},
@@ -910,10 +900,8 @@ p{margin:0}
     "opens": "08:00",
     "closes": "18:00"
   }],
-  "priceRange": "NOCH OFFEN — nach der Pricing-Phase setzen oder diese Zeile loeschen",
   "knowsLanguage": ["de"]
 }
 </script>
-══ ENDE LocalBusiness-Schema ══ -->
 </body>
 </html>

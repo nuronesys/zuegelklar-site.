@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ZÜGELKLAR sitemap
-  Aktuell nur die Startseite. Weitere Einträge kommen dazu, sobald die
-  Leistungs- und Regionenseiten existieren (siehe LAUNCH-CHECKLIST.md).
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://zuegelklar.ch/</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://zuegelklar.ch/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzugsreinigung/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/raeumung-entsorgung/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/montage/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/international/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-mellingen/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-baden/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-wettingen/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-brugg/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-lenzburg/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-aarau/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/umzug-zuerich/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/agb.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/datenschutz.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://zuegelklar.ch/impressum.html</loc><lastmod>2026-10-31</lastmod></url>
 </urlset>
