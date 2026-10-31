@@ -249,4 +249,6 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
 .ctabox b{font-family:var(--display);font-size:24px;letter-spacing:-.02em}
 .ctabox .btns{display:flex;gap:10px;flex-wrap:wrap}
 .related{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.src{font-size:14px !important}
+.src a{color:var(--blue);word-break:break-word}
 @media (max-width:1080px){.sp-hero .wrap{grid-template-columns:1fr;gap:30px}}
