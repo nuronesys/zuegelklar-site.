@@ -48,3 +48,11 @@ Die Seite bleibt auf `noindex` und `Disallow: /`. Go-live erst nach Phase 4 (Rec
 - Phase 0 (Owner): Postfach info@ anlegen, WhatsApp auf 079 933 31 11 bestätigen, Google Business Profile, Versicherung.
 - Phase 3: Preise, Sprachen, echte Fotos, Formular direkt ins Packmer-CRM.
 - Phase 4: HR-Daten, Logo ohne «GmbH»-Konflikt, Rechtsprüfung, Go-live-Schalter.
+
+## Nachtrag 31.10.2026 — Lokale Inhalte und Ratgeber
+
+- **Ortsseiten** mit verifizierten Lokalinfos erweitert: Halteverbot/Parkierung, Ummeldung (eUmzugCH, 14 Tage), Sperrgut/Entsorgung. Jede Seite hat eine Quellenliste mit Stand Oktober 2026 und «ohne Gewähr».
+  - Gut belegt: Zürich, Lenzburg, Baden, Wettingen.
+  - Dünn: Brugg, Aarau (Gemeindeseiten waren für Robots gesperrt) — manuell ergänzen.
+- **Ratgeber** neu: `/ratgeber/` (Übersicht) plus `umzugscheckliste`, `wohnungsabgabe`, `halteverbot-umzug`, `umzugskosten` (ohne Preise), mit Quellen (OR, ch.ch, ag.ch, Mieterverband, Post, Serafe).
+- Navigation und Footer mit Ratgeber; FAQ der Startseite verlinkt die Ratgeber. Sitemap: 21 URLs.
