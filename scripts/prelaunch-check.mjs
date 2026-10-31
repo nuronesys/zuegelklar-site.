@@ -119,7 +119,9 @@ for (const f of htmlFiles) {
       continue;
     }
     // lokale Datei
-    const p = join(ROOT, href.split('#')[0].split('?')[0]);
+    const clean = href.split('#')[0].split('?')[0];
+    if (!clean) continue;
+    const p = resolve(dirname(f), clean);
     if (!existsSync(p)) add(blockers, rel(f), ln, 'missing-file', `verlinkte Datei fehlt: ${href}`);
   }
 }
@@ -131,7 +133,7 @@ for (const f of htmlFiles) {
     for (const m of live.matchAll(new RegExp(`\\s${attr}="([^"]+)"`, 'g'))) {
       for (const cand of m[1].split(',').map((s) => s.trim().split(' ')[0])) {
         if (!cand || /^(https?:|data:)/.test(cand)) continue;
-        if (!existsSync(join(ROOT, cand)))
+        if (!existsSync(resolve(dirname(f), cand)))
           add(blockers, rel(f), lineOf(live, m.index), 'missing-asset', `Asset fehlt: ${cand}`);
       }
     }
