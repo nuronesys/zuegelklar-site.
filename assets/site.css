@@ -1,6 +1,6 @@
 :root{
   --blue:#0057B8; --blue-d:#004493; --red:#E30613;
-  --ink:#14181D; --ink-2:#3D4854; --muted:#6C7885;
+  --ink:#14181D; --ink-2:#3D4854; --muted:#5F6B78;
   --line:#E2E8EE; --soft:#F2F5F8; --white:#fff;
   --dark:#0C1015; --dark-2:#141A21;
   --wrap:1280px; --r:16px;
@@ -32,8 +32,8 @@ p{margin:0}
 .btn-light{background:#fff;color:var(--ink)}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:var(--blue-d)}
-.btn-wa{background:#1FA855;color:#fff}
-.btn-wa:hover{background:#178A45}
+.btn-wa{background:#15803D;color:#fff}
+.btn-wa:hover{background:#116A33}
 .skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#fff;color:var(--ink);padding:12px 18px;border-radius:8px;font-weight:600}
 .skip:focus{left:12px}
 
@@ -278,3 +278,29 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
 .ctabox::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,87,184,.55),transparent 70%);pointer-events:none}
 .ctabox b,.ctabox .btns{position:relative;z-index:1}
 @media (max-width:1080px){.sp-layout{grid-template-columns:1fr}.sp-aside{display:none}}
+
+/* ── Reinit 11/2026: Formular-Schritt, Details, Fehler, Navigation ── */
+.f-more{border:1.5px solid var(--line);border-radius:11px;padding:0 14px;background:#fff}
+.f-more summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--blue);padding:14px 0;list-style-position:inside}
+.f-more[open] summary{border-bottom:1px solid var(--line);margin-bottom:14px}
+.f-more .fields{padding-bottom:14px}
+.field [aria-invalid="true"],.consent [aria-invalid="true"]{border-color:var(--red);outline:2px solid rgba(227,6,19,.18)}
+.f-done{outline:none}
+.f-done-t{display:block;font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.f-done p{margin-bottom:12px}
+.f-done textarea{width:100%;font-family:var(--body);font-size:14px;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;background:var(--soft);color:var(--ink);resize:vertical;margin:6px 0 16px}
+.f-done-btns{display:flex;flex-direction:column;gap:10px}
+.f-done-btns .btn{width:100%}
+.f-back{margin-top:16px;background:none;border:none;color:var(--blue);font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline;padding:6px 0}
+.crumb a{color:var(--ink-2);text-decoration:underline;text-underline-offset:2px}
+.nearby{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+@media (max-width:1240px) and (min-width:821px){.nav{gap:18px;font-size:14px}}
+.cmp{width:100%;border-collapse:collapse;font-size:15px;margin:18px 0 10px;min-width:560px}
+.cmp th,.cmp td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp th{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-2);background:var(--soft)}
+.cmp a{color:var(--blue);font-weight:600}
+.prose h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.nav .btn{white-space:nowrap}
+@media (max-width:1080px) and (min-width:821px){.nav a[href$="leistungen/"]{display:none}}
+.hero-tel{margin-top:14px;font-size:15px;color:var(--ink-2)}
+.hero-tel a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:3px}

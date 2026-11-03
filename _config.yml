@@ -1,0 +1,16 @@
+# GitHub Pages (Jekyll) — nur die Website veröffentlichen, keine internen Dateien.
+# HTML-Dateien haben kein Front Matter und werden unverändert kopiert.
+# Interne Ordner/Dateien unten werden NICHT unter zuegelklar.ch ausgeliefert.
+exclude:
+  - docs
+  - scripts
+  - tools
+  - src
+  - LAUNCH-CHECKLIST.md
+  - README.md
+  - package.json
+  - package-lock.json
+  - node_modules
+  - _config.yml
+# Keine Markdown-Konvertierung oder Themes nötig
+plugins: []

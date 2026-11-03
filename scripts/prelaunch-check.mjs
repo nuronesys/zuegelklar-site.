@@ -25,7 +25,7 @@ const add = (list, file, line, rule, msg) =>
   list.push({ file, line, rule, msg });
 
 /* ───────────────────────── Dateien einsammeln ───────────────────────── */
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'docs', 'scripts', '.github']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'docs', 'scripts', '.github', '_partials', 'tools']);
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
     if (SKIP_DIRS.has(name)) continue;
@@ -121,7 +121,7 @@ for (const f of htmlFiles) {
     // lokale Datei
     const clean = href.split('#')[0].split('?')[0];
     if (!clean) continue;
-    const p = resolve(dirname(f), clean);
+    const p = clean.startsWith("/") ? join(ROOT, clean) : resolve(dirname(f), clean);
     if (!existsSync(p)) add(blockers, rel(f), ln, 'missing-file', `verlinkte Datei fehlt: ${href}`);
   }
 }
@@ -133,7 +133,7 @@ for (const f of htmlFiles) {
     for (const m of live.matchAll(new RegExp(`\\s${attr}="([^"]+)"`, 'g'))) {
       for (const cand of m[1].split(',').map((s) => s.trim().split(' ')[0])) {
         if (!cand || /^(https?:|data:)/.test(cand)) continue;
-        if (!existsSync(resolve(dirname(f), cand)))
+        if (!existsSync(cand.startsWith("/") ? join(ROOT, cand) : resolve(dirname(f), cand)))
           add(blockers, rel(f), lineOf(live, m.index), 'missing-asset', `Asset fehlt: ${cand}`);
       }
     }
@@ -174,6 +174,7 @@ for (const f of htmlFiles) {
     if (titles.has(title)) add(blockers, r, 0, 'seo-title-dup', `Title identisch mit ${titles.get(title)}`);
     titles.set(title, r);
   }
+  if (r === '404.html') continue;
   if (!desc) add(blockers, r, 0, 'seo-description', 'meta description fehlt');
   else if (desc.length > 170) add(warnings, r, 0, 'seo-description', `Description ${desc.length} Zeichen (>170)`);
 

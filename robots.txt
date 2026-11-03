@@ -1,10 +1,8 @@
 # ZÜGELKLAR — robots.txt
 # STATUS: PREVIEW. Die Seite ist bewusst für Suchmaschinen gesperrt.
-#
-# ZUM GO-LIVE:
-#   1. die Zeile "Disallow: /" unten löschen
-#   2. in index.html <meta name="robots" content="noindex,nofollow"> entfernen
-#   3. Sitemap in der Google Search Console einreichen
+# Freigabe NUR über tools/site-data.mjs (INDEXABLE = true) und danach
+# `node tools/build.mjs`. Das setzt robots.txt UND das robots-Meta aller Seiten.
+# Voraussetzung: docs/reinit/10_PRELAUNCH_GATE.md vollständig grün.
 
 User-agent: *
 Disallow: /

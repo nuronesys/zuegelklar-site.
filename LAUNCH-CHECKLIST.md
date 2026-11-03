@@ -1,5 +1,11 @@
 # ZÜGELKLAR — Launch-Checkliste
 
+> **Stand 03.11.2026 – diese Checkliste ist überholt.** Massgebend ist `docs/reinit/10_PRELAUNCH_GATE.md`.
+> Go-live-Schalter: `INDEXABLE = true` in `tools/site-data.mjs`, dann `npm run build` und `npm run check:launch`.
+> Das setzt `robots.txt` und das robots-Meta auf **allen** Seiten (nicht nur `index.html`).
+> Aufgehoben: «Kein Firmenumzug / B2B» (Owner-Entscheid 31.10.), «Kein WhatsApp» (WhatsApp ist Hauptkanal), «Foto-Upload» (Fotos per WhatsApp).
+
+
 **Stand:** 18.09.2026 · Build `V9-2026-09-18`
 **Domain:** https://zuegelklar.ch (aktiv, HTTPS) · Weiterleitungs-Domains: `zeugelklar.ch`, `zueglklar.ch`
 **Hosting:** GitHub Pages · Repo `nuronesys/zuegelklar-site.` · Branch `main` / root
