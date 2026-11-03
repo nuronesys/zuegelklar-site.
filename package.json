@@ -2,11 +2,16 @@
   "name": "zuegelklar-site",
   "private": true,
   "version": "0.9.5",
-  "description": "Statische Website von ZÜGELKLAR (GitHub Pages). Kein Build-Schritt.",
+  "description": "Statische Website von ZÜGELKLAR (GitHub Pages). Gemeinsame Bausteine via tools/build.mjs, keine Abhängigkeiten.",
   "type": "module",
   "scripts": {
-    "check:site": "node scripts/prelaunch-check.mjs",
-    "check:launch": "node scripts/prelaunch-check.mjs --launch"
+    "build": "node tools/build.mjs",
+    "serve": "node tools/serve.mjs",
+    "check:quality": "node scripts/quality-gate.mjs",
+    "check:site": "node scripts/prelaunch-check.mjs && node scripts/quality-gate.mjs",
+    "check:launch": "node scripts/prelaunch-check.mjs --launch && node scripts/quality-gate.mjs"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }

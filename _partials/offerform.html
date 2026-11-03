@@ -1,0 +1,60 @@
+<form id="offerForm" novalidate>
+  <div class="fields">
+    <div class="field full">
+      <label for="f-leistung">Welche Leistung? *</label>
+      <select id="f-leistung" name="service" required>
+        <option value="" disabled selected>Bitte wählen</option>
+        <option value="Privatumzug" data-slug="privatumzug">Privatumzug</option>
+        <option value="Umzugsreinigung mit Abnahmegarantie" data-slug="umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
+        <option value="Umzug + Reinigung kombiniert" data-slug="umzug_reinigung">Umzug + Reinigung kombiniert</option>
+        <option value="Räumung &amp; Entsorgung" data-slug="raeumung_entsorgung">Räumung &amp; Entsorgung</option>
+        <option value="Demontage &amp; Montage" data-slug="montage">Demontage &amp; Montage</option>
+        <option value="Umzug ins Ausland" data-slug="international">Umzug ins Ausland</option>
+        <option value="Firmen- / Büroumzug" data-slug="firmenumzug">Firmen- / Büroumzug</option>
+        <option value="Villa / Anwesen" data-slug="villa_anwesen">Villa / Anwesen</option>
+        <option value="Museum / Kunst / Sammlung" data-slug="museum_kunst">Museum / Kunst / Sammlung</option>
+        <option value="Seniorenumzug" data-slug="seniorenumzug">Seniorenumzug</option>
+        <option value="Klavier- / Flügeltransport" data-slug="klaviertransport">Klavier- / Flügeltransport</option>
+        <option value="Kleinumzug" data-slug="kleinumzug">Kleinumzug</option>
+      </select>
+    </div>
+    <div class="field"><label for="f-von">Von (PLZ / Ort)</label><input id="f-von" name="origin" type="text" placeholder="z. B. 5507 Mellingen" /></div>
+    <div class="field"><label for="f-nach">Nach (PLZ / Ort)</label><input id="f-nach" name="destination" type="text" placeholder="z. B. 8000 Zürich" /></div>
+    <div class="field full"><label for="f-datum">Wunschtermin</label><input id="f-datum" name="moveDate" type="date" /></div>
+    <div class="field"><label for="f-name">Vorname / Name *</label><input id="f-name" name="customerName" type="text" autocomplete="name" required /></div>
+    <div class="field"><label for="f-tel">Telefon *</label><input id="f-tel" name="phone" type="tel" autocomplete="tel" required /></div>
+    <details class="field full f-more">
+      <summary>Mehr Angaben (beschleunigt die Offerte)</summary>
+      <div class="fields">
+        <div class="field"><label for="f-zimmer">Zimmer</label>
+          <select id="f-zimmer" name="rooms"><option value="" selected>Bitte wählen</option><option value="1–1,5 Zimmer">1–1,5 Zimmer</option><option value="2–2,5 Zimmer">2–2,5 Zimmer</option><option value="3–3,5 Zimmer">3–3,5 Zimmer</option><option value="4–4,5 Zimmer">4–4,5 Zimmer</option><option value="5,5+ Zimmer / Haus">5,5+ Zimmer / Haus</option></select>
+        </div>
+        <div class="field"><label for="f-stock">Stockwerk &amp; Lift</label>
+          <select id="f-stock" name="floor"><option value="" selected>Bitte wählen</option><option value="Erdgeschoss">Erdgeschoss</option><option value="Obergeschoss mit Lift">Obergeschoss mit Lift</option><option value="Obergeschoss ohne Lift">Obergeschoss ohne Lift</option><option value="Unterschiedlich (Auszug / Einzug)">Unterschiedlich bei Auszug und Einzug</option></select>
+        </div>
+        <div class="field full"><label for="f-mail">E-Mail (optional)</label><input id="f-mail" name="email" type="email" autocomplete="email" /></div>
+        <div class="field full"><label for="f-msg">Kurz beschreiben (optional)</label><textarea id="f-msg" name="message" placeholder="Klavier, Keller, Estrich, Halteverbot nötig, gewünschte Zusatzleistungen …"></textarea></div>
+      </div>
+    </details>
+    <div class="consent">
+      <input id="f-consent" name="consentPrivacy" type="checkbox" required />
+      <label for="f-consent">Ich bin einverstanden, dass ZÜGELKLAR meine Angaben zur Bearbeitung dieser Anfrage verwendet (<a href="{{R}}datenschutz.html">Datenschutzerklärung</a>). Beim Versand per WhatsApp gelten zusätzlich die Bedingungen von WhatsApp (Meta).</label>
+    </div>
+  </div>
+  <span id="f-error" role="alert" aria-live="polite" style="display:none;font-size:13px;color:var(--red);font-weight:600;margin-top:14px"></span>
+  <button class="btn btn-wa" type="submit" data-channel="wa" style="width:100%;margin-top:22px">{{WA}}Anfrage per WhatsApp senden</button>
+  <button class="btn btn-ghost" type="submit" data-channel="mail" style="width:100%;margin-top:10px">Stattdessen per E-Mail senden</button>
+  <p class="fine">WhatsApp bzw. Ihr E-Mail-Programm öffnet sich mit Ihrer vorbereiteten Anfrage. Erst wenn Sie dort auf Senden tippen, erhalten wir Ihre Angaben. Für Aufträge gelten die <a href="{{R}}agb.html">AGB</a>.</p>
+</form>
+<div id="f-done" class="f-done" hidden tabindex="-1" aria-live="polite">
+  <b class="f-done-t">Fast fertig</b>
+  <p id="f-done-msg">Ihre Anfrage ist vorbereitet. Tippen Sie in WhatsApp bzw. in Ihrem E-Mail-Programm auf <b>Senden</b>.</p>
+  <p class="small">Hat sich nichts geöffnet? Kopieren Sie den Text und senden Sie ihn an <a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a> oder per WhatsApp an 079 933 31 11.</p>
+  <textarea id="f-text" readonly rows="7" aria-label="Vorbereitete Anfrage"></textarea>
+  <div class="f-done-btns">
+    <button class="btn btn-blue" type="button" id="f-copy">Text kopieren</button>
+    <a class="btn btn-wa" id="f-reopen" href="https://wa.me/41799333111" target="_blank" rel="noopener">{{WA}}WhatsApp erneut öffnen</a>
+    <a class="btn btn-ghost" href="tel:+41799333111">Stattdessen anrufen</a>
+  </div>
+  <button class="f-back" type="button" id="f-back">Angaben ändern</button>
+</div>

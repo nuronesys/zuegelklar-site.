@@ -22,29 +22,49 @@
 <link rel="stylesheet" href="../assets/fonts/fonts.css" />
 <link rel="stylesheet" href="../assets/site.css" />
 </head>
-<body>
+<body data-type="city" data-service="privatumzug" data-city="baden" data-wa="einen Umzug in Baden">
 <a class="skip" href="#main">Zum Inhalt springen</a>
+<!-- zk:topbar -->
 <div class="topbar"><div class="wrap">
-  <div class="tb-l"><span style="display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Aus Mellingen AG · Aargau &amp; Raum Zürich</span></div>
-  <div class="tb-r"><a href="tel:+41799333111">079 933 31 11</a><a href="https://wa.me/41799333111" rel="noopener">WhatsApp</a><a class="tb-mail" href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a></div>
+  <div class="tb-l"><span style="display:inline-flex;align-items:center;gap:8px"><i class="dot"></i>Aus Mellingen AG · Aargau &amp; Raum Zürich</span><span>Europa auf Anfrage</span></div>
+  <div class="tb-r"><a href="tel:+41799333111" data-loc="topbar">079 933 31 11</a><a href="https://wa.me/41799333111" rel="noopener" data-loc="topbar">WhatsApp</a><a class="tb-mail" href="mailto:info@zuegelklar.ch" data-loc="topbar">info@zuegelklar.ch</a></div>
 </div></div>
+<!-- /zk:topbar -->
+<!-- zk:header -->
 <header class="hdr"><div class="wrap">
-  <a href="../"><img class="logo" src="../assets/logo.webp" alt="ZÜGELKLAR — Startseite" width="784" height="242" /></a>
-  <nav class="nav">
-    <a href="../umzug/">Umzug</a><a href="../umzugsreinigung/">Reinigung</a><a href="../raeumung-entsorgung/">Räumung</a><a href="../montage/">Montage</a><a href="../grossauftraege/">Grossaufträge</a><a href="../ratgeber/">Ratgeber</a>
-    <a class="btn btn-blue" href="../#offerte" style="min-height:46px;padding:0 22px">Offerte anfragen</a>
+  <a href="../"><img class="logo" src="../assets/logo.webp" alt="ZÜGELKLAR – Startseite" width="784" height="242" /></a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="../leistungen/">Leistungen</a><a href="../umzug/">Umzug</a><a href="../umzugsreinigung/">Reinigung</a><a href="../raeumung-entsorgung/">Räumung</a><a href="../grossauftraege/">Grossaufträge</a><a href="../einsatzgebiet/">Einsatzgebiet</a><a href="../ratgeber/">Ratgeber</a>
+    <a class="btn btn-blue" href="../offerte/?leistung=privatumzug" data-loc="header" style="min-height:46px;padding:0 22px">Offerte anfragen</a>
   </nav>
-  <a class="burger" href="../#offerte" aria-label="Offerte anfragen" style="text-decoration:none;font-weight:700;color:var(--blue);width:auto;padding:0 14px">Offerte</a>
+  <a class="burger" id="burger" href="../leistungen/" role="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14181D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
 </div></header>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-in">
+    <button class="drawer-close" id="drawerClose" type="button" aria-label="Menü schliessen">&times;</button>
+    <a href="../leistungen/">Alle Leistungen</a>
+    <a href="../umzug/">Privatumzug</a>
+    <a href="../umzugsreinigung/">Umzugsreinigung</a>
+    <a href="../raeumung-entsorgung/">Räumung &amp; Entsorgung</a>
+    <a href="../grossauftraege/">Grossaufträge</a>
+    <a href="../einsatzgebiet/">Einsatzgebiet</a>
+    <a href="../ratgeber/">Ratgeber</a>
+    <a href="../ueber-uns/">Über uns</a>
+    <a class="btn btn-blue" href="../offerte/?leistung=privatumzug" data-loc="drawer" style="margin-top:18px;border:none">Offerte anfragen</a>
+    <a class="btn btn-ghost" href="tel:+41799333111" data-loc="drawer" style="margin-top:10px">079 933 31 11 anrufen</a>
+    <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener" data-loc="drawer" style="margin-top:10px;border:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp schreiben</a>
+  </div>
+</div>
+<!-- /zk:header -->
 <main id="main">
 <section class="sp-hero"><div class="wrap">
   <div>
-    <div class="crumb"><a href="../">Startseite</a> › Einsatzgebiet › Umzug Baden</div>
+    <div class="crumb"><a href="../">Startseite</a> › <a href="../einsatzgebiet/">Einsatzgebiet</a> › <span aria-current="page">Umzug Baden</span></div>
     <span class="eyebrow">Baden AG · Limmattal</span>
-    <h1>Umzug in Baden – sorgfältig geplant, aus der Nachbarschaft</h1>
-    <p class="lead">Baden ist die Bezirkshauptstadt in unserer direkten Nachbarschaft. Von unserer Basis in Mellingen aus plant ZÜGELKLAR Umzüge in, aus und innerhalb von Baden – mit schriftlicher Offerte und einem festen Ansprechpartner.</p>
+    <h1>Umzug in Baden – von Mellingen aus, mit Blick auf Altstadt und Hanglagen</h1>
+    <p class="lead">In die Badener Innenstadt darf der Umzugswagen nur mit Zufahrtsbewilligung, und an den Hanglagen kommen oft Aussentreppen oder ein längerer Weg zum Eingang dazu. ZÜGELKLAR klärt Zufahrt, Standplatz und Trageweg vor der Offerte – aus dem benachbarten Mellingen.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="../#offerte">Offerte anfragen</a>
+      <a class="btn btn-primary" href="../offerte/?leistung=privatumzug">Offerte anfragen</a>
       <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
       <a class="btn btn-ghost" href="tel:+41799333111">079 933 31 11</a>
     </div>
@@ -54,15 +74,11 @@
 <section class="sec" style="padding-top:24px"><div class="wrap sp-layout">
   <div class="prose">
       <h2>Baden: Altstadt, Hanglagen und Limmat</h2>
-      <p>Baden liegt an der Limmat und hat eine Altstadt mit engen Gassen sowie Wohnlagen an teils steilen Hängen. Für einen Umzug bedeutet das: Zufahrt, Standplatz des Fahrzeugs und Trageweg verdienen besondere Aufmerksamkeit. Treppen im Aussenbereich oder ein längerer Weg bis zum Hauseingang wirken sich auf den Aufwand aus.</p>
+      <p>Baden liegt an der Limmat und hat eine Altstadt mit engen Gassen sowie Wohnlagen an teils steilen Hängen. Für einen Umzug zählen deshalb Zufahrt, Standplatz des Fahrzeugs und Trageweg. Treppen im Aussenbereich oder ein längerer Weg bis zum Hauseingang wirken sich auf den Aufwand aus.</p>
       <p>Diese Punkte klären wir vor der Offerte – mit einer Besichtigung vor Ort oder anhand von Fotos und einem kurzen Video, das Sie uns per WhatsApp schicken.</p>
       <p>Auch in den Quartieren ausserhalb der Altstadt lohnt sich ein Blick auf Lift, Treppenhaus und Kellerzugang. Bei Mehrfamilienhäusern ist zudem oft eine Absprache mit der Verwaltung nötig, etwa für die Liftnutzung.</p>
 
-      <h2>Halteverbot in der Stadt rechtzeitig planen</h2>
-      <p>In dichter bebauten Gebieten ist ein freier Platz vor dem Haus am Umzugstag nicht selbstverständlich. Grundsätzlich organisiert der Kunde den Parkplatz oder die Halteverbotszone. Auf Wunsch übernehmen wir die Bewilligung bei der zuständigen Stelle der Gemeinde. Gebühren und Signalisation werden separat verrechnet und in der Offerte ausgewiesen.</p>
-      <p>Planen Sie dafür genügend Vorlauf ein, damit die Bewilligung rechtzeitig vorliegt.</p>
-
-      <h2>Typische Umzüge von und nach Baden</h2>
+<h2>Typische Umzüge von und nach Baden</h2>
       <p>Viele Aufträge verbinden Baden mit den Nachbargemeinden oder dem Raum Zürich. Oft steht dabei auch die Abgabe der alten Wohnung an.</p>
       <p>Für Umzüge zwischen Baden und dem Raum Zürich planen wir das Zeitfenster mit Blick auf den Verkehr. Wer an beiden Adressen eine Halteverbotszone benötigt, sollte das frühzeitig angeben, damit beide Bewilligungen rechtzeitig vorliegen. Innerhalb von Baden sind die Strecken kurz; hier entscheidet eher der Zugang an den beiden Adressen über den Aufwand. Beides berücksichtigen wir in der Offerte.</p>
       <ul>
@@ -78,7 +94,7 @@
       <p>Ob Festpreis oder Stundenpreis passender ist, empfehlen wir Ihnen in der Offerte.</p>
 
       <h2>Halteverbot und Parkierung in Baden</h2>
-      <p>In Baden erteilt die Stadtpolizei die Bewilligung, um öffentliche Parkplätze befristet abzusperren – etwa für den Umzugswagen. Das Gesuch ist gemäss Website der Stadt Baden mindestens 5 Arbeitstage vor der gewünschten Absperrung elektronisch einzureichen (Online-Formular «Gesuch Absperren öffentlicher Parkplätze»). Die Kosten richten sich nach der Gebührenverordnung der Stadtpolizei; bei gebührenpflichtigen Parkplätzen werden zusätzlich die entfallenden Parkeinnahmen verrechnet. Auf Wunsch organisiert ZÜGELKLAR das Gesuch für Sie; die Gebühren der Stadt werden separat verrechnet.</p>
+      <p>In Baden erteilt die Stadtpolizei die Bewilligung, um öffentliche Parkplätze befristet abzusperren – etwa für den Umzugswagen. Das Gesuch ist gemäss Website der Stadt Baden mindestens 5 Arbeitstage vor der gewünschten Absperrung elektronisch einzureichen (Online-Formular «Gesuch Absperren öffentlicher Parkplätze»). Die Kosten richten sich nach der Gebührenverordnung der Stadtpolizei; bei gebührenpflichtigen Parkplätzen werden zusätzlich die entfallenden Parkeinnahmen verrechnet. Grundsätzlich organisiert der Kunde den Parkplatz oder die Halteverbotszone. Auf Wunsch reicht ZÜGELKLAR das Gesuch für Sie ein; die Gebühren der Stadt werden separat verrechnet und in der Offerte ausgewiesen.</p>
       <p>Für die Innenstadt gilt grundsätzlich ein Fahrverbot für Motorfahrzeuge. Mit Zufahrtsbewilligung ist der Güterumschlag erlaubt; bei einem Umzug wird er verlängert, muss aber sichtbar und speditiv erfolgen. Ist das Fahrzeug be- oder entladen, muss es die Zone sofort verlassen.</p>
       <ul>
         <li><b>Zufahrt Innenstadt:</b> Gesuch online melden</li>
@@ -98,7 +114,7 @@
 
     <div class="ctabox">
       <b>Offerte für Ihren Auftrag?</b>
-      <div class="btns"><a class="btn btn-blue" href="../#offerte">Anfrage stellen</a><a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Fotos per WhatsApp</a></div>
+      <div class="btns"><a class="btn btn-blue" href="../offerte/?leistung=privatumzug">Offerte anfragen</a><a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Fotos per WhatsApp</a></div>
     </div>
     <h2>Häufige Fragen</h2>
     <div class="faq">
@@ -124,7 +140,7 @@
       </details>
     </div>
     <h2>Quellen</h2>
-    <p class="small">Stand: Oktober 2026. Ohne Gewähr — massgebend sind die aktuellen Angaben der zuständigen Stellen.</p>
+    <p class="small">Stand: Oktober 2026. Ohne Gewähr – massgebend sind die aktuellen Angaben der zuständigen Stellen.</p>
     <ul class="src">
       <li><a href="https://www.baden.ch/de/home/leben-wohnen/sicherheit-und-recht/gewerbe-verkehr/bewilligungen-verkehr.html/2628" rel="noopener">Stadt Baden – Bewilligungen Verkehr</a></li>
       <li><a href="https://www.baden.ch/de/leben-wohnen/wohnen-und-bauen/zuzug-umzug-wegzug/anmeldung.html/82" rel="noopener">Stadt Baden – Anmeldung</a></li>
@@ -132,38 +148,48 @@
       <li><a href="https://www.baden.ch/de/home/politik-verwaltung/verwaltungsorganisation/infrastruktur/werkhof.html/257" rel="noopener">Stadt Baden – Werkhof</a></li>
     </ul>
 
-    <h2>Passend dazu</h2>
+    <!-- zk:nearby -->
+<h2>Umzüge in der Nähe</h2>
+<p>Von Mellingen aus fahren wir auch regelmässig in die Nachbarorte:</p>
+<div class="nearby"><a class="region" href="../umzug-wettingen/">Umzug in Wettingen</a><a class="region" href="../umzug-mellingen/">Umzug in Mellingen</a><a class="region" href="../umzug-brugg/">Umzug in Brugg</a><a class="region" href="../umzug-dietikon/">Umzug in Dietikon</a><a class="region" href="../einsatzgebiet/">Alle Orte im Einsatzgebiet</a></div>
+<!-- /zk:nearby --><h2>Passend dazu</h2>
     <div class="related"><a class="region" href="../umzug-wettingen/">Umzug Wettingen</a><a class="region" href="../umzugsreinigung/">Umzugsreinigung</a><a class="region" href="../umzug-zuerich/">Umzug Zürich</a></div>
   </div>
+<!-- zk:aside -->
 <aside class="sp-aside" aria-label="Offerte anfragen"><div class="sp-card">
   <span class="kicker">Offerte anfragen</span>
   <b class="sp-card-t">Unverbindlich und schriftlich</b>
   <ul class="sp-facts">
-    <li>Antwort innert 24&nbsp;Stunden an Werktagen</li>
     <li>Fotos per WhatsApp genügen oft</li>
     <li>Festpreis oder Stundenpreis</li>
+    <li>Umzug und Reinigung in einem Auftrag</li>
   </ul>
-  <a class="btn btn-blue" href="../#offerte">Offerte anfragen</a>
-  <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
-  <a class="sp-tel" href="tel:+41799333111">079 933 31 11</a>
+  <a class="btn btn-blue" href="../offerte/?leistung=privatumzug" data-loc="aside">Offerte anfragen</a>
+  <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener" data-loc="aside"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+  <a class="sp-tel" href="tel:+41799333111" data-loc="aside">079 933 31 11</a>
   <p class="sp-hours">Mo–Fr 08:00–18:00 · aus Mellingen AG</p>
 </div></aside>
+<!-- /zk:aside -->
 </div></section>
 </main>
+<!-- zk:footer -->
 <footer class="ftr"><div class="wrap">
   <div class="ftr-grid">
-    <div><img class="ftr-logo" src="../assets/logo-white.png" alt="ZÜGELKLAR" width="720" height="298" loading="lazy" /><p style="font-size:15px;line-height:1.7;max-width:38ch">Umzugsfirma aus Mellingen AG: Umzug, Reinigung, Räumung &amp; Entsorgung im Aargau, im Raum Zürich und schweizweit.</p><p style="font-family:var(--display);font-weight:800;font-size:20px;color:#fff;margin-top:14px;letter-spacing:-.02em">Wir machen Unmögliches möglich.</p></div>
-    <div><h3 class="fh">Leistungen</h3><ul><li><a href="../umzug/">Privatumzug</a></li><li><a href="../umzugsreinigung/">Umzugsreinigung</a></li><li><a href="../raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li><li><a href="../montage/">Demontage &amp; Montage</a></li><li><a href="../international/">Umzug ins Ausland</a></li><li><a href="../seniorenumzug/">Seniorenumzug</a></li><li><a href="../kleinumzug/">Kleinumzug</a></li><li><a href="../klaviertransport/">Klaviertransport</a></li></ul><h3 class="fh" style="margin-top:26px">Grossaufträge</h3><ul><li><a href="../villen-anwesen/">Villen &amp; Anwesen</a></li><li><a href="../museum-kunst/">Museen &amp; Kunst</a></li><li><a href="../firmenumzug/">Firmenumzug</a></li></ul></div>
-    <div><h3 class="fh">Einsatzgebiet</h3><ul><li><a href="../umzug-mellingen/">Mellingen</a></li><li><a href="../umzug-baden/">Baden</a></li><li><a href="../umzug-wettingen/">Wettingen</a></li><li><a href="../umzug-brugg/">Brugg</a></li><li><a href="../umzug-lenzburg/">Lenzburg</a></li><li><a href="../umzug-aarau/">Aarau</a></li><li><a href="../umzug-zuerich/">Zürich</a></li><li><a href="../umzug-wohlen/">Wohlen</a></li><li><a href="../umzug-bremgarten/">Bremgarten</a></li><li><a href="../umzug-dietikon/">Dietikon</a></li><li><a href="../umzug-zug/">Zug</a></li></ul><h3 class="fh" style="margin-top:26px">Ratgeber</h3><ul><li><a href="../ratgeber/umzugscheckliste/">Umzugscheckliste</a></li><li><a href="../ratgeber/wohnungsabgabe/">Wohnungsabgabe</a></li><li><a href="../ratgeber/halteverbot-umzug/">Halteverbot</a></li><li><a href="../ratgeber/umzugskosten/">Umzugskosten</a></li><li><a href="../ratgeber/firmenumzug-planen/">Firmenumzug planen</a></li><li><a href="../ratgeber/villa-umzug-vorbereiten/">Villa-Umzug</a></li></ul></div>
-    <div><h3 class="fh">Kontakt</h3><ul><li><a href="tel:+41799333111">079 933 31 11</a></li><li><a href="https://wa.me/41799333111" rel="noopener">WhatsApp</a></li><li><a href="mailto:info@zuegelklar.ch">info@zuegelklar.ch</a></li><li>Obere Bahnhofstrasse 24<br />5507 Mellingen</li><li>Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</li></ul></div>
+    <div><img class="ftr-logo" src="../assets/logo-white.png" alt="ZÜGELKLAR" width="720" height="298" loading="lazy" /><p style="font-size:15px;line-height:1.7;max-width:38ch">Umzugsfirma aus Mellingen AG: Umzug, Reinigung, Räumung &amp; Entsorgung im Aargau, im Raum Zürich und schweizweit. Europa auf Anfrage.</p><p style="font-family:var(--display);font-weight:800;font-size:20px;color:#fff;margin-top:14px;letter-spacing:-.02em">Wir machen Unmögliches möglich.</p></div>
+    <div><h3 class="fh">Leistungen</h3><ul><li><a href="../umzug/">Privatumzug</a></li><li><a href="../umzugsreinigung/">Umzugsreinigung</a></li><li><a href="../raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li><li><a href="../montage/">Demontage &amp; Montage</a></li><li><a href="../international/">Umzug ins Ausland</a></li><li><a href="../seniorenumzug/">Seniorenumzug</a></li><li><a href="../kleinumzug/">Kleinumzug</a></li><li><a href="../klaviertransport/">Klaviertransport</a></li><li><a href="../leistungen/">Alle Leistungen</a></li></ul><h3 class="fh" style="margin-top:26px">Grossaufträge</h3><ul><li><a href="../grossauftraege/">Übersicht</a></li><li><a href="../villen-anwesen/">Villen &amp; Anwesen</a></li><li><a href="../museum-kunst/">Museen &amp; Kunst</a></li><li><a href="../firmenumzug/">Firmenumzug</a></li></ul></div>
+    <div><h3 class="fh">Einsatzgebiet</h3><ul><li><a href="../umzug-mellingen/">Mellingen</a></li><li><a href="../umzug-baden/">Baden</a></li><li><a href="../umzug-wettingen/">Wettingen</a></li><li><a href="../umzug-brugg/">Brugg</a></li><li><a href="../umzug-lenzburg/">Lenzburg</a></li><li><a href="../umzug-aarau/">Aarau</a></li><li><a href="../umzug-wohlen/">Wohlen</a></li><li><a href="../umzug-bremgarten/">Bremgarten</a></li><li><a href="../umzug-dietikon/">Dietikon</a></li><li><a href="../umzug-zuerich/">Zürich</a></li><li><a href="../umzug-zug/">Zug</a></li><li><a href="../einsatzgebiet/">Alle Orte</a></li></ul><h3 class="fh" style="margin-top:26px">Ratgeber</h3><ul><li><a href="../ratgeber/umzugskosten/">Umzugskosten</a></li><li><a href="../ratgeber/wohnungsabgabe/">Wohnungsabgabe</a></li><li><a href="../ratgeber/halteverbot-umzug/">Halteverbot</a></li><li><a href="../ratgeber/">Alle Ratgeber</a></li></ul></div>
+    <div><h3 class="fh">Unternehmen</h3><ul><li><a href="../ueber-uns/">Über uns</a></li><li><a href="../offerte/?leistung=privatumzug" data-loc="footer">Offerte anfragen</a></li></ul><h3 class="fh" style="margin-top:26px">Kontakt</h3><ul><li><a href="tel:+41799333111" data-loc="footer">079 933 31 11</a></li><li><a href="https://wa.me/41799333111" rel="noopener" data-loc="footer">WhatsApp</a></li><li><a href="mailto:info@zuegelklar.ch" data-loc="footer">info@zuegelklar.ch</a></li><li>Obere Bahnhofstrasse 24<br />5507 Mellingen</li><li>Montag&ndash;Freitag 08:00&ndash;18:00 Uhr</li></ul></div>
   </div>
   <div class="ftr-bot"><span>© 2026 ZÜGELKLAR · Zügelklar Umzug GmbH in Gründung</span><span style="display:flex;gap:22px"><a href="../agb.html">AGB</a><a href="../datenschutz.html">Datenschutz</a><a href="../impressum.html">Impressum</a></span></div>
 </div></footer>
+<!-- /zk:footer -->
+<!-- zk:mbar -->
 <div class="mbar">
-  <a class="btn btn-ghost" href="tel:+41799333111">Anrufen</a>
-  <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
-  <a class="btn btn-blue" href="../#offerte">Offerte</a>
+  <a class="btn btn-ghost" href="tel:+41799333111" data-loc="sticky_bar">Anrufen</a>
+  <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener" data-loc="sticky_bar"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+  <a class="btn btn-blue" href="../offerte/?leistung=privatumzug" data-loc="sticky_bar">Offerte</a>
 </div>
+<!-- /zk:mbar -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -180,10 +206,34 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "Einsatzgebiet",
+     "item": "https://zuegelklar.ch/einsatzgebiet/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "Umzug Baden",
      "item": "https://zuegelklar.ch/umzug-baden/"
     }
    ]
+  },
+  {
+   "@type": "Service",
+   "@id": "https://zuegelklar.ch/umzug-baden/#service",
+   "name": "Umzug in Baden – von Mellingen aus, mit Blick auf Altstadt und Hanglagen",
+   "serviceType": "Umzug",
+   "url": "https://zuegelklar.ch/umzug-baden/",
+   "provider": {
+    "@id": "https://zuegelklar.ch/#organization"
+   },
+   "areaServed": {
+    "@type": "City",
+    "name": "Baden",
+    "containedInPlace": {
+     "@type": "AdministrativeArea",
+     "name": "Kanton Aargau"
+    }
+   }
   },
   {
    "@type": "FAQPage",
@@ -233,5 +283,6 @@
  ]
 }
 </script>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>
