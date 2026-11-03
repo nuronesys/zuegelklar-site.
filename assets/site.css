@@ -252,3 +252,29 @@ a.region:hover{border-color:var(--blue);color:var(--blue)}
 .src{font-size:14px !important}
 .src a{color:var(--blue);word-break:break-word}
 @media (max-width:1080px){.sp-hero .wrap{grid-template-columns:1fr;gap:30px}}
+
+/* ---------- subpage layout v11: sticky offer card, steps, checklists ---------- */
+.sp-layout{display:grid;grid-template-columns:minmax(0,760px) 300px;gap:64px;justify-content:space-between;align-items:start}
+.sp-aside{position:sticky;top:104px;margin-top:48px}
+.sp-card{border:1px solid var(--line);border-radius:22px;padding:26px;background:#fff;box-shadow:0 24px 48px -32px rgba(12,16,21,.35);display:flex;flex-direction:column;gap:10px}
+.sp-card-t{font-family:var(--display);font-size:22px;letter-spacing:-.02em;line-height:1.15;margin:2px 0 4px}
+.sp-facts{list-style:none;margin:0 0 8px;padding:0;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.sp-facts li{position:relative;padding-left:24px;margin:7px 0}
+.sp-facts li::before,.prose ul li::before{content:"";position:absolute;left:0;top:.3em;width:16px;height:16px;border-radius:50%;background:#E6EEF8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.9' fill='none' stroke='%230057B8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.sp-card .btn{width:100%;min-height:48px}
+.sp-tel{text-align:center;font-weight:600;font-size:15px;padding:8px 0 0;color:var(--ink)}
+.sp-tel:hover{color:var(--blue)}
+.sp-hours{text-align:center;font-size:12.5px;color:var(--muted)}
+.prose ul{list-style:none;padding-left:0}
+.prose ul li{position:relative;padding-left:30px;margin:9px 0}
+.prose ul li::before{top:.32em;width:20px;height:20px;background-size:16px}
+.prose li b{color:var(--ink);font-weight:600}
+.steps-list{list-style:none;counter-reset:st;margin:22px 0 26px 16px;padding:0;border-left:2px solid var(--line)}
+.steps-list li{counter-increment:st;position:relative;padding:2px 0 20px 34px;font-size:16px;line-height:1.65;color:var(--ink-2)}
+.steps-list li:last-child{padding-bottom:4px}
+.steps-list li::before{content:counter(st,decimal-leading-zero);position:absolute;left:-17px;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font:700 12.5px/32px var(--display);text-align:center;box-shadow:0 0 0 5px #fff}
+.steps-list li b{display:block;font-family:var(--display);font-size:18px;letter-spacing:-.015em;margin-bottom:2px}
+.ctabox{background:var(--dark);color:#fff;padding:34px 36px;position:relative;overflow:hidden}
+.ctabox::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,87,184,.55),transparent 70%);pointer-events:none}
+.ctabox b,.ctabox .btns{position:relative;z-index:1}
+@media (max-width:1080px){.sp-layout{grid-template-columns:1fr}.sp-aside{display:none}}
