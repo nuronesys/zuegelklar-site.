@@ -37,7 +37,7 @@ Konvention `objekt_aktion`, snake_case, **keine Personendaten in Props**. Gemein
 
 `location` als feste Liste über `data-loc`: `topbar, header, hero, drawer, sticky_bar, offer_section, inline_body, service_card, city_block, faq, footer`.
 Leistungs-Slugs stabil und mit den Leistungsnamen im CRM abgestimmt: `privatumzug, umzugsreinigung, umzug_reinigung, raeumung_entsorgung, montage, international, firmenumzug, villa_anwesen, museum_kunst, seniorenumzug, klaviertransport, kleinumzug`.
-Diese Namen ersetzen die Event-Namen in `docs/seo-rebuild/04_FORM_INTEGRATION_SPEC.md`.
+Diese Namen ersetzen die Event-Namen der früheren Formular-Spezifikation (Git-Historie).
 
 ## 4. Attributions-Layer
 

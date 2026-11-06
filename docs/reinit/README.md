@@ -19,3 +19,5 @@ Einstieg: **`REINITIALIZATION_REPORT.md`** (konsolidierter Bericht, 18 Abschnitt
 Die vollständigen Audit-Berichte der fünf Agents (mit Script-Belegen) liegen **bewusst nicht im Repo**, sondern lokal beim Owner, weil sie interne Details des CRM enthalten.
 
 > Hinweis: Das Repository ist öffentlich. Hier gehören keine internen Details anderer Systeme, keine lokalen Pfade und keine Zugangsdaten hinein. `docs/` wird über `_config.yml` nicht unter zuegelklar.ch ausgeliefert, ist aber auf GitHub sichtbar.
+
+Ältere Dokumente (`docs/seo-rebuild/`, `LAUNCH-CHECKLIST.md`) wurden am 06.11.2026 entfernt; sie sind in der Git-Historie bis Commit `c457226` abrufbar.

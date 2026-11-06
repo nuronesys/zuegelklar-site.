@@ -6,7 +6,6 @@ exclude:
   - scripts
   - tools
   - src
-  - LAUNCH-CHECKLIST.md
   - README.md
   - package.json
   - package-lock.json
