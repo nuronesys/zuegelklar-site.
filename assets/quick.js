@@ -8,7 +8,20 @@
  */
 (function () {
   var S = document.currentScript;
-  var KEY = (S && S.getAttribute('data-key')) || '';
+  // Web3Forms-Schlüssel: EINMAL hier eintragen, gilt für alle Seiten
+  var WEB3FORMS_KEY = '';
+  var KEY = (S && S.getAttribute('data-key')) || WEB3FORMS_KEY;
+  // Leistung aus ?leistung=… oder <body data-service> → Kachel in der Schnellanfrage
+  var SLUG = {
+    privatumzug: 'Umzug', umzugsreinigung: 'Reinigung', umzug_reinigung: 'Umzug + Reinigung', raeumung_entsorgung: 'Räumung',
+    firmenumzug: 'Firmenumzug', montage: 'Demontage & Montage', international: 'Umzug ins Ausland', seniorenumzug: 'Seniorenumzug',
+    kleinumzug: 'Kleinumzug', klaviertransport: 'Klaviertransport', villa_anwesen: 'Villa / Anwesen', museum_kunst: 'Museum / Kunst'
+  };
+  function slugService(href) {
+    var m = /[?&]leistung=([a-z_]+)/.exec(href || '');
+    var s = m ? m[1] : (document.body && document.body.getAttribute('data-service')) || '';
+    return SLUG[s] || '';
+  }
   var WA = '41799333111', TEL = '079 933 31 11', MAIL = 'info@zuegelklar.ch';
   var BASE = (S && S.getAttribute('data-base')) || '/';
   var SERVICES = [
@@ -23,7 +36,10 @@
   var lastFocus = null;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function track(name, data) { try { if (window.gtag) window.gtag('event', name, data || {}); } catch (e) {} }
+  function track(name, data) {
+    try { if (window.gtag) window.gtag('event', name, data || {}); } catch (e) {}
+    try { if (window.plausible) window.plausible(name, { props: data || {} }); } catch (e) {}
+  }
   function ref() { var d = new Date(); return 'ZK-' + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0') + '-' + Math.random().toString(36).slice(2, 6).toUpperCase(); }
 
   var root = document.createElement('div');
@@ -200,7 +216,7 @@
     var a = e.target.closest('[data-quick], a.pill[href$="#offerte"], a[href*="/offerte/"]');
     if (!a || root.contains(a)) return;
     e.preventDefault(); e.stopPropagation();
-    open({ service: a.getAttribute('data-quick') || '' });
+    open({ service: a.getAttribute('data-quick') || slugService(a.getAttribute('href')) });
   }, true);
   document.addEventListener('submit', function (e) {
     var f = e.target;

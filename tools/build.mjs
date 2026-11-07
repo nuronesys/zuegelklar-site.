@@ -189,6 +189,14 @@ function processPage(p) {
     // Altes Inline-Script der Startseite entfernen, site.js einbinden
     html = html.replace(/<script>\s*\(function \(\) \{\s*var burger[\s\S]*?<\/script>\s*/, '');
     if (!html.includes('assets/site.js')) html = html.replace('</body>', `<script src="${R}assets/site.js" defer></script>\n</body>`);
+
+    // V15: Stile (Startseite bringt ihre eigenen mit) und Schnellanfrage auf jeder Seite
+    const anchor = p.type === 'home' ? /<link rel="stylesheet" href="[^"]*fonts\/fonts\.css" \/>/ : /<link rel="stylesheet" href="[^"]*assets\/site\.css" \/>/;
+    const css = ['v15-chrome.css', ...(p.type === 'home' ? [] : ['v15-site.css']), 'quick.css']
+      .map(c => `<link rel="stylesheet" href="${R}assets/${c}" />`).join('\n');
+    html = setBlock(html, 'v15css', css, h => { const m = anchor.exec(h); if (!m) return null; const e = m.index + m[0].length + 1; return [e, e]; }) ?? html;
+    html = html.replace(/<meta name="theme-color" content="[^"]*" \/>/, '<meta name="theme-color" content="#0F0F13" />');
+    if (!html.includes('assets/quick.js')) html = html.replace('</body>', `<script src="${R}assets/quick.js" data-base="${R || './'}" defer></script>\n</body>`);
   }
 
   if (p.type !== 'legal' && p.type !== '404') html = updateJsonLd(html, p);
