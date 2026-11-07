@@ -289,13 +289,64 @@ p{margin:0}
 .nudge .pill{margin-top:8px;height:46px}
 .nudge-x{position:absolute;top:8px;right:8px;width:34px;height:34px;border:0;border-radius:50%;background:#F1F2F5;color:var(--ink);font-size:20px;cursor:pointer}
 @media (max-width:900px){.nudge{bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
+/* ── Stempel ── */
+.has-stamp{position:relative}
+.stamp{position:absolute;right:0;top:50%;translate:0 -50%;rotate:-9deg;padding:10px 16px;border:3px solid #4ADE80;border-radius:10px;color:#4ADE80;font:800 clamp(15px,.8rem + .6vw,22px)/1 var(--disp);letter-spacing:.12em;text-transform:uppercase;pointer-events:none;box-shadow:inset 0 0 0 2px rgb(74 222 128 / .25)}
+@media (max-width:900px){.stamp{top:26px;translate:none;font-size:13px;padding:7px 10px;border-width:2px}}
+/* ── Umzugsplaner ── */
+.plan{background:#0B0B0E;padding-block:clamp(100px,12vw,170px);border-top:1px solid var(--line)}
+.plan h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
+.plan-grid{display:grid;gap:clamp(24px,4vw,56px);margin-top:clamp(40px,5vw,70px)}
+@media (min-width:960px){.plan-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}.plan-in{position:sticky;top:110px}}
+.plan-in{display:grid;gap:26px;padding:clamp(22px,3vw,34px);border:1px solid var(--line);border-radius:26px;background:var(--night-2)}
+.pf{display:grid;gap:12px;font:600 14px/1 var(--txt);letter-spacing:.04em;color:var(--t2);border:0;margin:0;padding:0}
+.pf legend{padding:0;margin-bottom:12px}
+.pf output{font:800 clamp(30px,1.4rem + 1.6vw,44px)/1 var(--disp);letter-spacing:-.03em;color:#fff}
+.pf input[type=range]{width:100%;accent-color:var(--blue-l);height:28px}
+.pf input[type=date]{height:54px;padding:0 14px;border-radius:14px;border:1.5px solid var(--line);background:#0F0F13;color:#fff;font:500 17px/1 var(--txt);color-scheme:dark;min-width:0}
+.seg div,.seg{min-width:0}
+.pf.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg legend{width:100%}
+.seg label{display:block;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-grid;place-items:center;min-width:56px;height:46px;padding:0 12px;border-radius:12px;border:1.5px solid var(--line);color:#fff;font:600 15px/1 var(--txt);cursor:pointer;transition:background .2s,border-color .2s}
+.seg input:checked + span{background:var(--blue);border-color:var(--blue)}
+.seg input:focus-visible + span{outline:3px solid var(--blue-l);outline-offset:2px}
+.tog{display:flex;align-items:center;gap:12px;font:600 15px/1 var(--txt);color:#fff;cursor:pointer}
+.tog input{position:absolute;opacity:0}
+.sw{position:relative;width:48px;height:28px;border-radius:99px;background:rgb(255 255 255 / .18);transition:background .2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:translate .25s var(--e)}
+.tog input:checked + .sw{background:var(--blue)}.tog input:checked + .sw::after{translate:20px 0}
+.tog input:focus-visible + .sw{outline:3px solid var(--blue-l);outline-offset:2px}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.kpis div{display:grid;gap:8px;padding:clamp(16px,2.4vw,26px);background:#0F0F13}
+.kpis b{font:800 clamp(28px,1rem + 2.6vw,56px)/1 var(--disp);letter-spacing:-.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpis span{font-size:13.5px;color:var(--t2)}
+.plan-note{margin:12px 0 0;font-size:13.5px;color:var(--t2)}
+.count{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:clamp(30px,4vw,46px)}
+.count b{font:800 clamp(64px,2rem + 7vw,140px)/.85 var(--disp);letter-spacing:-.06em;color:var(--blue-l);font-variant-numeric:tabular-nums}
+.count span{font:600 clamp(17px,1rem + .4vw,22px)/1.2 var(--txt);color:#fff;max-width:14ch}
+.tl{list-style:none;margin:26px 0 0;padding:0;display:grid;border-left:2px solid var(--line);margin-left:7px}
+.tl li{position:relative;display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:6px 18px;padding:12px 0 12px 24px}
+.tl li::before{content:"";position:absolute;left:-8px;top:17px;width:14px;height:14px;border-radius:50%;background:#0B0B0E;border:2px solid rgb(255 255 255 / .35)}
+.tl time{font:600 13px/1.5 var(--txt);color:var(--t2);white-space:nowrap}
+.tl b{display:block;font:700 16.5px/1.3 var(--txt);color:#fff}
+.tl p{margin:3px 0 0;font-size:14px;color:var(--t2)}
+.tl .tag{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:99px;font:700 11px/1.2 var(--txt);letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
+.tl li.late::before{background:#F59E0B;border-color:#F59E0B}.tl li.late .tag{background:rgb(245 158 11 / .16);color:#FBBF24}
+.tl li.next::before{background:var(--blue-l);border-color:var(--blue-l);box-shadow:0 0 0 6px rgb(77 148 232 / .2)}.tl li.next .tag{background:rgb(77 148 232 / .16);color:var(--blue-l)}
+.tl li.day b{color:var(--blue-l)}
+.tl li.zk b::after{content:"ZÜGELKLAR";margin-left:8px;font:700 10.5px/1 var(--txt);letter-spacing:.08em;color:#4ADE80;vertical-align:2px}
+@media (max-width:520px){.tl li{grid-template-columns:1fr}}
+.plan-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+@media (max-width:520px){.plan-cta .pill{width:100%;white-space:normal;text-align:center;height:auto;min-height:50px;padding-block:12px}}
 </style>
 </head>
 <body>
 
 <header class="hdr" id="hdr"><div class="wrap">
   <a href="#top" aria-label="ZÜGELKLAR"><img class="logo" src="../assets/logo.svg" alt="ZÜGELKLAR" width="648" height="200" /></a>
-  <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#garantie">Garantie</a><a href="#orte">Orte</a><a href="../ratgeber/">Ratgeber</a></nav>
+  <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#planer">Planer</a><a href="#garantie">Garantie</a><a href="#orte">Orte</a><a href="../ratgeber/">Ratgeber</a></nav>
   <a class="pill pill-w" href="#offerte">Offerte</a>
 </div></header>
 
@@ -404,7 +455,7 @@ p{margin:0}
     <li><b>Gratis</b><div><h3>Besichtigung</h3><p>Vor Ort oder per Video. Unverbindlich – danach wissen Sie genau, was es kostet.</p></div></li>
     <li><b>Gratis</b><div><h3>Umzugskartons</h3><p>Bei jedem gebuchten Umzug. Die Menge steht in der Offerte.</p></div></li>
     <li><b>Fix</b><div><h3>Festpreis ohne Überraschungen</h3><p>Was in der Offerte steht, gilt. Keine Nachforderung im vereinbarten Umfang.</p></div></li>
-    <li><b>100&nbsp;%</b><div><h3>Abnahmegarantie</h3><p>Beanstandet die Verwaltung etwas, reinigen wir kostenlos nach.</p></div></li>
+    <li class="has-stamp"><span class="stamp" aria-hidden="true">Abgenommen</span><b>100&nbsp;%</b><div><h3>Abnahmegarantie</h3><p>Beanstandet die Verwaltung etwas, reinigen wir kostenlos nach.</p></div></li>
   </ol>
   <div class="deal-cta"><a class="pill pill-w" href="#offerte">Gratis Besichtigung anfragen</a><span>Tipp: Monatsenden – vor allem Ende März, Juni und September – sind die gefragtesten Zügeltermine. Früh anfragen lohnt sich.</span></div>
 </div></section>
@@ -423,6 +474,33 @@ p{margin:0}
     <li><b>04</b><span>Umzugstag</span></li>
     <li><b>05</b><span>Schlüssel&shy;übergabe</span></li>
   </ol></div>
+</div></section>
+
+<section class="plan" id="planer" aria-labelledby="plan-h"><div class="wrap">
+  <span class="eyebrow">Umzugsplaner · 20 Sekunden</span>
+  <h2 id="plan-h">Ihr Umzug.<br />Durchgerechnet.</h2>
+  <div class="plan-grid">
+    <form class="plan-in" id="planForm" novalidate>
+      <label class="pf">Wohnungsgrösse <output id="pZimOut" for="pZim">3.5 Zimmer</output>
+        <input type="range" id="pZim" min="1" max="7" step="0.5" value="3.5" /></label>
+      <fieldset class="pf seg"><legend>Stockwerk heute</legend>
+        <label><input type="radio" name="pFl" value="0" /><span>EG</span></label><label><input type="radio" name="pFl" value="1" /><span>1.</span></label><label><input type="radio" name="pFl" value="2" checked /><span>2.</span></label><label><input type="radio" name="pFl" value="3" /><span>3.</span></label><label><input type="radio" name="pFl" value="4" /><span>4.+</span></label>
+      </fieldset>
+      <label class="tog"><input type="checkbox" id="pLift" /><span class="sw" aria-hidden="true"></span>Lift vorhanden</label>
+      <label class="pf">Umzugstag<input type="date" id="pDate" /></label>
+    </form>
+    <div class="plan-out">
+      <div class="kpis" aria-live="polite">
+        <div><b id="kVol">40</b><span>m³ Umzugsgut</span></div>
+        <div><b id="kTeam">3</b><span>Personen</span></div>
+        <div><b id="kTime">7.5–10</b><span id="kTimeU">Stunden</span></div>
+      </div>
+      <p class="plan-note">Richtwert, unverbindlich. Ihren Festpreis erhalten Sie nach der Gratis-Besichtigung.</p>
+      <div class="count"><b id="cDays">60</b><span id="cLabel">Tage bis zum Umzug</span></div>
+      <ol class="tl" id="tl"></ol>
+      <div class="plan-cta"><button class="pill pill-w" type="button" id="pGo">Festpreis mit diesen Angaben anfragen</button><a class="pill pill-o" id="pWa" href="https://wa.me/" target="_blank" rel="noopener">Plan per WhatsApp an mich</a></div>
+    </div>
+  </div>
 </div></section>
 
 <section class="towns" id="orte" aria-label="Einsatzgebiet"><div class="wrap">
@@ -457,7 +535,7 @@ p{margin:0}
   <span><a href="../agb.html">AGB</a> · <a href="../datenschutz.html">Datenschutz</a> · <a href="../impressum.html">Impressum</a></span>
 </div></footer>
 
-<nav class="trip" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#angebot" data-l="Angebot" style="left:50%"><span>Angebot</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
+<nav class="trip" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#angebot" data-l="Angebot" style="left:50%"><span>Angebot</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#planer" data-l="Planer" style="left:85%"><span>Planer</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
 <aside class="nudge" id="nudge" hidden aria-label="Angebot"><button class="nudge-x" type="button" aria-label="Hinweis schliessen">×</button><b>Besichtigung gratis.</b><span>Festpreis ohne Überraschungen, Kartons inklusive.</span><a class="pill pill-b" href="#offerte">In 3 Klicks anfragen</a></aside>
 <div class="mbar"><a class="pill pill-o" href="tel:+41799333111">Anrufen</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener">WhatsApp</a><a class="pill pill-w" href="#offerte">Offerte</a></div>
 
@@ -511,6 +589,10 @@ p{margin:0}
   gsap.from('#heroTitle .w > span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: .09, delay: .15 });
   gsap.from('.hero-row', { opacity: 0, y: 24, duration: .9, ease: 'power3.out', delay: .7 });
   gsap.from('.perks li', { opacity: 0, y: 12, duration: .6, ease: 'power3.out', stagger: .12, delay: 1.2 });
+
+  // Stempel knallt auf die Abnahmegarantie
+  gsap.from('.stamp', { scale: 2.8, opacity: 0, rotate: -24, duration: .5, ease: 'back.out(2.2)', scrollTrigger: { trigger: '.has-stamp', start: 'top 75%' } });
+  gsap.from('.count b, .kpis div', { y: 40, opacity: 0, duration: .8, ease: 'power3.out', stagger: .08, scrollTrigger: { trigger: '.plan-out', start: 'top 80%' } });
 
   // Vier Zusagen: Zeile für Zeile, die grosse Zahl wischt herein
   gsap.utils.toArray('.deal-list li').forEach(function (li) {
@@ -643,6 +725,75 @@ p{margin:0}
   setTimeout(function () { n.hidden = false; requestAnimationFrame(function () { n.classList.add('on'); }); }, 3000);
   n.querySelector('.nudge-x').addEventListener('click', hide);
   n.querySelector('.pill').addEventListener('click', function () { setTimeout(hide, 200); });
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById('planForm'); if (!form) return;
+  var zim = document.getElementById('pZim'), lift = document.getElementById('pLift'), date = document.getElementById('pDate');
+  var $ = function (id) { return document.getElementById(id); };
+  var DAY = 864e5;
+  function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  date.min = iso(today); date.value = iso(new Date(+today + 60 * DAY));
+  // Schritte relativ zum Umzugstag (Tage). zk = machen wir
+  var STEPS = [
+    [-90, 'Mietvertrag kündigen', 'Kündigungsfrist meist 3 Monate – siehe Mietvertrag.'],
+    [-60, 'Gratis-Besichtigung & Festpreis', 'Vor Ort oder per Video. Danach steht der Preis.', 1],
+    [-30, 'Ausmisten', 'Was nicht mitkommt, räumen und entsorgen wir.', 1],
+    [-21, 'Halteverbot / Parkplatz', 'Bei der Gemeinde beantragen – oder durch uns organisieren lassen.', 1],
+    [-14, 'Adresse ändern', 'Nachsendeauftrag bei der Post, Versicherungen, Bank, Arbeitgeber.'],
+    [-7, 'Packen', 'Kartons erhalten Sie bei uns gratis.', 1],
+    [-1, 'Letzte Vorbereitung', 'Kühlschrank abtauen, Wichtiges und Dokumente separat.'],
+    [0, 'Umzugstag', 'Tragen, fahren, montieren.', 1],
+    [2, 'Endreinigung & Abgabe', 'Mit Abnahmegarantie – Abgabe innert 3 Arbeitstagen.', 1],
+    [14, 'Anmeldung neue Gemeinde', 'In der Regel innert 14 Tagen nach dem Zuzug.']
+  ];
+  var fmt = function (d) { return d.toLocaleDateString('de-CH', { weekday: 'short', day: 'numeric', month: 'short' }); };
+  var num = function (x) { return String(x).replace('.0', ''); };
+  function tween(el, to) {
+    if (el.textContent === to) return;
+    el.textContent = to;
+    if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) gsap.fromTo(el, { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .45, ease: 'power3.out' });
+  }
+  function calc() {
+    var z = +zim.value, fl = +(form.querySelector('[name=pFl]:checked') || { value: 2 }).value;
+    $('pZimOut').textContent = num(z) + (z === 1 ? ' Zimmer' : ' Zimmer');
+    var vol = Math.round(z * 10 + 5);
+    var team = z <= 2 ? 2 : z <= 4.5 ? 3 : 4;
+    var hrs = vol / (team * 2) * (lift.checked ? 1 : 1 + .07 * fl) + 1;
+    var lo = Math.max(3, Math.round(hrs * .85 * 2) / 2), hi = Math.round(hrs * 1.15 * 2) / 2;
+    tween($('kVol'), String(vol));
+    tween($('kTeam'), String(team));
+    if (hi > 12) { tween($('kTime'), '1–2'); $('kTimeU').textContent = 'Tage'; }
+    else { tween($('kTime'), num(lo) + '–' + num(hi)); $('kTimeU').textContent = 'Stunden'; }
+
+    var d = date.value ? new Date(date.value + 'T00:00') : new Date(+today + 60 * DAY);
+    var days = Math.round((d - today) / DAY);
+    tween($('cDays'), String(Math.max(0, days)));
+    $('cLabel').textContent = days <= 0 ? 'Heute ist Umzugstag' : days === 1 ? 'Tag bis zum Umzug' : 'Tage bis zum Umzug';
+    var nextDone = false, out = [];
+    STEPS.forEach(function (s) {
+      var at = new Date(+d + s[0] * DAY), cls = [], tag = '';
+      if (s[0] === 0) cls.push('day');
+      if (s[3]) cls.push('zk');
+      if (at < today && s[0] < 0) { cls.push('late'); tag = 'Jetzt'; }
+      else if (!nextDone && at >= today) { nextDone = true; cls.push('next'); tag = 'Als Nächstes'; }
+      out.push('<li class="' + cls.join(' ') + '"><time datetime="' + iso(at) + '">' + fmt(at) + '</time><div><b>' + s[1] + (tag ? '<span class="tag">' + tag + '</span>' : '') + '</b><p>' + s[2] + '</p></div></li>');
+    });
+    $('tl').innerHTML = out.join('');
+    var txt = 'Mein Umzugsplan (zuegelklar.ch)\nUmzugstag: ' + d.toLocaleDateString('de-CH') + ' · ' + num(z) + ' Zimmer\n\n' +
+      STEPS.map(function (s) { return '☐ ' + new Date(+d + s[0] * DAY).toLocaleDateString('de-CH') + ' – ' + s[1]; }).join('\n');
+    $('pWa').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
+    form.dataset.z = num(z); form.dataset.d = date.value; form.dataset.fl = fl; form.dataset.lift = lift.checked ? 'ja' : 'nein';
+  }
+  form.addEventListener('input', calc); form.addEventListener('change', calc);
+  form.addEventListener('submit', function (e) { e.preventDefault(); });
+  $('pGo').addEventListener('click', function () {
+    if (!window.zkQuick) { location.href = '#offerte'; return; }
+    window.zkQuick.open({ service: 'Umzug', zimmer: form.dataset.z, datum: form.dataset.d, info: 'Stockwerk ' + (form.dataset.fl === '0' ? 'EG' : form.dataset.fl) + ', Lift: ' + form.dataset.lift });
+  });
+  calc();
 })();
 </script>
 <script src="../assets/quick.js" data-base="../" data-key="" defer></script>

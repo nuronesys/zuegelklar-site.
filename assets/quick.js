@@ -19,7 +19,7 @@
     ['Firmenumzug', 'Büro, Praxis, Laden'],
     ['Etwas anderes', 'Klavier, Kunst, Ausland …']
   ];
-  var state = { service: '', name: '', tel: '', von: '', nach: '', ref: '' };
+  var state = { service: '', name: '', tel: '', von: '', nach: '', ref: '', zimmer: '', datum: '', info: '' };
   var lastFocus = null;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -82,6 +82,9 @@
     lastFocus = document.activeElement;
     if (opts.von) state.von = opts.von;
     if (opts.nach) state.nach = opts.nach;
+    if (opts.zimmer) state.zimmer = opts.zimmer;
+    if (opts.datum) state.datum = opts.datum;
+    if (opts.info) state.info = opts.info;
     if (state.ref && !$('[data-step="3"]').hidden) { /* schon gesendet: Danke-Schritt bleibt */ }
     else if (opts.service) { pick(opts.service, true); }
     else show(1);
@@ -110,7 +113,10 @@
       'Leistung: ' + state.service,
       'Name: ' + state.name,
       'Telefon: ' + state.tel
-    ].concat(extra || []).concat(state.von ? ['Von: ' + state.von] : []).concat(state.nach ? ['Nach: ' + state.nach] : [])
+    ].concat(state.zimmer ? ['Zimmer: ' + state.zimmer] : [])
+     .concat(state.datum ? ['Wunschtermin: ' + state.datum.split('-').reverse().join('.')] : [])
+     .concat(state.info ? ['Planer: ' + state.info] : [])
+     .concat(extra || []).concat(state.von ? ['Von: ' + state.von] : []).concat(state.nach ? ['Nach: ' + state.nach] : [])
      .concat(['Seite: ' + location.pathname]).join('\n');
   }
   function waLink(text) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
@@ -147,9 +153,11 @@
     $('[data-wa]').href = waLink('Fotos zu Anfrage ' + state.ref + ' (' + state.service + ')');
     if (state.von) root.querySelector('[name=von]').value = state.von;
     if (state.nach) root.querySelector('[name=nach]').value = state.nach;
+    if (state.zimmer) root.querySelector('[name=zimmer]').value = state.zimmer;
+    if (state.datum) root.querySelector('[name=datum]').value = state.datum;
     var btn = f.querySelector('.zq-go'); btn.disabled = true; btn.textContent = 'Wird gesendet …';
     var text = lines();
-    post('Rückruf ' + state.ref + ': ' + state.service + ' · ' + state.name, text, { Leistung: state.service, Name: state.name, Telefon: state.tel, Von: state.von, Nach: state.nach, Seite: location.pathname, Referenz: state.ref })
+    post('Rückruf ' + state.ref + ': ' + state.service + ' · ' + state.name, text, { Leistung: state.service, Name: state.name, Telefon: state.tel, Von: state.von, Nach: state.nach, Zimmer: state.zimmer, Wunschtermin: state.datum, Planer: state.info, Seite: location.pathname, Referenz: state.ref })
       .then(function () { track('quick_submit', { method: 'web3forms', service: state.service }); show(3); })
       .catch(function () { viaWhatsApp(text); track('quick_submit', { method: 'whatsapp', service: state.service }); show(3); })
       .then(function () { btn.disabled = false; btn.textContent = 'Anfrage senden'; });
@@ -160,6 +168,7 @@
     var f = e.target, d = f.datum.value;
     if (d) { var p = d.split('-'); d = p[2] + '.' + p[1] + '.' + p[0]; }
     state.von = f.von.value.trim(); state.nach = f.nach.value.trim();
+    state.zimmer = ''; state.datum = ''; // stehen ab hier in «extra»
     var extra = [d ? 'Wunschtermin: ' + d : '', f.zimmer.value.trim() ? 'Zimmer: ' + f.zimmer.value.trim() : '', f.notiz.value.trim() ? 'Notiz: ' + f.notiz.value.trim() : ''].filter(Boolean);
     if (!state.von && !state.nach && !extra.length) { close(); return; }
     var btn = f.querySelector('.zq-go'); btn.disabled = true; btn.textContent = 'Wird gesendet …';
