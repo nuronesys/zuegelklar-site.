@@ -640,11 +640,7 @@ p{margin:0}
   try { seen = sessionStorage.getItem('zkNudge') === '1'; } catch (e) {}
   if (!n || !day || seen) return;
   function hide() { n.classList.remove('on'); setTimeout(function () { n.hidden = true; }, 500); try { sessionStorage.setItem('zkNudge', '1'); } catch (e) {} }
-  var io = new IntersectionObserver(function (es) {
-    if (!es[0].isIntersecting) return;
-    io.disconnect(); n.hidden = false; requestAnimationFrame(function () { n.classList.add('on'); });
-  });
-  io.observe(day);
+  setTimeout(function () { n.hidden = false; requestAnimationFrame(function () { n.classList.add('on'); }); }, 3000);
   n.querySelector('.nudge-x').addEventListener('click', hide);
   n.querySelector('.pill').addEventListener('click', function () { setTimeout(hide, 200); });
 })();
