@@ -268,6 +268,27 @@ p{margin:0}
 /* ── Cursor ── */
 @media (prefers-reduced-motion:reduce){.trip-fill,.trip-truck{transition:none}}
 
+/* ── Angebote ── */
+.perks{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.perks li{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgb(255 255 255 / .12);backdrop-filter:blur(8px);border:1px solid rgb(255 255 255 / .18);font:600 13.5px/1 var(--txt);color:#fff}
+.perks li::before{content:"";width:16px;height:16px;flex:none;background:#4ADE80;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.deal{background:var(--night);padding-block:clamp(100px,12vw,170px);border-top:1px solid var(--line)}
+.deal h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
+.deal-list{list-style:none;margin:clamp(40px,5vw,70px) 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+.deal-list li{display:grid;grid-template-columns:minmax(0,clamp(130px,22vw,300px)) minmax(0,1fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding-block:clamp(22px,3vw,36px);border-bottom:1px solid var(--line)}
+.deal-list b{font:800 clamp(2.4rem,1rem + 5vw,5.4rem)/.9 var(--disp);letter-spacing:-.05em;color:var(--blue-l)}
+.deal-list h3{margin:0;font:800 clamp(22px,1rem + 1.4vw,34px)/1.1 var(--disp);letter-spacing:-.02em}
+.deal-list p{margin:8px 0 0;color:var(--t2);font-size:clamp(16px,.95rem + .25vw,19px);max-width:46ch}
+.deal-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:clamp(30px,4vw,50px)}
+.deal-cta span{color:var(--t2);font-size:15px;max-width:60ch}
+@media (max-width:600px){.deal-list li{grid-template-columns:1fr;gap:6px}}
+.nudge{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;width:min(340px,calc(100vw - 32px));display:grid;gap:6px;padding:18px 18px 16px;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 20px 50px rgb(0 0 0 / .35);transform:translateY(20px);opacity:0;transition:transform .5s var(--e),opacity .4s}
+.nudge.on{transform:none;opacity:1}
+.nudge b{font:800 20px/1.1 var(--disp);letter-spacing:-.02em}
+.nudge span{font-size:14.5px;color:#4A4D57}
+.nudge .pill{margin-top:8px;height:46px}
+.nudge-x{position:absolute;top:8px;right:8px;width:34px;height:34px;border:0;border-radius:50%;background:#F1F2F5;color:var(--ink);font-size:20px;cursor:pointer}
+@media (max-width:900px){.nudge{bottom:calc(88px + env(safe-area-inset-bottom,0px))}}
 </style>
 </head>
 <body>
@@ -285,8 +306,9 @@ p{margin:0}
   <div class="wrap hero-in">
     <h1 id="heroTitle"><span class="w"><span>Umzug.</span></span> <span class="w"><span>Reinigung.</span></span><br /><span class="w"><span>Räumung.</span></span> <span class="w blue"><span>Fertig.</span></span></h1>
     <div class="hero-row">
-      <p>Aus Mellingen für Aargau, Zürich und Zug – mit Abnahmegarantie.</p>
-      <div class="btns"><a class="pill pill-w" href="#offerte">Offerte anfragen</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener">{{WA}}Fotos per WhatsApp</a></div>
+      <div><p>Aus Mellingen für Aargau, Zürich und Zug – mit Abnahmegarantie.</p>
+      <ul class="perks" aria-label="Inklusive"><li>Besichtigung gratis</li><li>Kartons gratis</li><li>Festpreis ohne Überraschungen</li></ul></div>
+      <div class="btns"><a class="pill pill-w" href="#offerte">Gratis Besichtigung</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener">{{WA}}Fotos per WhatsApp</a></div>
     </div>
   </div>
   <i class="cue" aria-hidden="true"></i>
@@ -375,6 +397,18 @@ p{margin:0}
   </div>
 </section>
 
+<section class="deal" id="angebot" aria-labelledby="deal-h"><div class="wrap">
+  <span class="eyebrow">Inklusive, ohne Aufpreis</span>
+  <h2 id="deal-h">Vier Zusagen.<br />Schriftlich in Ihrer Offerte.</h2>
+  <ol class="deal-list">
+    <li><b>Gratis</b><div><h3>Besichtigung</h3><p>Vor Ort oder per Video. Unverbindlich – danach wissen Sie genau, was es kostet.</p></div></li>
+    <li><b>Gratis</b><div><h3>Umzugskartons</h3><p>Bei jedem gebuchten Umzug. Die Menge steht in der Offerte.</p></div></li>
+    <li><b>Fix</b><div><h3>Festpreis ohne Überraschungen</h3><p>Was in der Offerte steht, gilt. Keine Nachforderung im vereinbarten Umfang.</p></div></li>
+    <li><b>100&nbsp;%</b><div><h3>Abnahmegarantie</h3><p>Beanstandet die Verwaltung etwas, reinigen wir kostenlos nach.</p></div></li>
+  </ol>
+  <div class="deal-cta"><a class="pill pill-w" href="#offerte">Gratis Besichtigung anfragen</a><span>Tipp: Monatsenden – vor allem Ende März, Juni und September – sind die gefragtesten Zügeltermine. Früh anfragen lohnt sich.</span></div>
+</div></section>
+
 <section class="statement" id="garantie" aria-label="Abnahmegarantie"><div class="wrap">
   <p class="big" id="statement">Verwaltung beanstandet? <span class="blue">Wir reinigen kostenlos nach.</span></p>
   <div class="meta"><span class="chip">Umfang schriftlich</span><span class="chip">Auch ohne Umzug buchbar</span><span class="chip">Bedingungen: AGB Teil B</span></div>
@@ -406,7 +440,7 @@ p{margin:0}
 
 <section class="final" id="offerte" aria-label="Offerte"><div class="wrap">
   <h2 class="arrive">Angekommen.</h2>
-  <p>So kann Ihr Umzugstag aussehen. Zwei Adressen genügen – die Offerte ist unverbindlich und schriftlich.</p>
+  <p>So kann Ihr Umzugstag aussehen. Zwei Adressen genügen – Besichtigung gratis, Offerte schriftlich, Festpreis ohne Überraschungen.</p>
   <form class="quick" action="../offerte/" method="get">
     <label class="sr" for="q-von">Von</label><input id="q-von" name="von" placeholder="Von (PLZ / Ort)" autocomplete="address-level2" />
     <label class="sr" for="q-nach">Nach</label><input id="q-nach" name="nach" placeholder="Nach (PLZ / Ort)" autocomplete="address-level2" />
@@ -423,7 +457,8 @@ p{margin:0}
   <span><a href="../agb.html">AGB</a> · <a href="../datenschutz.html">Datenschutz</a> · <a href="../impressum.html">Impressum</a></span>
 </div></footer>
 
-<nav class="trip" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
+<nav class="trip" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#angebot" data-l="Angebot" style="left:50%"><span>Angebot</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
+<aside class="nudge" id="nudge" hidden aria-label="Angebot"><button class="nudge-x" type="button" aria-label="Hinweis schliessen">×</button><b>Besichtigung gratis.</b><span>Festpreis ohne Überraschungen, Kartons inklusive.</span><a class="pill pill-b" href="#offerte">In 3 Klicks anfragen</a></aside>
 <div class="mbar"><a class="pill pill-o" href="tel:+41799333111">Anrufen</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener">WhatsApp</a><a class="pill pill-w" href="#offerte">Offerte</a></div>
 
 <style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style>
@@ -475,6 +510,14 @@ p{margin:0}
   // HERO: Wörter steigen auf, Bild atmet
   gsap.from('#heroTitle .w > span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: .09, delay: .15 });
   gsap.from('.hero-row', { opacity: 0, y: 24, duration: .9, ease: 'power3.out', delay: .7 });
+  gsap.from('.perks li', { opacity: 0, y: 12, duration: .6, ease: 'power3.out', stagger: .12, delay: 1.2 });
+
+  // Vier Zusagen: Zeile für Zeile, die grosse Zahl wischt herein
+  gsap.utils.toArray('.deal-list li').forEach(function (li) {
+    gsap.timeline({ scrollTrigger: { trigger: li, start: 'top 85%' } })
+      .from(li, { opacity: 0, y: 50, duration: .8, ease: 'power3.out' })
+      .from(li.querySelector('b'), { xPercent: -30, opacity: 0, duration: .9, ease: 'power4.out' }, '<.1');
+  });
   gsap.to('.hero-media img', { scale: 1, duration: 2.2, ease: 'power2.out' });
   // Beim Scrollen: Bild wird zur abgerundeten Karte, Titel fährt weg
   gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
@@ -590,6 +633,21 @@ p{margin:0}
   ScrollTrigger.sort(); ScrollTrigger.refresh();
 })();
 
+</script>
+<script>
+(function () {
+  var n = document.getElementById('nudge'), day = document.getElementById('firmen'), seen = false;
+  try { seen = sessionStorage.getItem('zkNudge') === '1'; } catch (e) {}
+  if (!n || !day || seen) return;
+  function hide() { n.classList.remove('on'); setTimeout(function () { n.hidden = true; }, 500); try { sessionStorage.setItem('zkNudge', '1'); } catch (e) {} }
+  var io = new IntersectionObserver(function (es) {
+    if (!es[0].isIntersecting) return;
+    io.disconnect(); n.hidden = false; requestAnimationFrame(function () { n.classList.add('on'); });
+  });
+  io.observe(day);
+  n.querySelector('.nudge-x').addEventListener('click', hide);
+  n.querySelector('.pill').addEventListener('click', function () { setTimeout(hide, 200); });
+})();
 </script>
 <script src="../assets/quick.js" data-base="../" data-key="" defer></script>
 </body>

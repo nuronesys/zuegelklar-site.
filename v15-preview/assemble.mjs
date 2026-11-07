@@ -13,6 +13,9 @@ const out = readFileSync(join(HERE, 'template.html'), 'utf8')
   .replaceAll('{{WA}}', WA)
   .replace('{{LONGTEXT}}', long)
   .replace('{{FAQ}}', faq)
-  .replace('</body>', ld + '\n</body>');
+  .replace('</body>', ld + '\n</body>')
+  // V15: Kartons sind bei gebuchtem Umzug gratis (Owner-Entscheid), in FAQ und JSON-LD
+  .replaceAll('Ja. Umzugskartons und Schutzmaterial können Sie bei uns mieten. Menge und Lieferung werden in der Offerte festgehalten.',
+    'Ja. Bei jedem gebuchten Umzug erhalten Sie Umzugskartons gratis. Menge und Lieferung werden in der Offerte festgehalten.');
 writeFileSync(join(HERE, 'index.html'), out);
 console.log('ok', out.length, 'Bytes · FAQ', (faq.match(/<details/g) || []).length, '· JSON-LD', (ld.match(/ld\+json/g) || []).length);
