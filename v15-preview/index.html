@@ -159,6 +159,88 @@ p{margin:0}
 }
 @media (prefers-reduced-motion:reduce){.story-media figure{transition:none}.hero-media img{transform:none}}
 </style>
+<style>
+/* ── Eintritt durch die Schrift ── */
+.zoom{position:relative;height:100svh;background:var(--night);overflow:hidden}
+.zoom-stage{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:22px;text-align:center}
+.zoom-word{font:800 clamp(5rem,2rem + 17vw,19rem)/.82 var(--disp);letter-spacing:-.06em;color:transparent;background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;will-change:transform}
+.zoom-fill{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;pointer-events:none}
+.zoom-hint{color:var(--t2);font-size:clamp(16px,1rem + .3vw,20px)}
+
+/* ── Ein Umzugstag ── */
+.day{position:relative;background:var(--night)}
+.day-media{position:relative;height:70svh;overflow:hidden}
+.scene{position:absolute;inset:0;margin:0}
+.scene img{width:100%;height:100%;object-fit:cover}
+.scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(15 15 19 / .55),rgb(15 15 19 / .1) 30%,rgb(15 15 19 / .2) 50%,rgb(15 15 19 / .92)),linear-gradient(90deg,rgb(15 15 19 / .6),transparent 65%)}
+.scene .sym{z-index:3}
+.day-ui{position:relative;padding-block:40px 90px}
+.clock{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.clock span{font:800 clamp(4rem,2rem + 9vw,11rem)/.9 var(--disp);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.clock small{font:600 12px/1 var(--txt);letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
+.day-text{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:36px}
+.beat small{display:block;font:600 13px/1 var(--txt);letter-spacing:.14em;text-transform:uppercase;color:var(--blue-l);margin-bottom:12px}
+.beat h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
+.beat p{margin-top:12px;font-size:clamp(17px,1rem + .35vw,21px);color:var(--t2);max-width:34ch}
+.beat a{display:inline-flex;margin-top:18px;font-weight:600;border-bottom:1.5px solid var(--blue-l);padding-bottom:3px}
+.day-dots{display:none}
+/* Mit GSAP: gepinnte Bühne */
+.gs .day-stage{position:relative;height:100svh;overflow:hidden}
+.gs .day-media{position:absolute;inset:0;height:auto}
+.gs .scene{clip-path:inset(100% 0 0 0)}
+.gs .scene[data-s="0"]{clip-path:inset(0)}
+.gs .day-ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding-block:0 clamp(40px,8vh,90px)}
+.gs .clock{position:absolute;top:calc(96px + env(safe-area-inset-top,0px));left:0}
+.gs .day-text{position:relative;margin:0;display:block;min-height:clamp(220px,34vh,320px)}
+.gs .beat{position:absolute;inset:auto 0 0 0;opacity:0;visibility:hidden}
+.gs .beat[data-s="0"]{opacity:1;visibility:visible}
+.gs .day-dots{display:flex;gap:8px;margin-top:26px}
+@media (max-width:900px){.gs .day-ui{padding-bottom:150px}}
+.day-dots i{width:28px;height:3px;border-radius:3px;background:rgb(255 255 255 / .22);transition:background .3s,width .3s}
+.day-dots i.on{background:#fff;width:46px}
+
+/* ── Unternehmen ── */
+.biz{background:#0B0B0E;padding-block:clamp(100px,12vw,180px);border-top:1px solid var(--line)}
+.eyebrow{display:block;font:600 13px/1 var(--txt);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-l);margin-bottom:20px}
+.biz-head h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6.2rem)}
+.biz-grid{display:grid;gap:18px;margin-top:clamp(40px,5vw,70px)}
+@media (min-width:900px){.biz-grid{grid-template-columns:1.2fr 1fr 1fr}}
+.biz-card{position:relative;min-height:440px;border-radius:26px;overflow:hidden;isolation:isolate;border:1px solid var(--line);background:var(--night-2);transform-style:preserve-3d;transition:transform .2s}
+.biz-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.8) brightness(.8);transition:transform 1s var(--e),filter .6s}
+.biz-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgb(11 11 14 / .95))}
+.biz-card:hover img{transform:scale(1.06);filter:saturate(1) brightness(.9)}
+.biz-card .sym{top:14px;bottom:auto}
+.biz-card.dark{background:radial-gradient(120% 90% at 20% 0%,#2A2A33,#0B0B0E)}
+.bc-mark{position:absolute;top:30px;left:28px;font:800 90px/1 var(--disp);color:var(--blue-l);opacity:.5}
+.bc-in{position:absolute;inset:auto 0 0;padding:28px}
+.bc-in b{font:800 clamp(26px,1.2rem + 1vw,34px)/1 var(--disp);letter-spacing:-.03em}
+.bc-in ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;color:var(--t2);font-size:15px}
+.bc-in li::before{content:"—";color:var(--blue-l);margin-right:10px}
+.biz-flow{display:flex;flex-wrap:wrap;align-items:center;gap:14px 40px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.biz-flow div{display:flex;align-items:baseline;gap:12px}
+.biz-flow b{font:800 28px/1 var(--disp);color:var(--blue-l)}
+.biz-flow span{color:var(--t)}
+.biz-flow .pill{margin-left:auto}
+@media (max-width:700px){.biz-flow .pill{margin-left:0;width:100%}}
+
+/* ── Reise-Leiste ── */
+.trip{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));translate:-50% 0;z-index:55;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:rgb(15 15 19 / .78);backdrop-filter:blur(14px);border:1px solid var(--line);font:600 13px/1 var(--txt);color:var(--t2);transition:opacity .4s,translate .4s}
+.trip-track{position:relative;width:min(260px,40vw);height:2px;background:rgb(255 255 255 / .18);border-radius:2px}
+.trip-fill{position:absolute;inset:0;background:var(--blue-l);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.trip-truck{position:absolute;top:50%;left:calc(var(--p,0) * 100%);translate:-50% -50%;width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.trip-truck svg{width:16px;height:16px}
+.trip-home{width:18px;height:18px;color:var(--t2)}
+.trip.done{color:#fff}.trip.done .trip-home{color:#4ADE80}
+.trip.hide{opacity:0;translate:-50% 20px;pointer-events:none}
+@media (max-width:900px){.trip{bottom:calc(84px + env(safe-area-inset-bottom,0px));padding:8px 12px}.trip-label{display:none}}
+
+/* ── Cursor ── */
+.cur{position:fixed;left:0;top:0;z-index:100;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;transition:width .25s var(--e),height .25s var(--e),margin .25s var(--e)}
+.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px}
+@media (pointer:coarse){.cur{display:none}}
+@media (prefers-reduced-motion:reduce){.cur,.trip{display:none}}
+
+</style>
 </head>
 <body>
 
@@ -187,18 +269,68 @@ p{margin:0}
   <span class="on">Umzug</span><i>●</i><span>Reinigung</span><i>●</i><span class="on">Räumung</span><i>●</i><span>Montage</span><i>●</i><span class="on">Klavier</span><i>●</i><span>Ausland</span><i>●</i><span class="on">Senioren</span><i>●</i><span>Firmen</span><i>●</i>
 </div></div>
 
-<section class="story" id="leistungen" aria-label="Kernleistungen">
-  <div class="story-media" aria-hidden="true">
-    <figure class="on" data-k="0"><img src="../assets/privatumzug.webp" alt="" loading="eager" /><span class="sym">Symbolbild</span></figure>
-    <figure data-k="1"><img src="../assets/cleaning.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span></figure>
-    <figure data-k="2"><img src="../assets/clearing.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span></figure>
-    <figure data-k="3"><img src="../assets/montage.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span></figure>
+<!-- EINTRITT: Bild in der Schrift, zoomt bis es den Bildschirm füllt -->
+<section class="zoom" aria-hidden="true">
+  <div class="zoom-stage">
+    <div class="zoom-word" style="background-image:url(../assets/packing.webp)">UMZUGS<br />TAG</div>
+    <div class="zoom-fill" style="background-image:url(../assets/packing.webp)"></div>
+    <p class="zoom-hint">Ein Tag. Von der ersten Kiste bis zum Schlüssel.</p>
   </div>
-  <div class="chapters">
-    <div class="chap" data-k="0"><div class="wrap"><div class="box"><small>Privatumzug</small><h2>Wir tragen. Sie schauen zu.</h2><p>Wohnung oder Haus – geplant, getragen, aufgebaut.</p><a href="../umzug/">Mehr zum Umzug</a></div></div></div>
-    <div class="chap" data-k="1"><div class="wrap"><div class="box"><small>Umzugsreinigung</small><h2>Sauber übergeben.</h2><p>Verwaltung beanstandet? Wir reinigen kostenlos nach.</p><span class="tag">Abnahmegarantie</span><br /><a href="../umzugsreinigung/">Mehr zur Reinigung</a></div></div></div>
-    <div class="chap" data-k="2"><div class="wrap"><div class="box"><small>Räumung &amp; Entsorgung</small><h2>Leer geräumt.</h2><p>Keller, Wohnung oder ganzes Haus.</p><a href="../raeumung-entsorgung/">Mehr zur Räumung</a></div></div></div>
-    <div class="chap" data-k="3"><div class="wrap"><div class="box"><small>Montage</small><h2>Abgebaut. Aufgebaut.</h2><p>Schränke, Betten und Möbel – am neuen Ort wieder bereit.</p><a href="../montage/">Mehr zur Montage</a></div></div></div>
+</section>
+
+<!-- EIN UMZUGSTAG: Uhr läuft, Szenen wechseln -->
+<section class="day" id="leistungen" aria-label="Ein Umzugstag mit ZÜGELKLAR – Beispiel">
+  <div class="day-stage">
+    <div class="day-media">
+      <figure class="scene" data-s="0"><img src="../assets/packing.webp" alt="Symbolbild: Kartons und Schutzmaterial" /><span class="sym">Symbolbild</span></figure>
+      <figure class="scene" data-s="1"><img src="../assets/privatumzug.webp" alt="Symbolbild: Sofa wird zum Wagen getragen" loading="lazy" /><span class="sym">Symbolbild</span></figure>
+      <figure class="scene" data-s="2"><img src="../assets/hero-desktop.webp" alt="Symbolbild: Umzugswagen unterwegs" loading="lazy" /><span class="sym">Symbolbild</span></figure>
+      <figure class="scene" data-s="3"><img src="../assets/montage.webp" alt="Symbolbild: Möbelmontage am neuen Ort" loading="lazy" /><span class="sym">Symbolbild</span></figure>
+      <figure class="scene" data-s="4"><img src="../assets/cleaning.webp" alt="Symbolbild: Endreinigung der alten Wohnung" loading="lazy" /><span class="sym">Symbolbild</span></figure>
+      <figure class="scene" data-s="5"><img src="../assets/handover.webp" alt="Symbolbild: Schlüsselübergabe" loading="lazy" /><span class="sym">Symbolbild</span></figure>
+    </div>
+    <div class="day-ui wrap">
+      <div class="clock" aria-hidden="true"><span id="clock">07:30</span><small>Beispiel eines Umzugstags</small></div>
+      <ol class="day-text">
+        <li class="beat" data-s="0"><small>Ankunft</small><h2>Wir sind da.</h2><p>Böden und Treppenhaus geschützt, die Einsatzleitung kennt den Plan.</p></li>
+        <li class="beat" data-s="1"><small>Privatumzug</small><h2>Getragen. Gesichert.</h2><p>Möbel, Kartons, Geräte – in der richtigen Reihenfolge verladen.</p><a href="../umzug/">Privatumzug</a></li>
+        <li class="beat" data-s="2"><small>Unterwegs</small><h2>Aargau, Zürich, Zug.</h2><p>Halteverbot an beiden Adressen? Auf Wunsch organisiert.</p><a href="../einsatzgebiet/">Einsatzgebiet</a></li>
+        <li class="beat" data-s="3"><small>Montage</small><h2>Aufgebaut.</h2><p>Schränke und Betten stehen am neuen Ort wieder bereit.</p><a href="../montage/">Montage</a></li>
+        <li class="beat" data-s="4"><small>Umzugsreinigung</small><h2>Sauber übergeben.</h2><p>Mit Abnahmegarantie – beanstandet die Verwaltung, reinigen wir kostenlos nach.</p><a href="../umzugsreinigung/">Umzugsreinigung</a></li>
+        <li class="beat" data-s="5"><small>Feierabend</small><h2>Schlüssel übergeben.</h2><p>Ein Auftrag. Ein Ansprechpartner. Fertig.</p></li>
+      </ol>
+      <div class="day-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR UNTERNEHMEN & GROSSE HÄUSER -->
+<section class="biz" id="firmen" aria-label="Für Unternehmen und grosse Häuser">
+  <div class="wrap">
+    <div class="biz-head">
+      <small class="eyebrow">Für Unternehmen &amp; grosse Häuser</small>
+      <h2 class="scramble">Grosse Projekte.<br />Ein Plan. Ein Ansprechpartner.</h2>
+    </div>
+    <div class="biz-grid">
+      <a class="biz-card" href="../firmenumzug/">
+        <img src="../assets/team.webp" alt="Symbolbild: Umzugsteam" loading="lazy" /><span class="sym">Symbolbild</span>
+        <div class="bc-in"><b>Firmen &amp; Büros</b><ul><li>Abends oder am Wochenende nach Vereinbarung</li><li>Raumplan und Etikettierung</li><li>Altmobiliar entsorgt</li></ul></div>
+      </a>
+      <a class="biz-card" href="../villen-anwesen/">
+        <img src="../assets/consult.webp" alt="Symbolbild: Beratung vor Ort" loading="lazy" /><span class="sym">Symbolbild</span>
+        <div class="bc-in"><b>Villen &amp; Anwesen</b><ul><li>Inventarliste und Verpackung nach Mass</li><li>Schutz der Liegenschaft</li><li>Auf Wunsch über mehrere Tage</li></ul></div>
+      </a>
+      <a class="biz-card dark" href="../museum-kunst/">
+        <span class="bc-mark" aria-hidden="true">◇</span>
+        <div class="bc-in"><b>Museen &amp; Kunst</b><ul><li>Verpackung nach Mass und Dokumentation</li><li>Abgestimmt mit Ihren Fachleuten</li><li>Besondere Anforderungen in der Offerte</li></ul></div>
+      </a>
+    </div>
+    <div class="biz-flow">
+      <div><b>01</b><span>Besichtigung</span></div>
+      <div><b>02</b><span>Schriftlicher Ablaufplan</span></div>
+      <div><b>03</b><span>Ausführung in Etappen</span></div>
+      <a class="pill pill-w" href="../grossauftraege/">Erstgespräch vereinbaren</a>
+    </div>
   </div>
 </section>
 
@@ -240,8 +372,8 @@ p{margin:0}
 </div></section>
 
 <section class="final" id="offerte" aria-label="Offerte"><div class="wrap">
-  <h2>Los geht's.</h2>
-  <p>Zwei Adressen genügen. Die Offerte ist unverbindlich und schriftlich.</p>
+  <h2 class="arrive">Angekommen.</h2>
+  <p>So kann Ihr Umzugstag aussehen. Zwei Adressen genügen – die Offerte ist unverbindlich und schriftlich.</p>
   <form class="quick" action="../offerte/" method="get">
     <label class="sr" for="q-von">Von</label><input id="q-von" name="von" placeholder="Von (PLZ / Ort)" autocomplete="address-level2" />
     <label class="sr" for="q-nach">Nach</label><input id="q-nach" name="nach" placeholder="Nach (PLZ / Ort)" autocomplete="address-level2" />
@@ -280,6 +412,8 @@ p{margin:0}
   <span><a href="../agb.html">AGB</a> · <a href="../datenschutz.html">Datenschutz</a> · <a href="../impressum.html">Impressum</a></span>
 </div></footer>
 
+<div class="trip hide" id="trip" aria-hidden="true"><span class="trip-label" id="tripLabel">Alte Adresse</span><span class="trip-track"><i class="trip-fill"></i><span class="trip-truck"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></div>
+<div class="cur" aria-hidden="true"></div>
 <div class="mbar"><a class="pill pill-o" href="tel:+41799333111">Anrufen</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener">WhatsApp</a><a class="pill pill-w" href="#offerte">Offerte</a></div>
 
 <style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style>
@@ -368,7 +502,6 @@ p{margin:0}
   gsap.from('.tw a', { opacity: 0, y: 40, stagger: .05, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: '.tw', start: 'top 80%' } });
 
   // Finale: Titel wächst
-  gsap.from('.final h2', { scale: .7, opacity: 0, ease: 'power3.out', scrollTrigger: { trigger: '.final', start: 'top 80%', end: 'top 30%', scrub: true } });
 
   // Magnetische Buttons (nur Maus)
   if (matchMedia('(pointer:fine)').matches) document.querySelectorAll('.pill').forEach(function (b) {
@@ -376,6 +509,89 @@ p{margin:0}
     b.addEventListener('mouseleave', function () { gsap.to(b, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,.4)' }); });
   });
 })();
+</script>
+<script>
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add('gs');
+
+  /* Eintritt: Bild-in-Schrift zoomt durch */
+  gsap.timeline({ scrollTrigger: { trigger: '.zoom', start: 'top top', end: '+=140%', scrub: true, pin: true } })
+    .to('.zoom-hint', { opacity: 0, y: -20, duration: .2 }, 0)
+    .to('.zoom-word', { scale: 22, ease: 'power2.in', duration: 1 }, 0)
+    .to('.zoom-fill', { opacity: 1, duration: .35, ease: 'power1.in' }, .62);
+
+  /* Ein Umzugstag: Szenen + Uhr */
+  var times = ['07:30', '09:00', '11:30', '13:00', '15:30', '17:30'];
+  var scenes = gsap.utils.toArray('.scene'), beats = gsap.utils.toArray('.beat'), dots = gsap.utils.toArray('.day-dots i');
+  var clock = document.getElementById('clock');
+  var tl = gsap.timeline({ scrollTrigger: { trigger: '.day-stage', start: 'top top', end: '+=' + (scenes.length * 90) + '%', scrub: .5, pin: true,
+    onUpdate: function (s) {
+      var i = Math.min(scenes.length - 1, Math.floor(s.progress * scenes.length * .999 + .15));
+      clock.textContent = times[i]; dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+    } } });
+  dots[0].classList.add('on');
+  scenes.forEach(function (sc, i) {
+    if (i === 0) { tl.fromTo(sc.querySelector('img'), { scale: 1.15 }, { scale: 1, duration: 1, ease: 'none' }, 0); return; }
+    var at = i;
+    tl.to(beats[i - 1], { autoAlpha: 0, y: -60, duration: .3, ease: 'power2.in' }, at - .35)
+      .to(sc, { clipPath: 'inset(0% 0 0 0)', duration: .6, ease: 'power3.inOut' }, at - .3)
+      .fromTo(sc.querySelector('img'), { scale: 1.3 }, { scale: 1, duration: 1.2, ease: 'none' }, at - .3)
+      .fromTo(beats[i], { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: .35, ease: 'power3.out' }, at);
+  });
+  tl.to({}, { duration: .4 });
+
+  /* Unternehmen: Karten neigen sich zur Maus */
+  if (matchMedia('(pointer:fine)').matches) document.querySelectorAll('.biz-card').forEach(function (c) {
+    c.addEventListener('mousemove', function (e) { var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      gsap.to(c, { rotateY: x * 8, rotateX: -y * 8, transformPerspective: 900, duration: .4 }); });
+    c.addEventListener('mouseleave', function () { gsap.to(c, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }); });
+  });
+  gsap.from('.biz-card', { y: 90, opacity: 0, stagger: .12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.biz-grid', start: 'top 85%' } });
+
+  /* Schrift baut sich Buchstabe für Buchstabe auf */
+  var chars = '01ZÜGELKLAR/—·';
+  document.querySelectorAll('.scramble').forEach(function (el) {
+    var html = el.innerHTML, done = false;
+    ScrollTrigger.create({ trigger: el, start: 'top 80%', onEnter: function () {
+      if (done) return; done = true;
+      var nodes = []; (function walk(n) { n.childNodes.forEach(function (c) { if (c.nodeType === 3) nodes.push(c); else walk(c); }); })(el);
+      var orig = nodes.map(function (n) { return n.textContent; }), t = 0;
+      var id = setInterval(function () {
+        t += 1;
+        nodes.forEach(function (n, k) { var s = orig[k]; n.textContent = s.split('').map(function (ch, i) { return ch === ' ' || i < t ? ch : chars[Math.floor(Math.random() * chars.length)]; }).join(''); });
+        if (t > Math.max.apply(null, orig.map(function (s) { return s.length; }))) { clearInterval(id); el.innerHTML = html; }
+      }, 28);
+    } });
+  });
+
+  /* Reise-Leiste: Wagen fährt zur neuen Adresse */
+  var trip = document.getElementById('trip'), label = document.getElementById('tripLabel');
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: function (s) {
+    trip.style.setProperty('--p', s.progress.toFixed(4));
+    var done = s.progress > .985;
+    trip.classList.toggle('done', done);
+    label.textContent = done ? 'Angekommen' : (s.progress < .02 ? 'Alte Adresse' : 'Unterwegs');
+    trip.classList.toggle('hide', s.progress < .03);
+  } });
+
+  /* Finale: Angekommen */
+  gsap.from('.final .arrive', { yPercent: 60, scale: .85, opacity: 0, duration: 1.1, ease: 'power4.out', scrollTrigger: { trigger: '.final', start: 'top 75%', toggleActions: 'play none none reverse' } });
+
+  /* Cursor */
+  var cur = document.querySelector('.cur');
+  if (cur && matchMedia('(pointer:fine)').matches) {
+    var qx = gsap.quickTo(cur, 'x', { duration: .25, ease: 'power3' }), qy = gsap.quickTo(cur, 'y', { duration: .25, ease: 'power3' });
+    addEventListener('mousemove', function (e) { qx(e.clientX); qy(e.clientY); });
+    document.querySelectorAll('a,button,input').forEach(function (a) {
+      a.addEventListener('mouseenter', function () { cur.classList.add('big'); });
+      a.addEventListener('mouseleave', function () { cur.classList.remove('big'); });
+    });
+  }
+  ScrollTrigger.sort(); ScrollTrigger.refresh();
+})();
+
 </script>
 </body>
 </html>

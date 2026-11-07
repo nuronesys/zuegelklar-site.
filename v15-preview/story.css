@@ -1,0 +1,77 @@
+/* ── Eintritt durch die Schrift ── */
+.zoom{position:relative;height:100svh;background:var(--night);overflow:hidden}
+.zoom-stage{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:22px;text-align:center}
+.zoom-word{font:800 clamp(5rem,2rem + 17vw,19rem)/.82 var(--disp);letter-spacing:-.06em;color:transparent;background-size:cover;background-position:center;-webkit-background-clip:text;background-clip:text;will-change:transform}
+.zoom-hint{color:var(--t2);font-size:clamp(16px,1rem + .3vw,20px)}
+
+/* ── Ein Umzugstag ── */
+.day{position:relative;background:var(--night)}
+.day-media{position:relative;height:70svh;overflow:hidden}
+.scene{position:absolute;inset:0;margin:0}
+.scene img{width:100%;height:100%;object-fit:cover}
+.scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(15 15 19 / .35),rgb(15 15 19 / .2) 40%,rgb(15 15 19 / .85))}
+.scene .sym{z-index:3}
+.day-ui{position:relative;padding-block:40px 90px}
+.clock{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.clock span{font:800 clamp(4rem,2rem + 9vw,11rem)/.9 var(--disp);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.clock small{font:600 12px/1 var(--txt);letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
+.day-text{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:36px}
+.beat small{display:block;font:600 13px/1 var(--txt);letter-spacing:.14em;text-transform:uppercase;color:var(--blue-l);margin-bottom:12px}
+.beat h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
+.beat p{margin-top:12px;font-size:clamp(17px,1rem + .35vw,21px);color:var(--t2);max-width:34ch}
+.beat a{display:inline-flex;margin-top:18px;font-weight:600;border-bottom:1.5px solid var(--blue-l);padding-bottom:3px}
+.day-dots{display:none}
+/* Mit GSAP: gepinnte Bühne */
+.gs .day-stage{position:relative;height:100svh;overflow:hidden}
+.gs .day-media{position:absolute;inset:0;height:auto}
+.gs .scene{clip-path:inset(100% 0 0 0)}
+.gs .scene[data-s="0"]{clip-path:inset(0)}
+.gs .day-ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding-block:0 clamp(40px,8vh,90px)}
+.gs .clock{position:absolute;top:calc(96px + env(safe-area-inset-top,0px));left:0}
+.gs .day-text{position:relative;margin:0;display:block;min-height:clamp(220px,34vh,320px)}
+.gs .beat{position:absolute;inset:auto 0 0 0;opacity:0;visibility:hidden}
+.gs .beat[data-s="0"]{opacity:1;visibility:visible}
+.gs .day-dots{display:flex;gap:8px;margin-top:26px}
+.day-dots i{width:28px;height:3px;border-radius:3px;background:rgb(255 255 255 / .22);transition:background .3s,width .3s}
+.day-dots i.on{background:#fff;width:46px}
+
+/* ── Unternehmen ── */
+.biz{background:#0B0B0E;padding-block:clamp(100px,12vw,180px);border-top:1px solid var(--line)}
+.eyebrow{display:block;font:600 13px/1 var(--txt);letter-spacing:.16em;text-transform:uppercase;color:var(--blue-l);margin-bottom:20px}
+.biz-head h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6.2rem)}
+.biz-grid{display:grid;gap:18px;margin-top:clamp(40px,5vw,70px)}
+@media (min-width:900px){.biz-grid{grid-template-columns:1.2fr 1fr 1fr}}
+.biz-card{position:relative;min-height:440px;border-radius:26px;overflow:hidden;isolation:isolate;border:1px solid var(--line);background:var(--night-2);transform-style:preserve-3d;transition:transform .2s}
+.biz-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.8) brightness(.8);transition:transform 1s var(--e),filter .6s}
+.biz-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgb(11 11 14 / .95))}
+.biz-card:hover img{transform:scale(1.06);filter:saturate(1) brightness(.9)}
+.biz-card .sym{top:14px;bottom:auto}
+.biz-card.dark{background:radial-gradient(120% 90% at 20% 0%,#2A2A33,#0B0B0E)}
+.bc-mark{position:absolute;top:30px;left:28px;font:800 90px/1 var(--disp);color:var(--blue-l);opacity:.5}
+.bc-in{position:absolute;inset:auto 0 0;padding:28px}
+.bc-in b{font:800 clamp(26px,1.2rem + 1vw,34px)/1 var(--disp);letter-spacing:-.03em}
+.bc-in ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;color:var(--t2);font-size:15px}
+.bc-in li::before{content:"—";color:var(--blue-l);margin-right:10px}
+.biz-flow{display:flex;flex-wrap:wrap;align-items:center;gap:14px 40px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.biz-flow div{display:flex;align-items:baseline;gap:12px}
+.biz-flow b{font:800 28px/1 var(--disp);color:var(--blue-l)}
+.biz-flow span{color:var(--t)}
+.biz-flow .pill{margin-left:auto}
+@media (max-width:700px){.biz-flow .pill{margin-left:0;width:100%}}
+
+/* ── Reise-Leiste ── */
+.trip{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));translate:-50% 0;z-index:55;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:rgb(15 15 19 / .78);backdrop-filter:blur(14px);border:1px solid var(--line);font:600 13px/1 var(--txt);color:var(--t2);transition:opacity .4s,translate .4s}
+.trip-track{position:relative;width:min(260px,40vw);height:2px;background:rgb(255 255 255 / .18);border-radius:2px}
+.trip-fill{position:absolute;inset:0;background:var(--blue-l);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.trip-truck{position:absolute;top:50%;left:calc(var(--p,0) * 100%);translate:-50% -50%;width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.trip-truck svg{width:16px;height:16px}
+.trip-home{width:18px;height:18px;color:var(--t2)}
+.trip.done{color:#fff}.trip.done .trip-home{color:#4ADE80}
+.trip.hide{opacity:0;translate:-50% 20px;pointer-events:none}
+@media (max-width:900px){.trip{bottom:calc(84px + env(safe-area-inset-bottom,0px));padding:8px 12px}.trip-label{display:none}}
+
+/* ── Cursor ── */
+.cur{position:fixed;left:0;top:0;z-index:100;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;transition:width .25s var(--e),height .25s var(--e),margin .25s var(--e)}
+.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px}
+@media (pointer:coarse){.cur{display:none}}
+@media (prefers-reduced-motion:reduce){.cur,.trip{display:none}}
