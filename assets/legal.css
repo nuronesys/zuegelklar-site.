@@ -1,29 +1,29 @@
-/* ZÜGELKLAR — Stylesheet für die Rechtsseiten (Impressum, Datenschutz, AGB) */
+/* ZÜGELKLAR — Rechtsseiten (Impressum, Datenschutz, AGB), dunkel im V15-Stil */
 :root{
-  --blue:#0057B8; --red:#E30613;
-  --ink:#14181D; --ink-2:#3D4854; --muted:#6C7885;
-  --line:#E2E8EE; --soft:#F2F5F8; --dark:#0C1015;
+  --blue:#4D94E8; --red:#FF5A63;
+  --ink:#F2F4F7; --ink-2:rgb(242 244 247 / .72); --muted:rgb(242 244 247 / .5);
+  --line:rgb(255 255 255 / .1); --soft:#18181E; --dark:#0A0A0D; --bg:#0F0F13;
   --display:'Bricolage Grotesque',system-ui,sans-serif;
   --body:'Instrument Sans','Segoe UI',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{margin:0;font-family:var(--body);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--bg);color-scheme:dark;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:var(--blue)}
-a:hover{color:#003f85}
+a:hover{color:#fff}
 .wrap{width:min(860px,calc(100% - 48px));margin-inline:auto}
 
 /* header */
-.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr{position:sticky;top:0;z-index:50;background:rgb(15 15 19 / .82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px;width:min(1280px,calc(100% - 48px))}
-.hdr img{width:176px;height:auto}
+.hdr img{width:156px;height:auto;filter:brightness(0) invert(1)}
 .back{font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 
 /* hero */
-.top{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+.top{padding:72px 0 38px;background:radial-gradient(70% 120% at 85% 0%,rgb(0 87 184 / .28),transparent 70%);border-bottom:1px solid var(--line)}
 .kicker{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
-h1{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.05;font-size:clamp(32px,4.4vw,52px);margin:0}
+h1{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.05;font-size:clamp(34px,5vw,60px);margin:0;color:#fff;text-wrap:balance}
 .sub{font-size:17px;line-height:1.6;color:var(--ink-2);margin:18px 0 0;max-width:60ch}
 
 /* notice */
@@ -42,7 +42,7 @@ li{margin-bottom:8px}
 dl{margin:0 0 18px;display:grid;grid-template-columns:230px 1fr;gap:10px 22px}
 dt{font-weight:600;color:var(--ink);font-size:15px}
 dd{margin:0;font-size:16px;color:var(--ink-2)}
-.todo{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#FFF3F3;color:#B3000F;border:1px solid #F3C9CD;padding:2px 8px;border-radius:5px}
+.todo{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:rgb(255 90 99 / .12);color:#FF8A90;border:1px solid rgb(255 90 99 / .3);padding:2px 8px;border-radius:5px}
 .stand{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
 
 /* toc */
@@ -54,7 +54,7 @@ dd{margin:0;font-size:16px;color:var(--ink-2)}
 .toc a:hover{text-decoration:underline}
 
 /* footer */
-.ftr{background:var(--dark);color:rgba(237,241,245,.62);padding:48px 0;font-size:15px}
+.ftr{background:var(--dark);border-top:1px solid var(--line);color:rgba(237,241,245,.62);padding:48px 0;font-size:15px}
 .ftr .wrap{width:min(1280px,calc(100% - 48px));display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 .ftr a{color:rgba(237,241,245,.62);text-decoration:none}
 .ftr a:hover{color:#fff}
@@ -70,3 +70,7 @@ dd{margin:0;font-size:16px;color:var(--ink-2)}
 }
 
 .small-note{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+
+.back{color:#fff;border:1.5px solid rgb(255 255 255 / .2);border-radius:999px;padding:10px 18px;font-size:14px}
+.back:hover{border-color:#fff;color:#fff}
+.ftr img{filter:brightness(0) invert(1)}
