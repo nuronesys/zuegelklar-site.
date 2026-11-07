@@ -1,0 +1,64 @@
+/* ZÜGELKLAR V15 – gemeinsame Bausteine aller Seiten: Buttons (pill), Header, Menü, Mobil-Leiste, Footer.
+   Eigene Werte statt Variablen, damit es auf der Startseite (eigene Tokens) und den Unterseiten (site.css) gleich aussieht. */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 24px;border-radius:999px;border:0;font:600 15px/1 'Instrument Sans','Segoe UI',system-ui,sans-serif;white-space:nowrap;text-decoration:none;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.2,1),background .2s,color .2s,border-color .2s}
+.pill svg{width:18px;height:18px}
+.pill-w{background:#fff;color:#1E1E24}.pill-w:hover{background:#0057B8;color:#fff}
+.pill-b{background:#0057B8;color:#fff}.pill-b:hover{background:#00449A}
+.pill-wa{background:#15803D;color:#fff}.pill-wa:hover{background:#116A33}
+.pill-o{border:1.5px solid rgb(255 255 255 / .2);color:#fff;background:transparent}.pill-o:hover{border-color:#fff}
+
+/* Header der Unterseiten (Startseite hat einen eigenen) */
+.hdr.sub{position:sticky;top:0;z-index:60;background:rgb(15 15 19 / .78);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid rgb(255 255 255 / .08);padding-top:env(safe-area-inset-top,0px)}
+.hdr.sub .wrap{display:flex;align-items:center;gap:22px;height:74px}
+.hdr.sub .hdr-home{flex:none;display:flex}
+.hdr.sub .logo{width:156px;height:auto;filter:brightness(0) invert(1)}
+.hdr.sub .nav{margin-left:auto;display:flex;align-items:center;gap:24px;font-size:15px;font-weight:500;color:rgb(242 244 247 / .66)}
+.hdr.sub .nav a{transition:color .2s}
+.hdr.sub .nav a:hover,.hdr.sub .nav a[aria-current]{color:#fff}
+.hdr.sub .hdr-cta{height:44px;padding:0 20px}
+.hdr.sub .burger{display:none;width:44px;height:44px;border:1.5px solid rgb(255 255 255 / .18);border-radius:12px;background:transparent;color:#fff;align-items:center;justify-content:center}
+@media (max-width:1100px){.hdr.sub .nav{gap:16px;font-size:14px}.hdr.sub .nav a[href$="leistungen/"]{display:none}}
+@media (max-width:900px){
+  .hdr.sub .nav{display:none}
+  .hdr.sub .hdr-cta{margin-left:auto}
+  .hdr.sub .burger{display:flex}
+  .hdr.sub .logo{width:136px}
+}
+
+/* Menü (Drawer) */
+.drawer{display:none;position:fixed;inset:0;z-index:90;background:rgb(10 10 14 / .6);backdrop-filter:blur(6px)}
+.drawer.open{display:block}
+.drawer-in{position:absolute;top:0;right:0;width:min(360px,88vw);height:100%;overflow:auto;background:#0F0F13;color:#F2F4F7;padding:calc(18px + env(safe-area-inset-top,0px)) 22px calc(24px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:2px;border-left:1px solid rgb(255 255 255 / .1)}
+.drawer-in > a{padding:15px 4px;border-bottom:1px solid rgb(255 255 255 / .1);font:700 19px/1.2 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.02em;color:#F2F4F7}
+.drawer-close{align-self:flex-end;width:44px;height:44px;border:0;border-radius:50%;background:rgb(255 255 255 / .08);font-size:24px;cursor:pointer;color:#fff}
+.drawer-cta{display:grid;gap:10px;margin-top:22px}
+.drawer-cta .pill{width:100%}
+
+/* Mobil-Leiste */
+.mbar{display:none}
+@media (max-width:900px){
+  .mbar{display:flex;position:fixed;inset:auto 0 0;z-index:70;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgb(15 15 19 / .88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgb(255 255 255 / .1)}
+  .mbar .pill{flex:1;height:48px;padding:0 10px;font-size:14px;gap:6px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+}
+
+/* Footer */
+.ftr{background:#0A0A0D;color:rgb(242 244 247 / .6);padding-block:clamp(64px,8vw,110px) calc(36px + env(safe-area-inset-bottom,0px));font-size:15px;border-top:1px solid rgb(255 255 255 / .08)}
+.ftr a:not(.pill){color:inherit;text-decoration:none;transition:color .2s}
+.ftr a:not(.pill):hover{color:#fff}
+.ftr-top{display:grid;gap:clamp(40px,5vw,70px)}
+@media (min-width:1000px){.ftr-top{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}}
+.ftr-brand{display:grid;gap:14px;justify-items:start;align-content:start}
+.ftr-logo{width:170px;height:auto;filter:brightness(0) invert(1);margin:0}
+.ftr-claim{font:800 clamp(26px,1.2rem + 1.4vw,36px)/1.05 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.04em;color:#fff;margin:6px 0 0}
+.ftr-claim span{color:#4D94E8}
+.ftr-brand p{margin:0;max-width:38ch;line-height:1.6}
+.ftr .ftr-perks{list-style:none;margin:4px 0 8px;padding:0;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
+.ftr-perks li{padding:7px 12px;border-radius:999px;border:1px solid rgb(255 255 255 / .14);font-size:13px;font-weight:600;color:#fff}
+.ftr-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+@media (max-width:820px){.ftr-cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ftr .fh{font:600 12px/1 'Instrument Sans',system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin:0 0 16px}
+.ftr .fh + ul + .fh,.ftr ul + .fh{margin-top:28px}
+.ftr ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;line-height:1.45}
+.ftr-bot{margin-top:clamp(40px,5vw,64px);padding-top:22px;border-top:1px solid rgb(255 255 255 / .1);display:flex;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;font-size:13px}
+.ftr-legal{display:flex;gap:22px}

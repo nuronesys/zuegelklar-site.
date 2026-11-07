@@ -1,0 +1,80 @@
+/* ZÜGELKLAR V15 – Unterseiten im Stil der Startseite: dunkel, grosse Schrift, blaue Akzente.
+   Wird NACH site.css geladen und stellt deren Farb-Tokens um. Inhalte und Struktur bleiben unverändert. */
+:root{
+  --ink:#F2F4F7; --ink-2:rgb(242 244 247 / .78); --muted:rgb(242 244 247 / .58);
+  --line:rgb(255 255 255 / .12); --soft:#18181E; --white:#0F0F13;
+  --dark:#0A0A0D; --dark-2:#141419; --accent:#4D94E8;
+  color-scheme:dark;
+}
+html{background:#0F0F13}
+body{background:#0F0F13;color:var(--ink);font-size:17px}
+::selection{background:#0057B8;color:#fff}
+h1,h2,h3{letter-spacing:-.045em}
+
+/* Akzentfarbe für Text (dunkles Blau wäre auf Schwarz zu schwach) */
+.eyebrow,.kicker,.crumb a,.consent a,.src a,.f-more summary,.f-back,.cmp a,.hero-tel a,.prose a,.hero h1 b,.region.base,a.region:hover,.sp-tel:hover,.prose h3 a{color:var(--accent)}
+.faq summary::after{color:var(--accent)}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.prose a{text-decoration:underline;text-underline-offset:3px}
+
+/* Buttons */
+.btn{font-family:var(--body)}
+.btn-primary{background:#fff;color:#1E1E24}.btn-primary:hover{background:#0057B8;color:#fff}
+.btn-ghost{background:transparent;color:#fff;border-color:rgb(255 255 255 / .22)}.btn-ghost:hover{border-color:#fff}
+.btn-light{background:#fff;color:#1E1E24}
+.skip{background:#fff;color:#1E1E24}
+
+/* Seitenkopf: grosse Schrift, leichter Lichtschein */
+.sp-hero{position:relative;padding:clamp(48px,7vw,96px) 0 clamp(36px,5vw,64px);overflow:hidden;isolation:isolate}
+.sp-hero::before{content:"";position:absolute;inset:-30% -10% auto auto;width:min(900px,90vw);aspect-ratio:1;z-index:-1;background:radial-gradient(closest-side,rgb(0 87 184 / .28),transparent 70%);pointer-events:none}
+.sp-hero h1{font-size:clamp(2.4rem,1.2rem + 4vw,4.8rem);line-height:.98;text-wrap:balance}
+.sp-hero .lead{color:var(--ink-2);font-size:clamp(17px,1rem + .3vw,20px)}
+.sp-img{border-radius:26px;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgb(0 0 0 / .8)}
+.sp-img img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.sp-img:hover img{transform:scale(1.04)}
+.sym{background:rgb(0 0 0 / .5);backdrop-filter:blur(6px);border-radius:999px}
+@media (prefers-reduced-motion:no-preference){
+  .sp-hero .wrap > div:first-child > *{animation:v15up .9s cubic-bezier(.2,.7,.2,1) both}
+  .sp-hero .wrap > div:first-child > *:nth-child(2){animation-delay:.06s}
+  .sp-hero .wrap > div:first-child > *:nth-child(3){animation-delay:.12s}
+  .sp-hero .wrap > div:first-child > *:nth-child(4){animation-delay:.18s}
+  .sp-hero .wrap > div:first-child > *:nth-child(5){animation-delay:.24s}
+  .sp-img{animation:v15img 1.2s cubic-bezier(.2,.7,.2,1) .1s both}
+}
+@keyframes v15up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes v15img{from{opacity:0;clip-path:inset(12% 8% 12% 8% round 26px)}to{opacity:1;clip-path:inset(0 round 26px)}}
+
+/* Fliesstext */
+.prose{color:var(--ink-2)}
+.prose h2{font-size:clamp(28px,1.2rem + 2vw,44px);color:#fff;line-height:1.02}
+.prose h3{color:#fff}
+.prose p,.prose ul,.prose ol{color:var(--ink-2)}
+.prose li b,.prose strong{color:#fff}
+.sp-facts li::before,.prose ul li::before{background-color:rgb(77 148 232 / .18)}
+
+/* Karten, Kästen, Tabellen */
+.sp-card{background:#16161C;border-color:var(--line);box-shadow:0 40px 80px -40px rgb(0 0 0 / .9)}
+.sp-card-t{color:#fff;font-size:24px}
+.sp-tel{color:#fff}
+.card,.svc,.proof{background:#16161C;border-color:var(--line)}
+.svc:hover{border-color:rgb(255 255 255 / .3)}
+.ctabox{background:linear-gradient(120deg,#0057B8,#003F86);color:#fff;border-radius:26px}
+.ctabox b{color:#fff}
+.ctabox .btn-primary{background:#fff;color:#1E1E24}
+.ctabox .btn-ghost{border-color:rgb(255 255 255 / .4)}
+.region{background:transparent;border-color:var(--line);color:#fff}
+.offer{background:#0B0B0E}
+.band{background:#0B0B0E;border-block:1px solid var(--line)}
+.fact{border-top-color:rgb(255 255 255 / .3)}
+.ph .code{background:#fff;color:#1E1E24}
+.cmp th{background:#16161C;color:var(--ink-2)}
+.cmp th,.cmp td{border-color:var(--line)}
+.field input,.field select,.field textarea,.f-more,.f-done textarea{background:#0B0B0E;color:#fff;border-color:rgb(255 255 255 / .18)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent)}
+.field input::placeholder,.field textarea::placeholder{color:rgb(242 244 247 / .4)}
+.field select option{background:#0F0F13;color:#fff}
+.faq summary{color:#fff}
+.faq p{color:var(--ink-2)}
+
+/* Startseite-Reste (falls eine Unterseite .hero nutzt) */
+.hero{background:transparent}

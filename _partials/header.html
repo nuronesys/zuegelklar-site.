@@ -1,10 +1,10 @@
-<header class="hdr"><div class="wrap">
-  <a href="{{ROOT}}"><img class="logo" src="{{R}}assets/logo.svg" alt="ZÜGELKLAR – Startseite" width="648" height="200" /></a>
+<header class="hdr sub" id="hdr"><div class="wrap">
+  <a class="hdr-home" href="{{ROOT}}"><img class="logo" src="{{R}}assets/logo.svg" alt="ZÜGELKLAR – Startseite" width="648" height="200" /></a>
   <nav class="nav" aria-label="Hauptnavigation">
     <a href="{{R}}leistungen/">Leistungen</a><a href="{{R}}umzug/">Umzug</a><a href="{{R}}umzugsreinigung/">Reinigung</a><a href="{{R}}raeumung-entsorgung/">Räumung</a><a href="{{R}}grossauftraege/">Grossaufträge</a><a href="{{R}}einsatzgebiet/">Einsatzgebiet</a><a href="{{R}}ratgeber/">Ratgeber</a>
-    <a class="btn btn-blue" href="{{OFFER}}" data-loc="header" style="min-height:46px;padding:0 22px">Offerte anfragen</a>
   </nav>
-  <a class="burger" id="burger" href="{{R}}leistungen/" role="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14181D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
+  <a class="pill pill-w hdr-cta" href="{{OFFER}}" data-loc="header">Offerte</a>
+  <a class="burger" id="burger" href="{{R}}leistungen/" role="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></a>
 </div></header>
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
   <div class="drawer-in">
@@ -17,8 +17,10 @@
     <a href="{{R}}einsatzgebiet/">Einsatzgebiet</a>
     <a href="{{R}}ratgeber/">Ratgeber</a>
     <a href="{{R}}ueber-uns/">Über uns</a>
-    <a class="btn btn-blue" href="{{OFFER}}" data-loc="drawer" style="margin-top:18px;border:none">Offerte anfragen</a>
-    <a class="btn btn-ghost" href="tel:+41799333111" data-loc="drawer" style="margin-top:10px">079 933 31 11 anrufen</a>
-    <a class="btn btn-wa" href="https://wa.me/41799333111" rel="noopener" data-loc="drawer" style="margin-top:10px;border:none">{{WA}}WhatsApp schreiben</a>
+    <div class="drawer-cta">
+      <a class="pill pill-w" href="{{OFFER}}" data-loc="drawer">Offerte in 3 Klicks</a>
+      <a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener" data-loc="drawer">{{WA}}WhatsApp</a>
+      <a class="pill pill-o" href="tel:+41799333111" data-loc="drawer">079 933 31 11</a>
+    </div>
   </div>
 </div>
