@@ -4,7 +4,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
-<title>ZÜGELKLAR V15</title>
+<title>Umzugsfirma Aargau &amp; Zürich: Umzug, Reinigung | ZÜGELKLAR</title>
+<meta name="description" content="Umzugsfirma aus Mellingen AG: Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Montage im Aargau und Raum Zürich. Unverbindliche Offerte." />
+<link rel="canonical" href="https://zuegelklar.ch/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://zuegelklar.ch/" />
+<meta property="og:site_name" content="ZÜGELKLAR" />
+<meta property="og:locale" content="de_CH" />
+<meta property="og:title" content="Umzugsfirma Aargau &amp; Zürich: Umzug, Reinigung | ZÜGELKLAR" />
+<meta property="og:description" content="Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung &amp; Montage im Aargau und Raum Zürich. Ein Team, ein fester Ansprechpartner." />
+<meta property="og:image" content="https://zuegelklar.ch/assets/og/home.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0F0F13" />
+<link rel="icon" href="../favicon.ico" sizes="any" />
 <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/bricolage-grotesque-latin-var.woff2" crossorigin />
 <link rel="preload" as="image" href="../assets/hero-desktop.webp" />
 <link rel="stylesheet" href="../assets/fonts/fonts.css" />
@@ -158,6 +170,17 @@ p{margin:0}
   .mbar .pill{flex:1;height:48px;padding:0 10px;font-size:14px}
 }
 @media (prefers-reduced-motion:reduce){.story-media figure{transition:none}.hero-media img{transform:none}}
+
+.faqs{background:var(--night);padding-block:clamp(80px,9vw,140px);border-top:1px solid var(--line)}
+.faqs h2{font-size:clamp(2.2rem,1.4rem + 3vw,4.4rem);margin-bottom:30px}
+.faqs .faq{max-width:900px}
+.faqs details{border-bottom:1px solid var(--line)}
+.faqs summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:700 clamp(17px,1rem + .4vw,22px)/1.3 var(--disp);letter-spacing:-.01em}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";flex:none;font-weight:400;color:var(--blue-l);transition:transform .25s}
+.faqs details[open] summary::after{transform:rotate(45deg)}
+.faqs details p{padding:0 0 22px;color:var(--t2);max-width:68ch}
+.faqs details a{text-decoration:underline}
 </style>
 <style>
 /* ── Eintritt durch die Schrift ── */
@@ -225,20 +248,24 @@ p{margin:0}
 
 /* ── Reise-Leiste ── */
 .trip{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));translate:-50% 0;z-index:55;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:rgb(15 15 19 / .78);backdrop-filter:blur(14px);border:1px solid var(--line);font:600 13px/1 var(--txt);color:var(--t2);transition:opacity .4s,translate .4s}
-.trip-track{position:relative;width:min(260px,40vw);height:2px;background:rgb(255 255 255 / .18);border-radius:2px}
+.trip-track{position:relative;width:min(380px,58vw);height:2px;background:rgb(255 255 255 / .18);border-radius:2px}
 .trip-fill{position:absolute;inset:0;background:var(--blue-l);transform-origin:0 50%;transform:scaleX(var(--p,0))}
 .trip-truck{position:absolute;top:50%;left:calc(var(--p,0) * 100%);translate:-50% -50%;width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center}
 .trip-truck svg{width:16px;height:16px}
+.stop{position:absolute;top:50%;translate:-50% -50%;width:28px;height:28px;display:grid;place-items:center;z-index:1}
+.stop::before{content:"";width:9px;height:9px;border-radius:50%;background:#0F0F13;border:2px solid rgb(255 255 255 / .45);transition:background .2s,border-color .2s,transform .2s}
+.stop.passed::before{background:var(--blue-l);border-color:var(--blue-l)}
+.stop:hover::before,.stop:focus-visible::before{transform:scale(1.4);border-color:#fff}
+.stop span{position:absolute;bottom:26px;left:50%;translate:-50% 0;white-space:nowrap;font:600 12px/1 var(--txt);color:#fff;background:#0F0F13;border:1px solid var(--line);padding:6px 9px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s,translate .2s}
+.stop:hover span,.stop:focus-visible span{opacity:1;translate:-50% -4px}
+.trip-truck{z-index:2;pointer-events:none}
 .trip-home{width:18px;height:18px;color:var(--t2)}
 .trip.done{color:#fff}.trip.done .trip-home{color:#4ADE80}
 .trip.hide{opacity:0;translate:-50% 20px;pointer-events:none}
 @media (max-width:900px){.trip{bottom:calc(84px + env(safe-area-inset-bottom,0px));padding:8px 12px}.trip-label{display:none}}
 
 /* ── Cursor ── */
-.cur{position:fixed;left:0;top:0;z-index:100;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;transition:width .25s var(--e),height .25s var(--e),margin .25s var(--e)}
-.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px}
-@media (pointer:coarse){.cur{display:none}}
-@media (prefers-reduced-motion:reduce){.cur,.trip{display:none}}
+@media (prefers-reduced-motion:reduce){.trip-fill,.trip-truck{transition:none}}
 
 </style>
 </head>
@@ -337,13 +364,13 @@ p{margin:0}
 <section class="hscroll" id="mehr" aria-label="Weitere Leistungen">
   <div class="wrap hs-head"><h2>Und alles<br />dazwischen.</h2></div>
   <div class="hs-track" id="hsTrack">
-    <a class="card" href="../kleinumzug/"><img src="../assets/packing.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Kleinumzug</b><span>Studio, WG-Zimmer, Einzelstücke</span></div></a>
-    <a class="card" href="../seniorenumzug/"><img src="../assets/handover.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Senioren</b><span>Mit Zeit und Ruhe</span></div></a>
+    <a class="card" href="../kleinumzug/"><img src="../assets/packing.webp" alt="Symbolbild: Kleinumzug" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Kleinumzug</b><span>Studio, WG-Zimmer, Einzelstücke</span></div></a>
+    <a class="card" href="../seniorenumzug/"><img src="../assets/handover.webp" alt="Symbolbild: Senioren" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Senioren</b><span>Mit Zeit und Ruhe</span></div></a>
     <a class="card plain" href="../klaviertransport/"><span class="big-ico" aria-hidden="true">♪</span><div class="c-in"><b>Klavier</b><span>Klavier und Flügel</span></div></a>
-    <a class="card" href="../international/"><img src="../assets/international.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Ausland</b><span>Europa auf Anfrage</span></div></a>
-    <a class="card" href="../villen-anwesen/"><img src="../assets/consult.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Villen</b><span>Grosse Häuser, wertvolles Mobiliar</span></div></a>
+    <a class="card" href="../international/"><img src="../assets/international.webp" alt="Symbolbild: Ausland" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Ausland</b><span>Europa auf Anfrage</span></div></a>
+    <a class="card" href="../villen-anwesen/"><img src="../assets/consult.webp" alt="Symbolbild: Villen" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Villen</b><span>Grosse Häuser, wertvolles Mobiliar</span></div></a>
     <a class="card plain" href="../museum-kunst/" style="background:#1E1E24"><span class="big-ico" aria-hidden="true">◇</span><div class="c-in"><b>Kunst</b><span>Museen und Sammlungen</span></div></a>
-    <a class="card" href="../firmenumzug/"><img src="../assets/team.webp" alt="" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Firmen</b><span>Mit wenig Unterbruch</span></div></a>
+    <a class="card" href="../firmenumzug/"><img src="../assets/team.webp" alt="Symbolbild: Firmen" loading="lazy" /><span class="sym">Symbolbild</span><div class="c-in"><b>Firmen</b><span>Mit wenig Unterbruch</span></div></a>
   </div>
 </section>
 
@@ -369,6 +396,53 @@ p{margin:0}
     <a class="base" href="../umzug-mellingen/">Mellingen</a><a href="../umzug-baden/">Baden</a><a href="../umzug-wettingen/">Wettingen</a><a href="../umzug-brugg/">Brugg</a><a href="../umzug-lenzburg/">Lenzburg</a><a href="../umzug-aarau/">Aarau</a><a href="../umzug-wohlen/">Wohlen</a><a href="../umzug-bremgarten/">Bremgarten</a><a href="../umzug-dietikon/">Dietikon</a><a href="../umzug-zuerich/">Zürich</a><a href="../umzug-zug/">Zug</a>
   </div>
   <p class="tw-note">Keine Filialen – jeder Auftrag von Mellingen aus. Deutsch &amp; <span lang="ar">العربية</span>.</p>
+</div></section>
+
+<section class="faqs" id="faq" aria-labelledby="faq-h"><div class="wrap">
+  <h2 id="faq-h">Häufige Fragen</h2>
+  <div class="faq">
+      <details open>
+        <summary>Arbeitet ZÜGELKLAR in der ganzen Schweiz?</summary>
+        <p>Ja. ZÜGELKLAR ist für Einsätze in der ganzen Schweiz vorgesehen, mit Schwerpunkt in der Deutschschweiz. Umzüge innerhalb Europas planen wir auf Anfrage.</p>
+      </details>
+      <details>
+        <summary>Was bedeutet Reinigung mit Abnahmegarantie genau?</summary>
+        <p>Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft kostenlos nach – im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen.</p>
+      </details>
+      <details>
+        <summary>Festpreis oder Stundenpreis – was ist besser?</summary>
+        <p>Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen günstiger sein. Wir empfehlen Ihnen die passende Variante in der Offerte.</p>
+      </details>
+      <details>
+        <summary>Ist eine Besichtigung nötig?</summary>
+        <p>Nicht immer. Je nach Auftrag genügen digitale Informationen wie Fotos und Angaben zu Zugang und Inventar. Bei grösseren Umzügen ist eine Besichtigung vor Ort sinnvoll, damit Aufwand und Material sauber eingeschätzt werden.</p>
+      </details>
+      <details>
+        <summary>Wie schnell erhalte ich eine Antwort?</summary>
+        <p>Wir melden uns persönlich zurück – am schnellsten geht es per Telefon oder WhatsApp. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist.</p>
+      </details>
+      <details>
+        <summary>In welcher Sprache kann ich mich an Sie wenden?</summary>
+        <p>Sie erreichen uns auf Deutsch und auf Arabisch, am Telefon und per WhatsApp.</p>
+      </details>
+      <details>
+        <summary>Wer kümmert sich um das Halteverbot oder den Parkplatz?</summary>
+        <p>Grundsätzlich ist der Kunde für eine Halteverbotszone oder einen Parkplatz vor dem Haus verantwortlich. Auf Wunsch organisieren wir die Bewilligung bei der Gemeinde. Gebühren der Gemeinde und Signalisation werden separat verrechnet und in der Offerte ausgewiesen.</p>
+      </details>
+      <details>
+        <summary>Stellen Sie Umzugskartons zur Verfügung?</summary>
+        <p>Ja. Umzugskartons und Schutzmaterial können Sie bei uns mieten. Menge und Lieferung werden in der Offerte festgehalten.</p>
+      </details>
+      <details>
+        <summary>Was ist beim Möbelmontage-Service nicht enthalten?</summary>
+        <p>Wir demontieren und montieren Möbel wie Schränke und Betten. Nicht enthalten sind Küchen und Spezialanfertigungen sowie Arbeiten an Strom-, Gas- und Wasseranschlüssen – dafür braucht es eine Fachperson.</p>
+      </details>
+      <details>
+        <summary>Wann und wie wird bezahlt?</summary>
+        <p>Zahlungsbedingungen und eine allfällige Anzahlung stehen in Ihrer Offerte bzw. Auftragsbestätigung. Ist nichts anderes vereinbart, ist die Rechnung nach Abschluss der Leistung fällig.</p>
+      </details>
+    </div>
+
 </div></section>
 
 <section class="final" id="offerte" aria-label="Offerte"><div class="wrap">
@@ -412,14 +486,13 @@ p{margin:0}
   <span><a href="../agb.html">AGB</a> · <a href="../datenschutz.html">Datenschutz</a> · <a href="../impressum.html">Impressum</a></span>
 </div></footer>
 
-<div class="trip hide" id="trip" aria-hidden="true"><span class="trip-label" id="tripLabel">Alte Adresse</span><span class="trip-track"><i class="trip-fill"></i><span class="trip-truck"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></div>
-<div class="cur" aria-hidden="true"></div>
+<nav class="trip" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
 <div class="mbar"><a class="pill pill-o" href="tel:+41799333111">Anrufen</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener">WhatsApp</a><a class="pill pill-w" href="#offerte">Offerte</a></div>
 
 <style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../assets/vendor/gsap.min.js"></script>
+<script src="../assets/vendor/ScrollTrigger.min.js"></script>
+<script src="../assets/vendor/lenis.min.js"></script>
 <script>
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -503,11 +576,6 @@ p{margin:0}
 
   // Finale: Titel wächst
 
-  // Magnetische Buttons (nur Maus)
-  if (matchMedia('(pointer:fine)').matches) document.querySelectorAll('.pill').forEach(function (b) {
-    b.addEventListener('mousemove', function (e) { var r = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - r.left - r.width / 2) * .25, y: (e.clientY - r.top - r.height / 2) * .3, duration: .3 }); });
-    b.addEventListener('mouseleave', function () { gsap.to(b, { x: 0, y: 0, duration: .5, ease: 'elastic.out(1,.4)' }); });
-  });
 })();
 </script>
 <script>
@@ -542,12 +610,6 @@ p{margin:0}
   });
   tl.to({}, { duration: .4 });
 
-  /* Unternehmen: Karten neigen sich zur Maus */
-  if (matchMedia('(pointer:fine)').matches) document.querySelectorAll('.biz-card').forEach(function (c) {
-    c.addEventListener('mousemove', function (e) { var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      gsap.to(c, { rotateY: x * 8, rotateX: -y * 8, transformPerspective: 900, duration: .4 }); });
-    c.addEventListener('mouseleave', function () { gsap.to(c, { rotateX: 0, rotateY: 0, duration: .6, ease: 'power3.out' }); });
-  });
   gsap.from('.biz-card', { y: 90, opacity: 0, stagger: .12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.biz-grid', start: 'top 85%' } });
 
   /* Schrift baut sich Buchstabe für Buchstabe auf */
@@ -566,32 +628,216 @@ p{margin:0}
     } });
   });
 
-  /* Reise-Leiste: Wagen fährt zur neuen Adresse */
+  /* Reise-Leiste: Wagen fährt mit, Haltestellen springen zu den Kapiteln */
   var trip = document.getElementById('trip'), label = document.getElementById('tripLabel');
+  var stops = gsap.utils.toArray('.trip .stop'), marks = [];
+  function placeStops() {
+    var max = ScrollTrigger.maxScroll(window) || 1;
+    marks = stops.map(function (s) {
+      var el = document.querySelector(s.getAttribute('href')); if (!el) return 0;
+      var y = s.getAttribute('href') === '#top' ? 0 : Math.min(1, (el.getBoundingClientRect().top + scrollY - 80) / max);
+      s.style.left = (y * 100).toFixed(2) + '%'; return y;
+    });
+  }
+  ScrollTrigger.addEventListener('refresh', placeStops);
   ScrollTrigger.create({ start: 0, end: 'max', onUpdate: function (s) {
-    trip.style.setProperty('--p', s.progress.toFixed(4));
-    var done = s.progress > .985;
-    trip.classList.toggle('done', done);
-    label.textContent = done ? 'Angekommen' : (s.progress < .02 ? 'Alte Adresse' : 'Unterwegs');
-    trip.classList.toggle('hide', s.progress < .03);
+    var p = s.progress; trip.style.setProperty('--p', p.toFixed(4));
+    var cur = 0; marks.forEach(function (m, i) { if (p >= m - .002) cur = i; stops[i].classList.toggle('passed', p >= m - .002); });
+    var done = p > .985; trip.classList.toggle('done', done);
+    label.textContent = done ? 'Angekommen' : (stops[cur] ? stops[cur].dataset.l : '');
   } });
 
   /* Finale: Angekommen */
   gsap.from('.final .arrive', { yPercent: 60, scale: .85, opacity: 0, duration: 1.1, ease: 'power4.out', scrollTrigger: { trigger: '.final', start: 'top 75%', toggleActions: 'play none none reverse' } });
 
-  /* Cursor */
-  var cur = document.querySelector('.cur');
-  if (cur && matchMedia('(pointer:fine)').matches) {
-    var qx = gsap.quickTo(cur, 'x', { duration: .25, ease: 'power3' }), qy = gsap.quickTo(cur, 'y', { duration: .25, ease: 'power3' });
-    addEventListener('mousemove', function (e) { qx(e.clientX); qy(e.clientY); });
-    document.querySelectorAll('a,button,input').forEach(function (a) {
-      a.addEventListener('mouseenter', function () { cur.classList.add('big'); });
-      a.addEventListener('mouseleave', function () { cur.classList.remove('big'); });
-    });
-  }
   ScrollTrigger.sort(); ScrollTrigger.refresh();
 })();
 
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Arbeitet ZÜGELKLAR in der ganzen Schweiz?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. ZÜGELKLAR ist für Einsätze in der ganzen Schweiz vorgesehen, mit Schwerpunkt in der Deutschschweiz. Umzüge innerhalb Europas planen wir auf Anfrage."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was bedeutet Reinigung mit Abnahmegarantie genau?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft kostenlos nach – im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Festpreis oder Stundenpreis – was ist besser?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen günstiger sein. Wir empfehlen Ihnen die passende Variante in der Offerte."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Ist eine Besichtigung nötig?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nicht immer. Je nach Auftrag genügen digitale Informationen wie Fotos und Angaben zu Zugang und Inventar. Bei grösseren Umzügen ist eine Besichtigung vor Ort sinnvoll, damit Aufwand und Material sauber eingeschätzt werden."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wie schnell erhalte ich eine Antwort?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Wir melden uns persönlich zurück – am schnellsten geht es per Telefon oder WhatsApp. Kurzfristige Termine sind möglich, sofern Kapazität verfügbar ist."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "In welcher Sprache kann ich mich an Sie wenden?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sie erreichen uns auf Deutsch und auf Arabisch, am Telefon und per WhatsApp."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wer kümmert sich um das Halteverbot oder den Parkplatz?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Grundsätzlich ist der Kunde für eine Halteverbotszone oder einen Parkplatz vor dem Haus verantwortlich. Auf Wunsch organisieren wir die Bewilligung bei der Gemeinde. Gebühren der Gemeinde und Signalisation werden separat verrechnet und in der Offerte ausgewiesen."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Stellen Sie Umzugskartons zur Verfügung?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Ja. Umzugskartons und Schutzmaterial können Sie bei uns mieten. Menge und Lieferung werden in der Offerte festgehalten."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Was ist beim Möbelmontage-Service nicht enthalten?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Wir demontieren und montieren Möbel wie Schränke und Betten. Nicht enthalten sind Küchen und Spezialanfertigungen sowie Arbeiten an Strom-, Gas- und Wasseranschlüssen – dafür braucht es eine Fachperson."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Wann und wie wird bezahlt?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Zahlungsbedingungen und eine allfällige Anzahlung stehen in Ihrer Offerte bzw. Auftragsbestätigung. Ist nichts anderes vereinbart, ist die Rechnung nach Abschluss der Leistung fällig."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "MovingCompany",
+ "name": "ZÜGELKLAR",
+ "url": "https://zuegelklar.ch/",
+ "logo": "https://zuegelklar.ch/assets/logo.webp",
+ "image": "https://zuegelklar.ch/assets/og/home.jpg",
+ "telephone": "+41799333111",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Obere Bahnhofstrasse 24",
+  "postalCode": "5507",
+  "addressLocality": "Mellingen",
+  "addressRegion": "Aargau",
+  "addressCountry": "CH"
+ },
+ "areaServed": [
+  {
+   "@type": "Country",
+   "name": "Schweiz"
+  },
+  {
+   "@type": "AdministrativeArea",
+   "name": "Aargau"
+  },
+  {
+   "@type": "City",
+   "name": "Zürich"
+  },
+  {
+   "@type": "City",
+   "name": "Mellingen"
+  },
+  {
+   "@type": "City",
+   "name": "Baden"
+  },
+  {
+   "@type": "City",
+   "name": "Wettingen"
+  },
+  {
+   "@type": "City",
+   "name": "Brugg"
+  },
+  {
+   "@type": "City",
+   "name": "Lenzburg"
+  },
+  {
+   "@type": "City",
+   "name": "Wohlen"
+  },
+  {
+   "@type": "City",
+   "name": "Bremgarten"
+  },
+  {
+   "@type": "City",
+   "name": "Dietikon"
+  },
+  {
+   "@type": "City",
+   "name": "Aarau"
+  },
+  {
+   "@type": "City",
+   "name": "Zug"
+  }
+ ],
+ "openingHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
+   ],
+   "opens": "08:00",
+   "closes": "18:00"
+  }
+ ],
+ "knowsLanguage": [
+  "de",
+  "ar"
+ ],
+ "@id": "https://zuegelklar.ch/#organization",
+ "alternateName": [
+  "Zügelklar",
+  "Zuegelklar"
+ ],
+ "email": "info@zuegelklar.ch"
+}
 </script>
 </body>
 </html>
