@@ -447,3 +447,60 @@ body:has(.menu[open]){overflow:hidden}
 .small-note{font-size:12.5px;color:var(--c-muted);margin-top:10px}
 .small-note a{color:var(--c-blue);text-decoration:underline}
 .offer .facts{margin-top:22px}
+
+/* ───────── V14.1 «Auf einen Blick»: weniger Text, mehr Bild ───────── */
+.lead.short{font-size:clamp(1.125rem,1rem + .5vw,1.375rem);max-width:34ch}
+.hero-alt a.tel{font:700 17px var(--f-text);color:var(--c-ink);text-decoration:none;border-bottom:2px solid var(--c-blue);padding-bottom:2px}
+.head-c{display:grid;justify-items:center;text-align:center;gap:14px;margin-bottom:var(--s-7)}
+.head-c h2{font-size:var(--fs-h2)}
+.center{display:flex;justify-content:center;margin-top:var(--s-7)}
+/* 5 Gründe */
+.why{border-block:1px solid var(--c-line);background:#fff}
+.why ul{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+.why li{display:flex;align-items:center;gap:12px;padding:20px 8px;font:700 clamp(15px,1rem + .2vw,18px)/1.2 var(--f-display);letter-spacing:-.01em}
+.why li:nth-child(odd){padding-left:0}
+.why .ico{width:34px;height:34px;flex:none}
+.why .ar{width:34px;height:34px;flex:none;border-radius:10px;background:var(--c-blue);color:#fff;display:grid;place-items:center;font:700 19px/1 system-ui,sans-serif}
+.why li:last-child{grid-column:1/-1;justify-content:center;border-top:1px solid var(--c-line)}
+@media (min-width:900px){.why ul{grid-template-columns:repeat(5,1fr)}.why li{justify-content:center;padding:28px 10px}.why li:last-child{grid-column:auto;border-top:0}.why li+li{border-left:1px solid var(--c-line)}}
+/* Leistungs-Kacheln */
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (min-width:900px){.tiles{grid-template-columns:repeat(4,1fr);gap:16px}}
+.tile{position:relative;display:grid;justify-items:center;text-align:center;gap:10px;padding:26px 14px 22px;background:#fff;border:1px solid var(--c-line);border-radius:var(--r-l);transition:transform var(--d-2) var(--e-out),box-shadow var(--d-2),border-color var(--d-2)}
+.tile:hover,.tile:focus-visible{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:transparent}
+.tile .ib{width:68px;height:68px;border-radius:20px;background:var(--c-blue-50);display:grid;place-items:center;transition:background var(--d-2),transform var(--d-3) var(--e-spring)}
+.tile:hover .ib{background:var(--c-blue-100);transform:translateY(-2px) rotate(-4deg)}
+.tile .ib svg{width:36px;height:36px}
+.tile b{font:800 clamp(16px,1rem + .35vw,20px)/1.15 var(--f-display);letter-spacing:-.02em}
+.tile small{font-size:13.5px;color:var(--c-muted)}
+.tile.hot{border:2px solid var(--c-blue)}
+.tile.hot::before{content:"Garantie";position:absolute;top:-11px;left:50%;translate:-50% 0;font:700 11px/1 var(--f-text);letter-spacing:.08em;text-transform:uppercase;background:var(--c-red);color:#fff;padding:6px 10px;border-radius:var(--r-pill)}
+.big3{display:grid;gap:12px;margin-top:16px}
+@media (min-width:900px){.big3{grid-template-columns:repeat(3,1fr);gap:16px}}
+.big{display:flex;align-items:center;gap:14px;padding:20px 22px;border-radius:var(--r-l);background:var(--c-night);color:#fff;font:800 18px/1.2 var(--f-display);letter-spacing:-.01em;transition:background var(--d-2),transform var(--d-2) var(--e-out)}
+.big:hover{background:var(--c-blue);transform:translateY(-3px)}
+.big .ico{width:32px;height:32px;flex:none}
+.big .ico .i{stroke:#fff}.big .ico .a{stroke:var(--c-blue-on-dark)}
+.big:hover .ico .a{stroke:#fff}
+.big::after{content:"→";margin-left:auto;font-weight:400;opacity:.7}
+/* Garantie kompakt */
+.proto li{grid-template-columns:32px 1fr;align-items:center;padding:14px 0}
+.proto li b{font-size:18px}
+/* Ablauf ohne Untertitel */
+.step h3{font-size:clamp(1.05rem,1rem + .35vw,1.3rem)}
+@media (max-width:1023px){.steps{gap:22px}.step h3{padding-top:11px}}
+/* Orte */
+.towns ul{gap:10px}
+.towns .note{margin-top:20px}
+/* Vertrauen */
+.trust2{padding-block:clamp(40px,4vw,72px)}
+.trust2 .honest{max-width:760px;margin-inline:auto}
+/* Mehr lesen (SEO-Text) */
+.more{max-width:880px;margin-top:var(--s-7);border-top:1px solid var(--c-line);padding-top:8px}
+.more summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:16px 0;font:600 16px var(--f-text);color:var(--c-blue)}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:"+";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--c-blue-50);font-weight:700}
+.more[open] summary::before{content:"–"}
+.more-body{display:grid;gap:12px;color:var(--c-ink-2);font-size:var(--fs-small);padding-bottom:12px}
+.more-body h3{font-size:18px;margin-top:12px;color:var(--c-ink)}
+.more-body a{color:var(--c-blue);text-decoration:underline;text-underline-offset:2px}

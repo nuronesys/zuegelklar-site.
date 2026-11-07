@@ -33,6 +33,7 @@ const faq = (home.match(/<div class="faq">[\s\S]*?\n\s*<\/div>\n/) || [''])[0];
 const ld = [...home.matchAll(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g)].map(m => m[0]).join('\n');
 
 let out = rd(join(HERE, 'template.html'))
+  .replace('{{LONGTEXT}}', rd(join(HERE, 'longtext.html')))
   .replace('{{SPRITE}}', sprite).replace('{{MAP}}', map).replace('{{OFFERFORM}}', form).replace('{{FAQ}}', faq)
   .replaceAll('{{WA}}', WA)
   .replace('</body>', ld + '\n</body>');
