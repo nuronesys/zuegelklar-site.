@@ -117,7 +117,7 @@ p{margin:0}
 /* Garantie: Wort für Wort beim Scrollen */
 .statement{background:var(--night);padding-block:clamp(110px,14vw,220px)}
 .statement p.big{font:800 clamp(2.4rem,1.2rem + 4.6vw,6.4rem)/1.02 var(--disp);letter-spacing:-.045em;max-width:16ch}
-.statement .wd{opacity:.14;transition:opacity .2s}
+.statement .wd{opacity:.36;transition:opacity .2s}
 .statement .wd.lit{opacity:1}
 .statement .wd.blue.lit{color:var(--blue-l)}
 .statement .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
@@ -657,11 +657,10 @@ p{margin:0}
 
   // Garantie-Satz in Wörter zerlegen
   var st = document.getElementById('statement');
-  st.innerHTML = st.innerHTML.replace(/(<span class="blue">)([\s\S]*?)(<\/span>)/, function (m, a, b) {
-    return b.split(' ').map(function (w) { return '<span class="wd blue">' + w + '</span>'; }).join(' ');
-  }).replace(/(^|>)([^<]+)(?=<|$)/g, function (m, a, t) {
-    return a + t.split(/(\s+)/).map(function (w) { return /\S/.test(w) ? '<span class="wd">' + w + '</span>' : w; }).join('');
-  });
+  // erst den normalen Text, dann den blauen Teil in Wörter zerlegen (sonst doppelt verschachtelt)
+  var wrap = function (t, cls) { return t.split(/(\s+)/).map(function (w) { return /\S/.test(w) ? '<span class="' + cls + '">' + w + '</span>' : w; }).join(''); };
+  var parts = /^([\s\S]*?)<span class="blue">([\s\S]*?)<\/span>([\s\S]*)$/.exec(st.innerHTML);
+  st.innerHTML = parts ? wrap(parts[1], 'wd') + wrap(parts[2], 'wd blue') + wrap(parts[3], 'wd') : wrap(st.innerHTML, 'wd');
   var words = st.querySelectorAll('.wd');
 
   if (reduce || !window.gsap || !window.ScrollTrigger) {

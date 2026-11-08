@@ -6,6 +6,10 @@ export const ORG_ID = ORIGIN + '/#organization';
 // Launch-Schalter: erst auf true setzen, wenn docs/reinit/10_PRELAUNCH_GATE.md grün ist.
 export const INDEXABLE = false;
 
+// Besucher-Statistik (Plausible, ohne Cookies). Leer = aus. Einschalten: Domain eintragen, die bei
+// plausible.io angelegt ist (z. B. 'zuegelklar.ch'), dann `node tools/build.mjs`. Danach Datenschutz-Abschnitt prüfen.
+export const PLAUSIBLE_DOMAIN = '';
+
 const svc = (path, crumb, leistung, wa, extra = {}) => ({ path, type: 'service', crumb, leistung, wa, parent: 'leistungen', ...extra });
 const b2b = (path, crumb, leistung, wa) => ({ path, type: 'b2b', crumb, leistung, wa, parent: 'grossauftraege', aside: 'b2b' });
 const city = (slug, name, canton = 'Aargau') => ({

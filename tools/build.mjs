@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PAGES, NEARBY, byPath, fileOf, urlOf, depthOf, ORIGIN, ORG_ID, INDEXABLE } from './site-data.mjs';
+import { PAGES, NEARBY, byPath, fileOf, urlOf, depthOf, ORIGIN, ORG_ID, INDEXABLE, PLAUSIBLE_DOMAIN } from './site-data.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -198,6 +198,10 @@ function processPage(p) {
     html = html.replace(/<meta name="theme-color" content="[^"]*" \/>/, '<meta name="theme-color" content="#0F0F13" />');
     if (!html.includes('assets/quick.js')) html = html.replace('</body>', `<script src="${R}assets/quick.js" data-base="${R || './'}" defer></script>\n</body>`);
   }
+
+  // Besucher-Statistik: nur wenn PLAUSIBLE_DOMAIN gesetzt ist (sonst wird ein alter Block entfernt)
+  html = html.replace(/<!-- zk:stats -->[\s\S]*?<!-- \/zk:stats -->\n?/, '');
+  if (PLAUSIBLE_DOMAIN && p.type !== '404') html = html.replace('</head>', `<!-- zk:stats -->\n<script defer data-domain="${PLAUSIBLE_DOMAIN}" src="https://plausible.io/js/script.outbound-links.js"></script>\n<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>\n<!-- /zk:stats -->\n</head>`);
 
   if (p.type !== 'legal' && p.type !== '404') html = updateJsonLd(html, p);
   if (html !== before) { if (!CHECK) writeFileSync(file, html); return { p, changed: true }; }
