@@ -60,7 +60,7 @@
       '</section>' +
 
       '<section class="zq-step" data-step="2" hidden>' +
-        '<h2>Wie erreichen wir Sie?</h2><p class="zq-sub">Wir melden uns persönlich und vereinbaren Ihre Gratis-Besichtigung – vor Ort oder per Video.</p>' +
+        '<h2>Wie erreichen wir Sie?</h2><p class="zq-sub">Wir melden uns persönlich, meist innert 1 Stunde, und vereinbaren Ihre Gratis-Besichtigung – vor Ort oder per Video.</p>' +
         '<p class="zq-chosen"><span data-chosen></span> · <button type="button" data-back>ändern</button></p>' +
         '<form class="zq-f" data-form="contact" novalidate>' +
           '<label>Name<input name="name" autocomplete="name" required /></label>' +
@@ -74,7 +74,7 @@
 
       '<section class="zq-step" data-step="3" hidden>' +
         '<div class="zq-ok"><span class="zq-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>' +
-        '<h2 data-ok-h>Danke! Ihre Anfrage ist bei uns.</h2><p class="zq-sub" data-ok-p>Wir melden uns Montag bis Freitag zwischen 08:00 und 18:00 Uhr.</p><span class="zq-ref" data-ref></span></div>' +
+        '<h2 data-ok-h>Danke! Ihre Anfrage ist bei uns.</h2><p class="zq-sub" data-ok-p>Wir melden uns in der Regel innert 1 Stunde, am Samstag und Sonntag innert 2 Stunden.</p><span class="zq-ref" data-ref></span></div>' +
         '<form class="zq-f" data-form="more" novalidate style="margin-top:20px">' +
           '<p class="zq-sub" style="margin:0"><b>Optional:</b> Mit diesen Angaben wird die Offerte schneller.</p>' +
           '<div class="row"><label>Von (PLZ / Ort)<input name="von" autocomplete="off" /></label><label>Nach (PLZ / Ort)<input name="nach" autocomplete="off" /></label></div>' +
