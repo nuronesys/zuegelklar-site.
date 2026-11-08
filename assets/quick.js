@@ -9,7 +9,7 @@
 (function () {
   var S = document.currentScript;
   // Web3Forms-Schlüssel: EINMAL hier eintragen, gilt für alle Seiten
-  var WEB3FORMS_KEY = '';
+  var WEB3FORMS_KEY = '458f1598-d171-4c3f-b181-8a4fa5601893';
   var KEY = (S && S.getAttribute('data-key')) || WEB3FORMS_KEY;
   // Leistung aus ?leistung=… oder <body data-service> → Kachel in der Schnellanfrage
   var SLUG = {
