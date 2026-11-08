@@ -274,8 +274,8 @@ p{margin:0}
 .deal{overflow-x:clip;background:var(--night);padding-block:clamp(100px,12vw,170px);border-top:1px solid var(--line)}
 .deal h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
 .deal-list{list-style:none;margin:clamp(40px,5vw,70px) 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
-.deal-list li{display:grid;grid-template-columns:minmax(0,clamp(130px,22vw,300px)) minmax(0,1fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding-block:clamp(22px,3vw,36px);border-bottom:1px solid var(--line)}
-.deal-list b{font:800 clamp(2.4rem,1rem + 5vw,5.4rem)/.9 var(--disp);letter-spacing:-.05em;color:var(--blue-l)}
+.deal-list li{display:grid;grid-template-columns:minmax(0,clamp(150px,32vw,420px)) minmax(0,1fr);gap:clamp(16px,3vw,48px);align-items:baseline;padding-block:clamp(22px,3vw,36px);border-bottom:1px solid var(--line)}
+.deal-list b{font:800 clamp(1.9rem,.8rem + 3vw,4rem)/.95 var(--disp);letter-spacing:-.05em;color:var(--blue-l)}
 .deal-list h3{margin:0;font:800 clamp(22px,1rem + 1.4vw,34px)/1.1 var(--disp);letter-spacing:-.02em}
 .deal-list p{margin:8px 0 0;color:var(--t2);font-size:clamp(16px,.95rem + .25vw,19px);max-width:46ch}
 .deal-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:clamp(30px,4vw,50px)}
@@ -293,65 +293,28 @@ p{margin:0}
 .stamp{position:absolute;right:0;top:50%;translate:0 -50%;rotate:-9deg;padding:10px 16px;border:3px solid #4ADE80;border-radius:10px;color:#4ADE80;font:800 clamp(15px,.8rem + .6vw,22px)/1 var(--disp);letter-spacing:.12em;text-transform:uppercase;pointer-events:none;box-shadow:inset 0 0 0 2px rgb(74 222 128 / .25)}
 @media (max-width:900px){.stamp{top:26px;translate:none;font-size:13px;padding:7px 10px;border-width:2px}}
 /* ── Umzugsplaner ── */
-.plan{background:#0B0B0E;padding-block:clamp(100px,12vw,170px);border-top:1px solid var(--line)}
-.plan h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
-.plan-grid{display:grid;gap:clamp(24px,4vw,56px);margin-top:clamp(40px,5vw,70px)}
-@media (min-width:960px){.plan-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}.plan-in{position:sticky;top:110px}}
-.plan-in{display:grid;gap:26px;padding:clamp(22px,3vw,34px);border:1px solid var(--line);border-radius:26px;background:var(--night-2)}
-.pf{display:grid;gap:12px;font:600 14px/1 var(--txt);letter-spacing:.04em;color:var(--t2);border:0;margin:0;padding:0}
-.pf legend{padding:0;margin-bottom:12px}
-.pf output{font:800 clamp(30px,1.4rem + 1.6vw,44px)/1 var(--disp);letter-spacing:-.03em;color:#fff}
-.pf input[type=range]{width:100%;accent-color:var(--blue-l);height:28px}
-.pf input[type=date]{height:54px;padding:0 14px;border-radius:14px;border:1.5px solid var(--line);background:#0F0F13;color:#fff;font:500 17px/1 var(--txt);color-scheme:dark;min-width:0}
-.seg div,.seg{min-width:0}
-.pf.seg{display:flex;flex-wrap:wrap;gap:8px}
-.seg legend{width:100%}
-.seg label{display:block;position:relative}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg span{display:inline-grid;place-items:center;min-width:56px;height:46px;padding:0 12px;border-radius:12px;border:1.5px solid var(--line);color:#fff;font:600 15px/1 var(--txt);cursor:pointer;transition:background .2s,border-color .2s}
-.seg input:checked + span{background:var(--blue);border-color:var(--blue)}
-.seg input:focus-visible + span{outline:3px solid var(--blue-l);outline-offset:2px}
-.tog{display:flex;align-items:center;gap:12px;font:600 15px/1 var(--txt);color:#fff;cursor:pointer}
-.tog input{position:absolute;opacity:0}
-.sw{position:relative;width:48px;height:28px;border-radius:99px;background:rgb(255 255 255 / .18);transition:background .2s}
-.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:translate .25s var(--e)}
-.tog input:checked + .sw{background:var(--blue)}.tog input:checked + .sw::after{translate:20px 0}
-.tog input:focus-visible + .sw{outline:3px solid var(--blue-l);outline-offset:2px}
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
-.kpis div{display:grid;gap:8px;padding:clamp(16px,2.4vw,26px);background:#0F0F13}
-.kpis b{font:800 clamp(28px,1rem + 2.6vw,56px)/1 var(--disp);letter-spacing:-.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.kpis span{font-size:13.5px;color:var(--t2)}
-.plan-note{margin:12px 0 0;font-size:13.5px;color:var(--t2)}
-.price{margin-top:12px;padding:clamp(18px,2.4vw,26px);border-radius:22px;border:1px solid rgb(77 148 232 / .45);background:linear-gradient(135deg,rgb(0 87 184 / .28),rgb(0 87 184 / .06));display:grid;gap:8px}
-.price-k{font:600 12px/1 var(--txt);letter-spacing:.14em;text-transform:uppercase;color:#9CC3F2}
-.price b{font:800 clamp(30px,1rem + 3vw,58px)/1 var(--disp);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:#fff}
-.price-l{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:4px;font-size:14px;color:var(--t2)}
-.price-l li{display:flex;justify-content:space-between;gap:12px}
-.price-l li span:last-child{font-variant-numeric:tabular-nums;color:#fff;white-space:nowrap}
-.count{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:clamp(30px,4vw,46px)}
-.count b{font:800 clamp(64px,2rem + 7vw,140px)/.85 var(--disp);letter-spacing:-.06em;color:var(--blue-l);font-variant-numeric:tabular-nums}
-.count span{font:600 clamp(17px,1rem + .4vw,22px)/1.2 var(--txt);color:#fff;max-width:14ch}
-.tl{list-style:none;margin:26px 0 0;padding:0;display:grid;border-left:2px solid var(--line);margin-left:7px}
-.tl li{position:relative;display:grid;grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:6px 18px;padding:12px 0 12px 24px}
-.tl li::before{content:"";position:absolute;left:-8px;top:17px;width:14px;height:14px;border-radius:50%;background:#0B0B0E;border:2px solid rgb(255 255 255 / .35)}
-.tl time{font:600 13px/1.5 var(--txt);color:var(--t2);white-space:nowrap}
-.tl b{display:block;font:700 16.5px/1.3 var(--txt);color:#fff}
-.tl p{margin:3px 0 0;font-size:14px;color:var(--t2)}
-.tl .tag{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:99px;font:700 11px/1.2 var(--txt);letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
-.tl li.late::before{background:#F59E0B;border-color:#F59E0B}.tl li.late .tag{background:rgb(245 158 11 / .16);color:#FBBF24}
-.tl li.next::before{background:var(--blue-l);border-color:var(--blue-l);box-shadow:0 0 0 6px rgb(77 148 232 / .2)}.tl li.next .tag{background:rgb(77 148 232 / .16);color:var(--blue-l)}
-.tl li.day b{color:var(--blue-l)}
-.tl li.zk b::after{content:"ZÜGELKLAR";margin-left:8px;font:700 10.5px/1 var(--txt);letter-spacing:.08em;color:#4ADE80;vertical-align:2px}
-@media (max-width:520px){.tl li{grid-template-columns:1fr}}
-.plan-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-@media (max-width:520px){.plan-cta .pill{width:100%;white-space:normal;text-align:center;height:auto;min-height:50px;padding-block:12px}}
+.care{background:#0B0B0E;padding-block:clamp(100px,12vw,170px);border-top:1px solid var(--line)}
+.care h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
+.care-lead{max-width:56ch;margin:24px 0 0;font-size:clamp(17px,1rem + .3vw,20px);color:var(--t2)}
+.care-grid{display:grid;gap:1px;margin-top:clamp(40px,5vw,70px);background:var(--line);border:1px solid var(--line);border-radius:26px;overflow:hidden}
+@media (min-width:760px){.care-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.care-grid a{display:grid;gap:10px;align-content:start;padding:clamp(24px,3vw,40px);background:var(--night-2);color:#fff;text-decoration:none;transition:background .25s}
+.care-grid a:hover{background:#1F1F27}
+.care-grid small{font:600 12px/1 var(--txt);letter-spacing:.14em;text-transform:uppercase;color:var(--blue-l)}
+.care-grid b{font:800 clamp(24px,1rem + 1.6vw,36px)/1.05 var(--disp);letter-spacing:-.035em}
+.care-grid p{margin:0;font-size:15.5px;color:var(--t2)}
+.care-grid span{margin-top:6px;font:600 14px/1 var(--txt);color:var(--blue-l)}
+.care-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:clamp(30px,4vw,46px) 0 0;padding:0}
+.care-list li{padding:10px 16px;border:1px solid var(--line);border-radius:99px;font:600 14px/1 var(--txt);color:#fff}
+.care-note{margin:22px 0 0;font-size:14px;color:var(--t2)}
+.care-note a{color:var(--blue-l)}
 </style>
 </head>
 <body data-type="home" data-wa="eine Offerte für meinen Umzug">
 
 <header class="hdr" id="hdr"><div class="wrap">
   <a href="#top" aria-label="ZÜGELKLAR"><img class="logo" src="assets/logo.svg" alt="ZÜGELKLAR" width="648" height="200" /></a>
-  <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#planer">Planer</a><a href="#garantie">Garantie</a><a href="#orte">Orte</a><a href="ratgeber/">Ratgeber</a></nav>
+  <nav aria-label="Hauptnavigation"><a href="#leistungen">Leistungen</a><a href="#fuer-wen">Full-Service</a><a href="#garantie">Garantie</a><a href="#orte">Orte</a><a href="ratgeber/">Ratgeber</a></nav>
   <a class="pill pill-w" href="#offerte">Offerte</a>
 </div></header>
 
@@ -363,8 +326,8 @@ p{margin:0}
     <h1 id="heroTitle"><span class="w"><span>Umzug.</span></span> <span class="w"><span>Reinigung.</span></span><br /><span class="w"><span>Räumung.</span></span> <span class="w blue"><span>Fertig.</span></span></h1>
     <div class="hero-row">
       <div><p>Aus Mellingen für Aargau, Zürich und Zug – mit Abnahmegarantie.</p>
-      <ul class="perks" aria-label="Inklusive"><li>Besichtigung gratis</li><li>Kartons gratis</li><li>Festpreis ohne Überraschungen</li></ul></div>
-      <div class="btns"><a class="pill pill-w" href="#offerte">Gratis Besichtigung</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Fotos per WhatsApp</a></div>
+      <ul class="perks" aria-label="Im Service inbegriffen"><li>Persönliche Besichtigung</li><li>Ein Ansprechpartner</li><li>Verbindliche Offerte</li></ul></div>
+      <div class="btns"><a class="pill pill-w" href="#offerte">Besichtigung vereinbaren</a><a class="pill pill-wa" href="https://wa.me/41799333111" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Fotos per WhatsApp</a></div>
     </div>
   </div>
   <i class="cue" aria-hidden="true"></i>
@@ -402,7 +365,7 @@ p{margin:0}
         <li class="beat" data-s="1"><small>Privatumzug</small><h2>Getragen. Gesichert.</h2><p>Möbel, Kartons, Geräte – in der richtigen Reihenfolge verladen.</p><a href="umzug/">Privatumzug</a></li>
         <li class="beat" data-s="2"><small>Unterwegs</small><h2>Aargau, Zürich, Zug.</h2><p>Halteverbot an beiden Adressen? Auf Wunsch organisiert.</p><a href="einsatzgebiet/">Einsatzgebiet</a></li>
         <li class="beat" data-s="3"><small>Montage</small><h2>Aufgebaut.</h2><p>Schränke und Betten stehen am neuen Ort wieder bereit.</p><a href="montage/">Montage</a></li>
-        <li class="beat" data-s="4"><small>Umzugsreinigung</small><h2>Sauber übergeben.</h2><p>Mit Abnahmegarantie – beanstandet die Verwaltung, reinigen wir kostenlos nach.</p><a href="umzugsreinigung/">Umzugsreinigung</a></li>
+        <li class="beat" data-s="4"><small>Umzugsreinigung</small><h2>Sauber übergeben.</h2><p>Mit Abnahmegarantie – beanstandet die Verwaltung, reinigen wir ohne Mehrkosten nach.</p><a href="umzugsreinigung/">Umzugsreinigung</a></li>
         <li class="beat" data-s="5"><small>Feierabend</small><h2>Schlüssel übergeben.</h2><p>Ein Auftrag. Ein Ansprechpartner. Fertig.</p></li>
       </ol>
       <div class="day-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -454,19 +417,19 @@ p{margin:0}
 </section>
 
 <section class="deal" id="angebot" aria-labelledby="deal-h"><div class="wrap">
-  <span class="eyebrow">Inklusive, ohne Aufpreis</span>
+  <span class="eyebrow">Im Service inbegriffen</span>
   <h2 id="deal-h">Vier Zusagen.<br />Schriftlich in Ihrer Offerte.</h2>
   <ol class="deal-list">
-    <li><b>Gratis</b><div><h3>Besichtigung</h3><p>Vor Ort oder per Video. Unverbindlich – danach wissen Sie genau, was es kostet.</p></div></li>
-    <li><b>Gratis</b><div><h3>Umzugskartons</h3><p>Bei jedem gebuchten Umzug. Die Menge steht in der Offerte.</p></div></li>
-    <li><b>Fix</b><div><h3>Festpreis ohne Überraschungen</h3><p>Was in der Offerte steht, gilt. Keine Nachforderung im vereinbarten Umfang.</p></div></li>
-    <li class="has-stamp"><span class="stamp" aria-hidden="true">Abgenommen</span><b>100&nbsp;%</b><div><h3>Abnahmegarantie</h3><p>Beanstandet die Verwaltung etwas, reinigen wir kostenlos nach.</p></div></li>
+    <li><b>Persönlich</b><div><h3>Besichtigung</h3><p>Vor Ort oder per Video. Wir sehen uns Zugang, Inventar und Besonderheiten an – danach steht Ihr Preis schriftlich fest.</p></div></li>
+    <li><b>Inklusive</b><div><h3>Umzugskartons</h3><p>Bei jedem gebuchten Umzug inbegriffen. Menge und Lieferung stehen in der Offerte.</p></div></li>
+    <li><b>Verbindlich</b><div><h3>Schriftliche Offerte</h3><p>Was in der Offerte steht, gilt. Keine Nachforderung im vereinbarten Umfang.</p></div></li>
+    <li class="has-stamp"><span class="stamp" aria-hidden="true">Abgenommen</span><b>100&nbsp;%</b><div><h3>Abnahmegarantie</h3><p>Beanstandet die Verwaltung etwas, reinigen wir ohne Mehrkosten nach.</p></div></li>
   </ol>
-  <div class="deal-cta"><a class="pill pill-w" href="#offerte">Gratis Besichtigung anfragen</a><span>Tipp: Monatsenden – vor allem Ende März, Juni und September – sind die gefragtesten Zügeltermine. Früh anfragen lohnt sich.</span></div>
+  <div class="deal-cta"><a class="pill pill-w" href="#offerte">Besichtigung vereinbaren</a><span>Tipp: Monatsenden – vor allem Ende März, Juni und September – sind die gefragtesten Zügeltermine. Früh anfragen lohnt sich.</span></div>
 </div></section>
 
 <section class="statement" id="garantie" aria-label="Abnahmegarantie"><div class="wrap">
-  <p class="big" id="statement">Verwaltung beanstandet? <span class="blue">Wir reinigen kostenlos nach.</span></p>
+  <p class="big" id="statement">Verwaltung beanstandet? <span class="blue">Wir reinigen nach. Ohne Mehrkosten.</span></p>
   <div class="meta"><span class="chip">Umfang schriftlich</span><span class="chip">Auch ohne Umzug buchbar</span><span class="chip">Bedingungen: AGB Teil B</span></div>
 </div></section>
 
@@ -481,37 +444,20 @@ p{margin:0}
   </ol></div>
 </div></section>
 
-<section class="plan" id="planer" aria-labelledby="plan-h"><div class="wrap">
-  <span class="eyebrow">Umzugsplaner · 20 Sekunden</span>
-  <h2 id="plan-h">Ihr Umzug.<br />Durchgerechnet.</h2>
-  <div class="plan-grid">
-    <form class="plan-in" id="planForm" novalidate>
-      <label class="pf">Wohnungsgrösse <output id="pZimOut" for="pZim">3.5 Zimmer</output>
-        <input type="range" id="pZim" min="1" max="7" step="0.5" value="3.5" /></label>
-      <fieldset class="pf seg"><legend>Stockwerk heute</legend>
-        <label><input type="radio" name="pFl" value="0" /><span>EG</span></label><label><input type="radio" name="pFl" value="1" /><span>1.</span></label><label><input type="radio" name="pFl" value="2" checked /><span>2.</span></label><label><input type="radio" name="pFl" value="3" /><span>3.</span></label><label><input type="radio" name="pFl" value="4" /><span>4.+</span></label>
-      </fieldset>
-      <label class="tog"><input type="checkbox" id="pLift" /><span class="sw" aria-hidden="true"></span>Lift vorhanden</label>
-      <label class="tog"><input type="checkbox" id="pClean" /><span class="sw" aria-hidden="true"></span>Umzugsreinigung mit Abnahmegarantie</label>
-      <label class="pf">Umzugstag<input type="date" id="pDate" /></label>
-    </form>
-    <div class="plan-out">
-      <div class="kpis" aria-live="polite">
-        <div><b id="kVol">40</b><span>m³ Umzugsgut</span></div>
-        <div><b id="kTeam">3</b><span>Personen</span></div>
-        <div><b id="kTime">7.5–10</b><span id="kTimeU">Stunden</span></div>
-      </div>
-      <div class="price" aria-live="polite">
-        <span class="price-k">Richtpreis inkl. 8.1&nbsp;% MWST</span>
-        <b id="kPrice">CHF 1’350–1’950</b>
-        <ul class="price-l" id="kLines"></ul>
-      </div>
-      <p class="plan-note">Unverbindlicher Richtwert für Umzüge bis 30&nbsp;km, Anfahrt inklusive, Kartons gratis. Ihren Festpreis erhalten Sie nach der Gratis-Besichtigung.</p>
-      <div class="count"><b id="cDays">60</b><span id="cLabel">Tage bis zum Umzug</span></div>
-      <ol class="tl" id="tl"></ol>
-      <div class="plan-cta"><button class="pill pill-w" type="button" id="pGo">Festpreis mit diesen Angaben anfragen</button><a class="pill pill-o" id="pWa" href="https://wa.me/" target="_blank" rel="noopener">Plan per WhatsApp an mich</a></div>
-    </div>
+<section class="care" id="fuer-wen" aria-labelledby="care-h"><div class="wrap">
+  <span class="eyebrow">Full-Service</span>
+  <h2 id="care-h">Sie entscheiden.<br />Wir organisieren.</h2>
+  <p class="care-lead">Ein Team plant, packt, transportiert, montiert, räumt und reinigt – mit einem festen Ansprechpartner vom ersten Gespräch bis zur Schlüsselübergabe.</p>
+  <div class="care-grid">
+    <a href="villen-anwesen/"><small>Villen &amp; Anwesen</small><b>Grosse Häuser, wertvolles Mobiliar.</b><p>Inventarliste, Verpackung nach Mass und Schutz der Liegenschaft – auf Wunsch über mehrere Tage.</p><span>Villen &amp; Anwesen</span></a>
+    <a href="firmenumzug/"><small>Unternehmen</small><b>Umziehen, ohne den Betrieb zu stören.</b><p>Raumplan, Etikettierung und Ausführung abends oder am Wochenende nach Vereinbarung.</p><span>Firmenumzug</span></a>
+    <a href="seniorenumzug/"><small>Senioren &amp; Angehörige</small><b>Mit Zeit, Ruhe und Rücksicht.</b><p>Aussortieren, Packen und Umzugstag auf Wunsch in mehreren Etappen – in Absprache mit den Angehörigen.</p><span>Seniorenumzug</span></a>
+    <a href="international/"><small>International</small><b>Neu in der Schweiz oder auf dem Weg ins Ausland.</b><p>Umzüge in der Schweiz und ins Ausland, vor allem in die Nachbarländer – Europa auf Anfrage.</p><span>Umzug ins Ausland</span></a>
   </div>
+  <ul class="care-list" aria-label="Im Full-Service möglich">
+    <li>Ein- und Auspacken</li><li>Demontage &amp; Montage</li><li>Räumung &amp; Entsorgung</li><li>Reinigung mit Abnahmegarantie</li><li>Halteverbot auf Wunsch organisiert</li>
+  </ul>
+  <p class="care-note">Erste Richtwerte für Wohnungsumzüge finden Sie im <a href="ratgeber/umzugskosten/#planer">Ratgeber Umzugskosten</a>. Den verbindlichen Preis legen wir nach der Besichtigung schriftlich fest.</p>
 </div></section>
 
 <section class="towns" id="orte" aria-label="Einsatzgebiet"><div class="wrap">
@@ -531,11 +477,11 @@ p{margin:0}
       </details>
       <details>
         <summary>Was bedeutet Reinigung mit Abnahmegarantie genau?</summary>
-        <p>Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft kostenlos nach – im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen.</p>
+        <p>Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft ohne Mehrkosten nach – im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen.</p>
       </details>
       <details>
         <summary>Festpreis oder Stundenpreis – was ist besser?</summary>
-        <p>Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen günstiger sein. Wir empfehlen Ihnen die passende Variante in der Offerte.</p>
+        <p>Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen wirtschaftlicher sein. Wir empfehlen Ihnen die passende Variante in der Offerte.</p>
       </details>
       <details>
         <summary>Ist eine Besichtigung nötig?</summary>
@@ -555,7 +501,7 @@ p{margin:0}
       </details>
       <details>
         <summary>Stellen Sie Umzugskartons zur Verfügung?</summary>
-        <p>Ja. Bei jedem gebuchten Umzug erhalten Sie Umzugskartons gratis. Menge und Lieferung werden in der Offerte festgehalten.</p>
+        <p>Ja. Bei jedem gebuchten Umzug sind Umzugskartons inbegriffen. Menge und Lieferung werden in der Offerte festgehalten.</p>
       </details>
       <details>
         <summary>Was ist beim Möbelmontage-Service nicht enthalten?</summary>
@@ -571,7 +517,7 @@ p{margin:0}
 
 <section class="final" id="offerte" aria-label="Offerte"><div class="wrap">
   <h2 class="arrive">Angekommen.</h2>
-  <p>So kann Ihr Umzugstag aussehen. Zwei Adressen genügen – Antwort meist innert 1 Stunde, Besichtigung gratis, Festpreis ohne Überraschungen.</p>
+  <p>So kann Ihr Umzugstag aussehen. Zwei Adressen genügen – Antwort meist innert 1 Stunde, persönliche Besichtigung, verbindliche Offerte.</p>
   <form class="quick" action="offerte/" method="get">
     <label class="sr" for="q-von">Von</label><input id="q-von" name="von" placeholder="Von (PLZ / Ort)" autocomplete="address-level2" />
     <label class="sr" for="q-nach">Nach</label><input id="q-nach" name="nach" placeholder="Nach (PLZ / Ort)" autocomplete="address-level2" />
@@ -585,14 +531,14 @@ p{margin:0}
 
 <h3>Leistungen</h3>
 <p><a href="umzug/">Privatumzug</a>: Wohnung oder Einfamilienhaus. Wir planen, tragen, demontieren und bauen am neuen Ort wieder auf. Ein- und Auspacken auf Wunsch.</p>
-<p><a href="umzugsreinigung/">Umzugsreinigung mit Abnahmegarantie</a>: Endreinigung inklusive kostenloser Nachbesserung bei berechtigten Beanstandungen – im vereinbarten Leistungsumfang. Die Umzugsreinigung ist auch ohne Umzug buchbar.</p>
+<p><a href="umzugsreinigung/">Umzugsreinigung mit Abnahmegarantie</a>: Endreinigung inklusive Nachbesserung ohne Mehrkosten bei berechtigten Beanstandungen – im vereinbarten Leistungsumfang. Die Umzugsreinigung ist auch ohne Umzug buchbar.</p>
 <p><a href="raeumung-entsorgung/">Räumung &amp; Entsorgung</a>: Keller, Wohnungen oder ganze Häuser. Wir trennen, was weiterverwendet werden kann, und bringen den Rest zur Entsorgung.</p>
 <p><a href="montage/">Demontage &amp; Montage</a>: Schränke, Betten und weitere Möbel werden demontiert und am neuen Ort wieder aufgebaut. Küchen sowie Arbeiten an Strom, Gas und Wasser sind nicht enthalten.</p>
 <p>Ausserdem: <a href="kleinumzug/">Kleinumzug</a> für Studio, WG-Zimmer und einzelne Möbelstücke, <a href="seniorenumzug/">Seniorenumzug</a> ins Alterszentrum oder in eine kleinere Wohnung, <a href="klaviertransport/">Klavier- und Flügeltransport</a> und <a href="international/">Umzug ins Ausland</a>, vor allem in die Nachbarländer und innerhalb Europas, auf Anfrage.</p>
 <p>Für <a href="grossauftraege/">Grossaufträge</a> – <a href="villen-anwesen/">Villen &amp; Anwesen</a>, <a href="museum-kunst/">Museen &amp; Kunst</a> und <a href="firmenumzug/">Firmen- und Büroumzüge</a> – planen wir mit Besichtigung, schriftlichem Ablaufplan und einem festen Ansprechpartner.</p>
 
 <h3>Abnahmegarantie bei der Umzugsreinigung</h3>
-<p>Bei gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung kostenlos nach – im vereinbarten Leistungsumfang, auch wenn bereits bezahlt wurde. Räume, Flächen, Fenster, Storen und Geräte stehen vor der Ausführung in der Offerte. Die Garantie gilt, wenn die Wohnungsabgabe grundsätzlich innert drei Arbeitstagen nach der Reinigung stattfindet und das Objekt nicht neu genutzt wurde. Die vollständigen Bedingungen stehen in den <a href="agb.html">AGB, Teil B</a>.</p>
+<p>Bei gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung ohne Mehrkosten nach – im vereinbarten Leistungsumfang, auch wenn bereits bezahlt wurde. Räume, Flächen, Fenster, Storen und Geräte stehen vor der Ausführung in der Offerte. Die Garantie gilt, wenn die Wohnungsabgabe grundsätzlich innert drei Arbeitstagen nach der Reinigung stattfindet und das Objekt nicht neu genutzt wurde. Die vollständigen Bedingungen stehen in den <a href="agb.html">AGB, Teil B</a>.</p>
 
 <h3>Ablauf</h3>
 <p>1. Anfrage: Datum, Adressen, Umfang – per Formular, WhatsApp oder Telefon. 2. Fotos oder Besichtigung: vor Ort, per Video oder anhand von Fotos – Zugang, Lift, Inventar, Zusatzleistungen. Für viele Wohnungen genügen Fotos oder ein kurzes Video per WhatsApp an 079 933 31 11; bei grösseren Umzügen, etwa einem ganzen Haus mit Keller und Estrich, ist eine Besichtigung vor Ort sinnvoll. 3. Schriftliche Offerte: Festpreis oder Stundenpreis, mit klar definierten Leistungen und Ausschlüssen. 4. Umzugstag: Halteverbot auf Wunsch organisiert, Transport, Demontage und Montage. 5. Reinigung und Abgabe: auf Wunsch mit Abnahmegarantie – bis die Schlüssel übergeben sind.</p>
@@ -612,8 +558,8 @@ p{margin:0}
       <img class="ftr-logo" src="assets/logo.svg" alt="ZÜGELKLAR" width="648" height="200" loading="lazy" />
       <p class="ftr-claim">Umzug. Reinigung. Räumung. <span>Fertig.</span></p>
       <p>Umzugsfirma aus Mellingen AG für den Aargau, den Raum Zürich und Zug. Europa auf Anfrage.</p>
-      <ul class="ftr-perks"><li>Besichtigung gratis</li><li>Kartons gratis</li><li>Festpreis ohne Überraschungen</li><li>Abnahmegarantie</li></ul>
-      <a class="pill pill-w" href="offerte/" data-loc="footer">Offerte in 3 Klicks</a>
+      <ul class="ftr-perks"><li>Persönliche Besichtigung</li><li>Ein Ansprechpartner</li><li>Verbindliche Offerte</li><li>Abnahmegarantie</li></ul>
+      <a class="pill pill-w" href="offerte/" data-loc="footer">Offerte anfragen</a>
     </div>
     <nav class="ftr-cols" aria-label="Fusszeile">
       <div><h3 class="fh">Leistungen</h3><ul><li><a href="umzug/">Privatumzug</a></li><li><a href="umzugsreinigung/">Umzugsreinigung</a></li><li><a href="raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li><li><a href="montage/">Demontage &amp; Montage</a></li><li><a href="international/">Umzug ins Ausland</a></li><li><a href="seniorenumzug/">Seniorenumzug</a></li><li><a href="kleinumzug/">Kleinumzug</a></li><li><a href="klaviertransport/">Klaviertransport</a></li><li><a href="leistungen/">Alle Leistungen</a></li></ul></div>
@@ -626,8 +572,8 @@ p{margin:0}
 </div></footer>
 <!-- /zk:footer -->
 
-<nav class="trip hide" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#angebot" data-l="Angebot" style="left:50%"><span>Angebot</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#planer" data-l="Planer" style="left:85%"><span>Planer</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
-<aside class="nudge" id="nudge" hidden aria-label="Angebot"><button class="nudge-x" type="button" aria-label="Hinweis schliessen">×</button><b>Besichtigung gratis.</b><span>Festpreis ohne Überraschungen, Kartons inklusive.</span><a class="pill pill-b" href="#offerte">In 3 Klicks anfragen</a></aside>
+<nav class="trip hide" id="trip" aria-label="Kapitel dieser Seite"><span class="trip-label" id="tripLabel" aria-hidden="true">Start</span><span class="trip-track"><i class="trip-fill" aria-hidden="true"></i><a class="stop" href="#top" data-l="Start" style="left:0.0%"><span>Start</span></a><a class="stop" href="#leistungen" data-l="Umzugstag" style="left:20.0%"><span>Umzugstag</span></a><a class="stop" href="#firmen" data-l="Firmen" style="left:40.0%"><span>Firmen</span></a><a class="stop" href="#angebot" data-l="Angebot" style="left:50%"><span>Angebot</span></a><a class="stop" href="#garantie" data-l="Garantie" style="left:60.0%"><span>Garantie</span></a><a class="stop" href="#fuer-wen" data-l="Full-Service" style="left:70%"><span>Full-Service</span></a><a class="stop" href="#orte" data-l="Orte" style="left:80.0%"><span>Orte</span></a><a class="stop" href="#offerte" data-l="Offerte" style="left:100.0%"><span>Offerte</span></a><span class="trip-truck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0057B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg></span></span><svg class="trip-home" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></svg></nav>
+<aside class="nudge" id="nudge" hidden aria-label="Angebot"><button class="nudge-x" type="button" aria-label="Hinweis schliessen">×</button><b>Persönliche Besichtigung.</b><span>Verbindliche Offerte, Umzugskartons inbegriffen.</span><a class="pill pill-b" href="#offerte">Besichtigung vereinbaren</a></aside>
 <!-- zk:mbar -->
 <div class="mbar">
   <a class="pill pill-o" href="tel:+41799333111" data-loc="sticky_bar">Anrufen</a>
@@ -688,7 +634,6 @@ p{margin:0}
 
   // Stempel knallt auf die Abnahmegarantie
   gsap.from('.stamp', { scale: 2.8, opacity: 0, rotate: -24, duration: .5, ease: 'back.out(2.2)', scrollTrigger: { trigger: '.has-stamp', start: 'top 75%' } });
-  gsap.from('.count b, .kpis div', { y: 40, opacity: 0, duration: .8, ease: 'power3.out', stagger: .08, scrollTrigger: { trigger: '.plan-out', start: 'top 80%' } });
 
   // Vier Zusagen: Zeile für Zeile, die grosse Zahl wischt herein
   gsap.utils.toArray('.deal-list li').forEach(function (li) {
@@ -824,92 +769,6 @@ p{margin:0}
   n.querySelector('.pill').addEventListener('click', function () { setTimeout(hide, 200); });
 })();
 </script>
-<script>
-(function () {
-  var form = document.getElementById('planForm'); if (!form) return;
-  var zim = document.getElementById('pZim'), lift = document.getElementById('pLift'), date = document.getElementById('pDate');
-  var $ = function (id) { return document.getElementById(id); };
-  var DAY = 864e5;
-  function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
-  var today = new Date(); today.setHours(0, 0, 0, 0);
-  date.min = iso(today); date.value = iso(new Date(+today + 60 * DAY));
-  // Schritte relativ zum Umzugstag (Tage). zk = machen wir
-  var STEPS = [
-    [-90, 'Mietvertrag kündigen', 'Kündigungsfrist meist 3 Monate – siehe Mietvertrag.'],
-    [-60, 'Gratis-Besichtigung & Festpreis', 'Vor Ort oder per Video. Danach steht der Preis.', 1],
-    [-30, 'Ausmisten', 'Was nicht mitkommt, räumen und entsorgen wir.', 1],
-    [-21, 'Halteverbot / Parkplatz', 'Bei der Gemeinde beantragen – oder durch uns organisieren lassen.', 1],
-    [-14, 'Adresse ändern', 'Nachsendeauftrag bei der Post, Versicherungen, Bank, Arbeitgeber.'],
-    [-7, 'Packen', 'Kartons erhalten Sie bei uns gratis.', 1],
-    [-1, 'Letzte Vorbereitung', 'Kühlschrank abtauen, Wichtiges und Dokumente separat.'],
-    [0, 'Umzugstag', 'Tragen, fahren, montieren.', 1],
-    [2, 'Endreinigung & Abgabe', 'Mit Abnahmegarantie – Abgabe innert 3 Arbeitstagen.', 1],
-    [14, 'Anmeldung neue Gemeinde', 'In der Regel innert 14 Tagen nach dem Zuzug.']
-  ];
-  var fmt = function (d) { return d.toLocaleDateString('de-CH', { weekday: 'short', day: 'numeric', month: 'short' }); };
-  var num = function (x) { return String(x).replace('.0', ''); };
-  // Richtpreise inkl. MWST, vom Inhaber freigegeben (Nov. 2026). Index: 1, 2, 3, 4, 5 Zimmer (x.5 zählt zur Zahl davor)
-  var MOVE = [[700, 950], [950, 1350], [1350, 1950], [1900, 2700], [2700, 3600]];
-  var CLEAN = [[450, 600], [600, 800], [750, 1000], [900, 1250], [1100, 1500]];
-  var chf = function (x) { return String(Math.round(x / 50) * 50).replace(/\B(?=(\d{3})+$)/g, '’'); };
-  function tween(el, to) {
-    if (el.textContent === to) return;
-    el.textContent = to;
-    if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) gsap.fromTo(el, { yPercent: 40, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .45, ease: 'power3.out' });
-  }
-  function calc() {
-    var z = +zim.value, fl = +(form.querySelector('[name=pFl]:checked') || { value: 2 }).value;
-    $('pZimOut').textContent = num(z) + (z === 1 ? ' Zimmer' : ' Zimmer');
-    var vol = Math.round(z * 10 + 5);
-    var team = z <= 2 ? 2 : z <= 4.5 ? 3 : 4;
-    var hrs = vol / (team * 2) * (lift.checked ? 1 : 1 + .07 * fl) + 1;
-    var lo = Math.max(3, Math.round(hrs * .85 * 2) / 2), hi = Math.round(hrs * 1.15 * 2) / 2;
-    tween($('kVol'), String(vol));
-    tween($('kTeam'), String(team));
-    if (hi > 12) { tween($('kTime'), '1–2'); $('kTimeU').textContent = 'Tage'; }
-    else { tween($('kTime'), num(lo) + '–' + num(hi)); $('kTimeU').textContent = 'Stunden'; }
-
-    var d = date.value ? new Date(date.value + 'T00:00') : new Date(+today + 60 * DAY);
-    // Preis: Wohnungsgrösse, ohne Lift etwas mehr Aufwand, Wochenend-Zuschlag, optional Reinigung
-    var i = Math.min(4, Math.floor(z) - 1), big = z >= 6, clean = $('pClean').checked;
-    var wd = d.getDay(), we = wd === 6 ? 1.2 : wd === 0 ? 1.5 : 1;
-    var stairs = lift.checked ? 1 : 1 + .03 * Math.max(0, fl - 1);
-    var mLo = MOVE[i][0] * we, mHi = MOVE[i][1] * stairs * we;
-    var cLo = CLEAN[i][0], cHi = CLEAN[i][1];
-    var lines = [['Umzug' + (we > 1 ? (wd === 6 ? ' (Samstag +20 %)' : ' (Sonntag +50 %)') : ''), big ? 'ab CHF 3’500' : 'CHF ' + chf(mLo) + '–' + chf(mHi)]];
-    if (clean) lines.push(['Reinigung mit Abnahmegarantie', big ? 'ab CHF 1’400' : 'CHF ' + chf(cLo) + '–' + chf(cHi)]);
-    lines.push(['Besichtigung & Kartons', 'gratis']);
-    var total = big ? 'ab CHF ' + chf(3500 * we + (clean ? 1400 : 0)) : 'CHF ' + chf(mLo + (clean ? cLo : 0)) + '–' + chf(mHi + (clean ? cHi : 0));
-    tween($('kPrice'), total);
-    $('kLines').innerHTML = lines.map(function (l) { return '<li><span>' + l[0] + '</span><span>' + l[1] + '</span></li>'; }).join('');
-    form.dataset.price = total; form.dataset.clean = clean ? 'ja' : 'nein';
-    var days = Math.round((d - today) / DAY);
-    tween($('cDays'), String(Math.max(0, days)));
-    $('cLabel').textContent = days <= 0 ? 'Heute ist Umzugstag' : days === 1 ? 'Tag bis zum Umzug' : 'Tage bis zum Umzug';
-    var nextDone = false, out = [];
-    STEPS.forEach(function (s) {
-      var at = new Date(+d + s[0] * DAY), cls = [], tag = '';
-      if (s[0] === 0) cls.push('day');
-      if (s[3]) cls.push('zk');
-      if (at < today && s[0] < 0) { cls.push('late'); tag = 'Jetzt'; }
-      else if (!nextDone && at >= today) { nextDone = true; cls.push('next'); tag = 'Als Nächstes'; }
-      out.push('<li class="' + cls.join(' ') + '"><time datetime="' + iso(at) + '">' + fmt(at) + '</time><div><b>' + s[1] + (tag ? '<span class="tag">' + tag + '</span>' : '') + '</b><p>' + s[2] + '</p></div></li>');
-    });
-    $('tl').innerHTML = out.join('');
-    var txt = 'Mein Umzugsplan (zuegelklar.ch)\nUmzugstag: ' + d.toLocaleDateString('de-CH') + ' · ' + num(z) + ' Zimmer\n\n' +
-      STEPS.map(function (s) { return '☐ ' + new Date(+d + s[0] * DAY).toLocaleDateString('de-CH') + ' – ' + s[1]; }).join('\n');
-    $('pWa').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
-    form.dataset.z = num(z); form.dataset.d = date.value; form.dataset.fl = fl; form.dataset.lift = lift.checked ? 'ja' : 'nein';
-  }
-  form.addEventListener('input', calc); form.addEventListener('change', calc);
-  form.addEventListener('submit', function (e) { e.preventDefault(); });
-  $('pGo').addEventListener('click', function () {
-    if (!window.zkQuick) { location.href = '#offerte'; return; }
-    window.zkQuick.open({ service: 'Umzug', zimmer: form.dataset.z, datum: form.dataset.d, info: 'Stockwerk ' + (form.dataset.fl === '0' ? 'EG' : form.dataset.fl) + ', Lift: ' + form.dataset.lift + ', Reinigung: ' + form.dataset.clean + ', Richtpreis: ' + form.dataset.price });
-  });
-  calc();
-})();
-</script>
 <script src="assets/quick.js" data-base="./" data-key="" defer></script>
 <script type="application/ld+json">
 {
@@ -929,7 +788,7 @@ p{margin:0}
    "name": "Was bedeutet Reinigung mit Abnahmegarantie genau?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft kostenlos nach – im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen."
+    "text": "Bei entsprechend gebuchter Umzugsreinigung bessern wir berechtigte Beanstandungen der Verwaltung oder Vermieterschaft ohne Mehrkosten nach – im vereinbarten Leistungsumfang. Nicht umfasst sind bauliche Schäden, Defekte, normale Abnutzung sowie Verschmutzungen, die nach der Reinigung entstehen."
    }
   },
   {
@@ -937,7 +796,7 @@ p{margin:0}
    "name": "Festpreis oder Stundenpreis – was ist besser?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen günstiger sein. Wir empfehlen Ihnen die passende Variante in der Offerte."
+    "text": "Beides ist möglich. Ein Festpreis gibt Planungssicherheit und eignet sich, wenn der Umfang klar ist. Ein Stundenpreis kann bei kleineren oder schwer abschätzbaren Aufträgen wirtschaftlicher sein. Wir empfehlen Ihnen die passende Variante in der Offerte."
    }
   },
   {
@@ -977,7 +836,7 @@ p{margin:0}
    "name": "Stellen Sie Umzugskartons zur Verfügung?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Ja. Bei jedem gebuchten Umzug erhalten Sie Umzugskartons gratis. Menge und Lieferung werden in der Offerte festgehalten."
+    "text": "Ja. Bei jedem gebuchten Umzug sind Umzugskartons inbegriffen. Menge und Lieferung werden in der Offerte festgehalten."
    }
   },
   {
