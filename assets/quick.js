@@ -226,5 +226,6 @@
   }, true);
 
   document.body.appendChild(root);
-  window.zkQuick = { open: open, close: close };
+  // send: auch vom Offertformular (/offerte/) genutzt, gleicher Web3Forms-Weg
+  window.zkQuick = { open: open, close: close, send: post };
 })();

@@ -129,7 +129,7 @@
   var err = document.getElementById('f-error');
   var doneBox = document.getElementById('f-done');
   var sel = document.getElementById('f-leistung');
-  var channel = 'wa', started = false;
+  var channel = 'send', started = false;
 
   // Vorauswahl aus ?leistung=… oder aus der Seite
   var want = (q.get('leistung') || '').toLowerCase();
@@ -190,21 +190,45 @@
     var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(lines);
     var mailUrl = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Offertanfrage ' + ref() + ': ' + val('f-leistung')) + '&body=' + encodeURIComponent(lines);
 
-    // «Fast fertig»-Schritt zeigen, damit nichts still verloren geht
-    el('f-text').value = lines;
-    el('f-reopen').setAttribute('href', waUrl);
-    el('f-done-msg').innerHTML = channel === 'mail'
-      ? 'Ihre Anfrage ist vorbereitet. Senden Sie die E-Mail in Ihrem E-Mail-Programm ab.'
-      : 'Ihre Anfrage ist vorbereitet. Tippen Sie in WhatsApp auf <b>Senden</b>.';
-    form.hidden = true; doneBox.hidden = false; doneBox.focus();
+    // Direkt senden (Web3Forms an info@). Klappt das nicht: WhatsApp-Weg, damit nichts verloren geht.
+    var sent = el('f-sent'), go = form.querySelector('[data-channel=send]');
+    if (channel === 'send' && sent && window.zkQuick && window.zkQuick.send) {
+      var r = ref();
+      go.disabled = true; go.textContent = 'Wird gesendet …';
+      window.zkQuick.send('Offertanfrage ' + r + ': ' + val('f-leistung') + ' · ' + val('f-name'), lines,
+        { Leistung: val('f-leistung'), Name: val('f-name'), Telefon: val('f-tel'), 'E-Mail': val('f-mail'), Referenz: r, replyto: val('f-mail') || undefined })
+        .then(function () {
+          el('f-sent-ref').textContent = 'Referenz ' + r;
+          el('f-photos').setAttribute('href', 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent('Fotos zu Anfrage ' + r + ' (' + val('f-leistung') + ')'));
+          form.hidden = true; sent.hidden = false; sent.focus();
+          track('offer_form_submit', { method: 'web3forms', service: slug || '', ref: r });
+        })
+        .catch(function () {
+          err.textContent = 'Das Senden hat gerade nicht geklappt. Wir öffnen WhatsApp mit Ihrer Anfrage.';
+          err.style.display = 'block';
+          handoff('wa');
+        })
+        .then(function () { go.disabled = false; go.textContent = 'Anfrage senden'; });
+      return;
+    }
+    handoff(channel === 'mail' ? 'mail' : 'wa');
 
-    track('offer_form_submit', { method: channel === 'mail' ? 'email' : 'whatsapp', service: slug || '', ref: ref() }, function () {
-      if (channel === 'mail') { window.location.href = mailUrl; }
-      else {
-        var w = window.open(waUrl, '_blank', 'noopener');
-        if (!w) window.location.href = waUrl;
-      }
-    });
+    // «Fast fertig»-Schritt zeigen, damit nichts still verloren geht
+    function handoff(ch) {
+      el('f-text').value = lines;
+      el('f-reopen').setAttribute('href', waUrl);
+      el('f-done-msg').innerHTML = ch === 'mail'
+        ? 'Ihre Anfrage ist vorbereitet. Senden Sie die E-Mail in Ihrem E-Mail-Programm ab.'
+        : 'Ihre Anfrage ist vorbereitet. Tippen Sie in WhatsApp auf <b>Senden</b>.';
+      form.hidden = true; doneBox.hidden = false; doneBox.focus();
+      track('offer_form_submit', { method: ch === 'mail' ? 'email' : 'whatsapp', service: slug || '', ref: ref() }, function () {
+        if (ch === 'mail') { window.location.href = mailUrl; }
+        else {
+          var w = window.open(waUrl, '_blank', 'noopener');
+          if (!w) window.location.href = waUrl;
+        }
+      });
+    }
   });
 
   el('f-copy').addEventListener('click', function () {
