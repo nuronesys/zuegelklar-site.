@@ -42,10 +42,20 @@
     </div>
   </div>
   <span id="f-error" role="alert" aria-live="polite" style="display:none;font-size:13px;color:var(--red);font-weight:600;margin-top:14px"></span>
-  <button class="btn btn-wa" type="submit" data-channel="wa" style="width:100%;margin-top:22px">{{WA}}Anfrage per WhatsApp senden</button>
-  <button class="btn btn-ghost" type="submit" data-channel="mail" style="width:100%;margin-top:10px">Stattdessen per E-Mail senden</button>
-  <p class="fine">WhatsApp bzw. Ihr E-Mail-Programm öffnet sich mit Ihrer vorbereiteten Anfrage. Erst wenn Sie dort auf Senden tippen, erhalten wir Ihre Angaben. Für Aufträge gelten die <a href="{{R}}agb.html">AGB</a>.</p>
+  <button class="btn btn-blue" type="submit" data-channel="send" style="width:100%;margin-top:22px">Anfrage senden</button>
+  <button class="btn btn-ghost" type="submit" data-channel="wa" style="width:100%;margin-top:10px">{{WA}}Lieber per WhatsApp</button>
+  <p class="fine">Ihre Anfrage geht direkt an unser Team. Wir melden uns persönlich, meist innert 1 Stunde. Für Aufträge gelten die <a href="{{R}}agb.html">AGB</a>.</p>
 </form>
+<div id="f-sent" class="f-done" hidden tabindex="-1" aria-live="polite">
+  <b class="f-done-t">Danke! Ihre Anfrage ist bei uns.</b>
+  <p>Wir melden uns persönlich, meist innert 1 Stunde, am Samstag und Sonntag innert 2 Stunden.</p>
+  <p class="small" id="f-sent-ref"></p>
+  <p class="small">Fotos der Räume beschleunigen die Offerte.</p>
+  <div class="f-done-btns">
+    <a class="btn btn-wa" id="f-photos" href="https://wa.me/41799333111" target="_blank" rel="noopener">{{WA}}Fotos per WhatsApp senden</a>
+    <a class="btn btn-ghost" href="tel:+41799333111">079 933 31 11 anrufen</a>
+  </div>
+</div>
 <div id="f-done" class="f-done" hidden tabindex="-1" aria-live="polite">
   <b class="f-done-t">Fast fertig</b>
   <p id="f-done-msg">Ihre Anfrage ist vorbereitet. Tippen Sie in WhatsApp bzw. in Ihrem E-Mail-Programm auf <b>Senden</b>.</p>
