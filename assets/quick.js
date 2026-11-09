@@ -54,13 +54,13 @@
       '<div class="zq-top"><div class="zq-steps" aria-hidden="true"><i></i><i></i><i></i></div><button class="zq-x" type="button" data-close aria-label="Schliessen">×</button></div>' +
 
       '<section class="zq-step" data-step="1">' +
-        '<h2 id="zq-h1">Was dürfen wir für Sie tun?</h2><p class="zq-sub">Ein Tipp genügt. Besichtigung gratis, Offerte unverbindlich.</p>' +
+        '<h2 id="zq-h1">Was dürfen wir für Sie tun?</h2><p class="zq-sub">Ein Tipp genügt. Persönliche Besichtigung, unverbindliche Offerte.</p>' +
         '<div class="zq-tiles">' + SERVICES.map(function (s) { return '<button type="button" data-s="' + esc(s[0]) + '">' + esc(s[0]) + '<small>' + esc(s[1]) + '</small></button>'; }).join('') + '</div>' +
         '<div class="zq-alt"><span>Lieber direkt?</span><a href="tel:+' + WA + '">' + TEL + '</a><a href="https://wa.me/' + WA + '" rel="noopener" target="_blank">WhatsApp</a></div>' +
       '</section>' +
 
       '<section class="zq-step" data-step="2" hidden>' +
-        '<h2>Wie erreichen wir Sie?</h2><p class="zq-sub">Wir melden uns persönlich, meist innert 1 Stunde, und vereinbaren Ihre Gratis-Besichtigung – vor Ort oder per Video.</p>' +
+        '<h2>Wie erreichen wir Sie?</h2><p class="zq-sub">Wir melden uns persönlich, meist innert 1 Stunde, und vereinbaren Ihre persönliche Besichtigung – vor Ort oder per Video.</p>' +
         '<p class="zq-chosen"><span data-chosen></span> · <button type="button" data-back>ändern</button></p>' +
         '<form class="zq-f" data-form="contact" novalidate>' +
           '<label>Name<input name="name" autocomplete="name" required /></label>' +
