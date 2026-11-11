@@ -185,7 +185,7 @@ for (const f of htmlFiles) {
     if (canonicals.has(canon)) add(blockers, r, 0, 'seo-canonical-dup', `canonical identisch mit ${canonicals.get(canon)}`);
     canonicals.set(canon, r);
   }
-  if (!/<html[^>]+lang="de"/.test(live)) add(blockers, r, 0, 'seo-lang', 'lang="de" fehlt am <html>');
+  if (!/<html[^>]+lang="de(-CH)?"/.test(live)) add(blockers, r, 0, 'seo-lang', 'lang="de-CH" fehlt am <html>');
   if (!/name="viewport"/.test(live)) add(blockers, r, 0, 'seo-viewport', 'viewport-Meta fehlt');
 
   const h1 = [...live.matchAll(/<h1\b/g)].length;

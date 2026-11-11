@@ -10,6 +10,25 @@ export const INDEXABLE = false;
 // plausible.io angelegt ist (z. B. 'zuegelklar.ch'), dann `node tools/build.mjs`. Danach Datenschutz-Abschnitt prüfen.
 export const PLAUSIBLE_DOMAIN = '';
 
+// Bestätigungs-Codes der Suchmaschinen. Leer = kein Tag. Nur den Wert aus content="…" eintragen,
+// dann `node tools/build.mjs`. Der Tag landet nur auf der Startseite.
+export const GSC_TOKEN = '';   // Google Search Console: <meta name="google-site-verification">
+export const BING_TOKEN = '';  // Bing Webmaster Tools: <meta name="msvalidate.01">
+
+// IndexNow (Bing, DuckDuckGo, Yahoo, Ecosia, Copilot, Yandex, Seznam, Naver). Die Schlüsseldatei
+// <KEY>.txt im Hauptordner erzeugt der Build. Melden: `node scripts/indexnow.mjs` (nur bei INDEXABLE).
+export const INDEXNOW_KEY = '94ba17303193a2cf3376454a515bf470';
+
+// Kurzbeschreibung für llms.txt (KI-Suchsysteme). Nur bestätigte Fakten.
+export const ORG_FACTS = {
+  name: 'ZÜGELKLAR',
+  summary: 'Umzugsfirma mit Basis in Mellingen AG: Privatumzug, Umzugsreinigung mit Abnahmegarantie, Räumung und Entsorgung, Montage sowie Firmen- und Spezialumzüge.',
+  area: 'Schwerpunkt Kanton Aargau, Raum Zürich und Zug; übrige Schweiz und Europa auf Anfrage.',
+  phone: '079 933 31 11',
+  email: 'info@zuegelklar.ch',
+  response: 'Rückmeldung meist innert 1 Stunde, am Samstag und Sonntag innert 2 Stunden.'
+};
+
 const svc = (path, crumb, leistung, wa, extra = {}) => ({ path, type: 'service', crumb, leistung, wa, parent: 'leistungen', ...extra });
 const b2b = (path, crumb, leistung, wa) => ({ path, type: 'b2b', crumb, leistung, wa, parent: 'grossauftraege', aside: 'b2b' });
 const city = (slug, name, canton = 'Aargau') => ({
