@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { PAGES, NEARBY, byPath, fileOf, urlOf, depthOf, ORIGIN, ORG_ID, INDEXABLE, PLAUSIBLE_DOMAIN } from './site-data.mjs';
+import { PAGES, NEARBY, byPath, fileOf, urlOf, depthOf, ORIGIN, ORG_ID, INDEXABLE, PLAUSIBLE_DOMAIN, GSC_TOKEN, BING_TOKEN, INDEXNOW_KEY, ORG_FACTS } from './site-data.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -89,6 +89,34 @@ function serviceLd(p, h1) {
   return { '@type': 'Service', '@id': urlOf(p) + '#service', name: h1, serviceType: p.type === 'city' ? 'Umzug' : p.crumb,
     url: urlOf(p), provider: { '@id': ORG_ID }, areaServed: area };
 }
+// Zusätzliche Schema-Knoten je Seitentyp (nur Fakten, die auf der Seite stehen)
+function gitDate(p, first) {
+  try {
+    const cmd = first ? 'git log --diff-filter=A --follow --format=%cs -- "' + fileOf(p) + '"' : 'git log -1 --format=%cs -- "' + fileOf(p) + '"';
+    const out = execSync(cmd, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim().split('\n');
+    return (first ? out[out.length - 1] : out[0]) || null;
+  } catch { return null; }
+}
+function extraLd(p, html, h1) {
+  const meta = n => (html.match(new RegExp('<meta (?:name|property)="' + n + '" content="([^"]*)"')) || [])[1];
+  if (p.type === 'ratgeber') {
+    const a = { '@type': 'Article', '@id': urlOf(p) + '#article', headline: h1, description: plain(meta('description') || ''),
+      inLanguage: 'de-CH', mainEntityOfPage: urlOf(p), author: { '@id': ORG_ID }, publisher: { '@id': ORG_ID } };
+    const img = meta('og:image'); if (img) a.image = img;
+    const pub = gitDate(p, true), mod = gitDate(p, false);
+    if (pub) a.datePublished = pub;
+    if (mod) a.dateModified = mod;
+    return [a];
+  }
+  if (p.type === 'about') {
+    return [{ '@type': 'Person', '@id': ORIGIN + '/ueber-uns/#alaa-sayed', name: 'Alaa Sayed', jobTitle: 'Aussendienst & Beratung',
+      image: ORIGIN + '/assets/team/alaa-sayed.jpg', worksFor: { '@id': ORG_ID } }];
+  }
+  return [];
+}
+const websiteLd = () => ({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': ORIGIN + '/#website', url: ORIGIN + '/',
+  name: 'ZÜGELKLAR', inLanguage: 'de-CH', publisher: { '@id': ORG_ID } });
+
 function nearbyHtml(p) {
   const R = '../'.repeat(depthOf(p));
   const list = (NEARBY[p.city] || []).map(s => byPath['umzug-' + s]).filter(Boolean);
@@ -133,14 +161,15 @@ function updateJsonLd(html, p) {
     }
     const graph = data['@graph'] || (data['@type'] === 'BreadcrumbList' ? [data] : null);
     if (!graph) return all;
-    let g = graph.filter(n => n['@type'] !== 'BreadcrumbList' && n['@type'] !== 'Service');
+    let g = graph.filter(n => !['BreadcrumbList', 'Service', 'Article', 'Person'].includes(n['@type']));
     if (p.type !== 'home') g.unshift(crumbLd(p));
     const s = serviceLd(p, h1); if (s) g.splice(1, 0, s);
+    g.push(...extraLd(p, html, h1));
     done = true;
     return '<script type="application/ld+json">\n' + JSON.stringify({ '@context': 'https://schema.org', '@graph': g }, null, 1) + '\n</script>';
   });
   if (!done && p.type !== 'home') {
-    const g = [crumbLd(p)]; const s = serviceLd(p, h1); if (s) g.push(s);
+    const g = [crumbLd(p)]; const s = serviceLd(p, h1); if (s) g.push(s); g.push(...extraLd(p, html, h1));
     html = html.replace('</body>', '<script type="application/ld+json">\n' + JSON.stringify({ '@context': 'https://schema.org', '@graph': g }, null, 1) + '\n</script>\n</body>');
   }
   return html;
@@ -204,6 +233,18 @@ function processPage(p) {
   if (PLAUSIBLE_DOMAIN && p.type !== '404') html = html.replace('</head>', `<!-- zk:stats -->\n<script defer data-domain="${PLAUSIBLE_DOMAIN}" src="https://plausible.io/js/script.outbound-links.js"></script>\n<script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>\n<!-- /zk:stats -->\n</head>`);
 
   if (p.type !== 'legal' && p.type !== '404') html = updateJsonLd(html, p);
+  if (p.type === 'home') {
+    // WebSite-Knoten und Bestätigungs-Tags der Suchmaschinen (nur wenn Code gesetzt)
+    html = setBlock(html, 'website-ld', '<script type="application/ld+json">\n' + JSON.stringify(websiteLd(), null, 1) + '\n</script>',
+      h => { const i = h.lastIndexOf('</body>'); return i < 0 ? null : [i, i]; }) ?? html;
+    const ver = [GSC_TOKEN && '<meta name="google-site-verification" content="' + esc(GSC_TOKEN) + '" />',
+                 BING_TOKEN && '<meta name="msvalidate.01" content="' + esc(BING_TOKEN) + '" />'].filter(Boolean).join('\n');
+    html = html.replace(/<!-- zk:verify -->[\s\S]*?<!-- \/zk:verify -->\n?/, '');
+    if (ver) html = html.replace('</head>', '<!-- zk:verify -->\n' + ver + '\n<!-- /zk:verify -->\n</head>');
+  }
+  // Grosses Vorschaubild auch auf X/Twitter, Slack, Teams
+  if (!html.includes('name="twitter:card"') && html.includes('property="og:image"'))
+    html = html.replace(/(<meta property="og:image" content="[^"]*" \/>)(\r?\n)/, '$1$2<meta name="twitter:card" content="summary_large_image" />$2');
   if (html !== before) { if (!CHECK) writeFileSync(file, html); return { p, changed: true }; }
   return { p, changed: false };
 }
@@ -220,10 +261,27 @@ const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
   + PAGES.filter(p => !p.noSitemap && existsSync(join(ROOT, fileOf(p))))
     .map(p => `  <url><loc>${urlOf(p)}</loc><lastmod>${lastmod(p)}</lastmod></url>`).join('\n') + '\n</urlset>\n';
 const robotsTxt = INDEXABLE
-  ? `# ZÜGELKLAR — robots.txt (Live)\nUser-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`
+  ? '# ZÜGELKLAR — robots.txt (Live)\n# Suchmaschinen und KI-Assistenten sind ausdrücklich willkommen.\n\n'
+    + ['Googlebot', 'Bingbot', 'Applebot', 'DuckDuckBot', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'PerplexityBot', 'Perplexity-User',
+       'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'Google-Extended', 'Applebot-Extended']
+      .map(b => 'User-agent: ' + b + '\nAllow: /\n').join('\n')
+    + '\nUser-agent: *\nAllow: /\n\nSitemap: ' + ORIGIN + '/sitemap.xml\n'
   : `# ZÜGELKLAR — robots.txt\n# STATUS: PREVIEW. Die Seite ist bewusst für Suchmaschinen gesperrt.\n# Freigabe NUR über tools/site-data.mjs (INDEXABLE = true) und danach\n# \`node tools/build.mjs\`. Das setzt robots.txt UND das robots-Meta aller Seiten.\n# Voraussetzung: docs/reinit/10_PRELAUNCH_GATE.md vollständig grün.\n\nUser-agent: *\nDisallow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`;
 let stale = results.filter(r => r.changed).map(r => fileOf(r.p));
-for (const [f, c] of [['sitemap.xml', sitemap], ['robots.txt', robotsTxt]]) {
+// llms.txt: Kurzprofil für KI-Suchsysteme, aus Titeln und Beschreibungen der Seiten
+const pageInfo = p => { const h = readFileSync(join(ROOT, fileOf(p)), 'utf8');
+  return { t: plain((h.match(/<title>([\s\S]*?)<\/title>/) || [, p.crumb])[1]).replace(/ \| ZÜGELKLAR$/, ''),
+           d: plain((h.match(/<meta name="description" content="([^"]*)"/) || [, ''])[1]) }; };
+const llmsGroup = (head, types) => '\n## ' + head + '\n\n' + PAGES.filter(p => types.includes(p.type) && existsSync(join(ROOT, fileOf(p))))
+  .map(p => { const i = pageInfo(p); return '- [' + i.t + '](' + urlOf(p) + ')' + (i.d ? ': ' + i.d : ''); }).join('\n') + '\n';
+const llmsTxt = '# ' + ORG_FACTS.name + '\n\n> ' + ORG_FACTS.summary + '\n\n- Einsatzgebiet: ' + ORG_FACTS.area
+  + '\n- Telefon und WhatsApp: ' + ORG_FACTS.phone + '\n- E-Mail: ' + ORG_FACTS.email + '\n- ' + ORG_FACTS.response
+  + '\n- Offerte anfragen: ' + ORIGIN + '/offerte/\n'
+  + llmsGroup('Leistungen', ['home', 'hub', 'service', 'b2b']) + llmsGroup('Orte', ['city'])
+  + llmsGroup('Ratgeber', ['ratgeber-hub', 'ratgeber']) + llmsGroup('Unternehmen', ['about', 'offerte']);
+const extraFiles = [['sitemap.xml', sitemap], ['robots.txt', robotsTxt], ['llms.txt', llmsTxt]];
+if (INDEXNOW_KEY) extraFiles.push([INDEXNOW_KEY + '.txt', INDEXNOW_KEY]);
+for (const [f, c] of extraFiles) {
   const fp = join(ROOT, f); const cur = existsSync(fp) ? readFileSync(fp, 'utf8') : '';
   // lastmod-Abweichungen allein gelten im Check-Modus nicht als veraltet
   const norm = s => s.replace(/<lastmod>[^<]*<\/lastmod>/g, '');
