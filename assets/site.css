@@ -51,7 +51,7 @@ p{margin:0}
 .logo{width:196px;height:auto;flex:none}
 .nav{margin-left:auto;display:flex;align-items:center;gap:28px;font-size:15px;font-weight:500;color:var(--ink-2)}
 .nav a:hover{color:var(--ink)}
-.burger{display:none;margin-left:auto;width:46px;height:46px;border:1.5px solid var(--line);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+.burger{display:none;padding:0;font:inherit;margin-left:auto;width:46px;height:46px;border:1.5px solid var(--line);border-radius:12px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
 .drawer{display:none;position:fixed;inset:0;z-index:80;background:rgba(12,16,21,.5)}
 .drawer.open{display:block}
 .drawer-in{position:absolute;top:0;right:0;width:min(340px,86vw);height:100%;background:#fff;padding:22px;display:flex;flex-direction:column;gap:6px}
