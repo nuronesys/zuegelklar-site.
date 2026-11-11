@@ -245,7 +245,9 @@ function processPage(p) {
   // Grosses Vorschaubild auch auf X/Twitter, Slack, Teams
   if (!html.includes('name="twitter:card"') && html.includes('property="og:image"'))
     html = html.replace(/(<meta property="og:image" content="[^"]*" \/>)(\r?\n)/, '$1$2<meta name="twitter:card" content="summary_large_image" />$2');
-  if (html !== before) { if (!CHECK) writeFileSync(file, html); return { p, changed: true }; }
+  // Datumsangaben im Schema kommen aus git und gelten im Check-Modus (wie lastmod) nicht als veraltet
+  const noDates = t => t.replace(/"date(?:Modified|Published)": "[^"]*"/g, "");
+  if (CHECK ? noDates(html) !== noDates(before) : html !== before) { if (!CHECK) writeFileSync(file, html); return { p, changed: true }; }
   return { p, changed: false };
 }
 
