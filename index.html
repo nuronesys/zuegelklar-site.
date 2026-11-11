@@ -65,7 +65,10 @@ p{margin:0}
 .hero-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,7vh,90px)}
 .hero h1{font-size:clamp(3.4rem,1.6rem + 9vw,11rem);text-transform:none}
 .hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-.hero h1 .w>span{display:inline-block}
+.hero h1 .w>span{display:inline-block;animation:zkUp 1.1s cubic-bezier(.16,1,.3,1) both}
+.hero h1 .w:nth-child(2)>span{animation-delay:.09s}.hero h1 .w:nth-child(4)>span{animation-delay:.18s}.hero h1 .w:nth-child(5)>span{animation-delay:.27s}
+@keyframes zkUp{from{transform:translateY(110%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.hero h1 .w>span{animation:none}}
 .hero h1 .blue{color:var(--blue-l)}
 .hero-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-top:clamp(20px,3vw,36px)}
 .hero-row p{font-size:clamp(17px,1rem + .4vw,21px);color:var(--t2);max-width:30ch}
@@ -270,7 +273,7 @@ p{margin:0}
 /* ── Angebote ── */
 .perks{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .perks li{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgb(255 255 255 / .12);backdrop-filter:blur(8px);border:1px solid rgb(255 255 255 / .18);font:600 13.5px/1 var(--txt);color:#fff}
-.perks li::before{content:"";width:16px;height:16px;flex:none;background:#4ADE80;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.perks li::before{content:"";width:16px;height:16px;flex:none;background:#4ADE80;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/contain no-repeat;mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");mask-position:center;mask-size:contain;mask-repeat:no-repeat}
 .deal{overflow-x:clip;background:var(--night);padding-block:clamp(100px,12vw,170px);border-top:1px solid var(--line)}
 .deal h2{font-size:clamp(2.6rem,1.4rem + 4.4vw,6rem)}
 .deal-list{list-style:none;margin:clamp(40px,5vw,70px) 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
@@ -346,6 +349,7 @@ p{margin:0}
 .plan-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 @media (max-width:520px){.plan-cta .pill{width:100%;white-space:normal;text-align:center;height:auto;min-height:50px;padding-block:12px}}
 </style>
+<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style>
 </head>
 <body data-type="home" data-wa="eine Offerte für meinen Umzug">
 
@@ -376,13 +380,13 @@ p{margin:0}
 </div></div>
 
 <!-- EINTRITT: Bild in der Schrift, zoomt bis es den Bildschirm füllt -->
-<section class="zoom" aria-hidden="true">
+<div class="zoom" aria-hidden="true">
   <div class="zoom-stage">
     <div class="zoom-word" style="background-image:url(assets/v15/s0.webp)">UMZUGS<br />TAG</div>
     <div class="zoom-fill" style="background-image:url(assets/v15/s0.webp)"></div>
     <p class="zoom-hint">Ein Tag. Von der ersten Kiste bis zum Schlüssel.</p>
   </div>
-</section>
+</div>
 
 <!-- EIN UMZUGSTAG: Uhr läuft, Szenen wechseln -->
 <section class="day" id="leistungen" aria-label="Ein Umzugstag mit ZÜGELKLAR – Beispiel">
@@ -486,8 +490,8 @@ p{margin:0}
   <h2 id="plan-h">Ihr Umzug.<br />Durchgerechnet.</h2>
   <div class="plan-grid">
     <form class="plan-in" id="planForm" novalidate>
-      <label class="pf">Wohnungsgrösse <output id="pZimOut" for="pZim">3.5 Zimmer</output>
-        <input type="range" id="pZim" min="1" max="7" step="0.5" value="3.5" /></label>
+      <div class="pf"><label for="pZim">Wohnungsgrösse</label> <output id="pZimOut" for="pZim">3.5 Zimmer</output>
+        <input type="range" id="pZim" min="1" max="7" step="0.5" value="3.5" /></div>
       <fieldset class="pf seg"><legend>Stockwerk heute</legend>
         <label><input type="radio" name="pFl" value="0" /><span>EG</span></label><label><input type="radio" name="pFl" value="1" /><span>1.</span></label><label><input type="radio" name="pFl" value="2" checked /><span>2.</span></label><label><input type="radio" name="pFl" value="3" /><span>3.</span></label><label><input type="radio" name="pFl" value="4" /><span>4.+</span></label>
       </fieldset>
@@ -616,10 +620,10 @@ p{margin:0}
       <a class="pill pill-w" href="offerte/" data-loc="footer">Offerte in 3 Klicks</a>
     </div>
     <nav class="ftr-cols" aria-label="Fusszeile">
-      <div><h3 class="fh">Leistungen</h3><ul><li><a href="umzug/">Privatumzug</a></li><li><a href="umzugsreinigung/">Umzugsreinigung</a></li><li><a href="raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li><li><a href="montage/">Demontage &amp; Montage</a></li><li><a href="international/">Umzug ins Ausland</a></li><li><a href="seniorenumzug/">Seniorenumzug</a></li><li><a href="kleinumzug/">Kleinumzug</a></li><li><a href="klaviertransport/">Klaviertransport</a></li><li><a href="leistungen/">Alle Leistungen</a></li></ul></div>
-      <div><h3 class="fh">Grossaufträge</h3><ul><li><a href="grossauftraege/">Übersicht</a></li><li><a href="villen-anwesen/">Villen &amp; Anwesen</a></li><li><a href="museum-kunst/">Museen &amp; Kunst</a></li><li><a href="firmenumzug/">Firmenumzug</a></li></ul><h3 class="fh">Ratgeber</h3><ul><li><a href="ratgeber/umzugscheckliste/">Umzugscheckliste</a></li><li><a href="ratgeber/umzugskosten/">Umzugskosten</a></li><li><a href="ratgeber/wohnungsabgabe/">Wohnungsabgabe</a></li><li><a href="ratgeber/halteverbot-umzug/">Halteverbot</a></li><li><a href="ratgeber/">Alle Ratgeber</a></li></ul></div>
-      <div><h3 class="fh">Einsatzgebiet</h3><ul><li><a href="umzug-mellingen/">Mellingen</a></li><li><a href="umzug-baden/">Baden</a></li><li><a href="umzug-wettingen/">Wettingen</a></li><li><a href="umzug-brugg/">Brugg</a></li><li><a href="umzug-lenzburg/">Lenzburg</a></li><li><a href="umzug-aarau/">Aarau</a></li><li><a href="umzug-wohlen/">Wohlen</a></li><li><a href="umzug-bremgarten/">Bremgarten</a></li><li><a href="umzug-dietikon/">Dietikon</a></li><li><a href="umzug-zuerich/">Zürich</a></li><li><a href="umzug-zug/">Zug</a></li><li><a href="einsatzgebiet/">Alle Orte</a></li></ul></div>
-      <div><h3 class="fh">Kontakt</h3><ul><li><a href="tel:+41799333111" data-loc="footer">079 933 31 11</a></li><li><a href="https://wa.me/41799333111" rel="noopener" data-loc="footer">WhatsApp</a></li><li><a href="mailto:info@zuegelklar.ch" data-loc="footer">info@zuegelklar.ch</a></li><li>Obere Bahnhofstrasse 24<br />5507 Mellingen</li><li>Antwort meist innert 1 Stunde,<br />Sa/So innert 2 Stunden</li><li><a href="ueber-uns/">Über uns</a></li></ul></div>
+      <div><h2 class="fh">Leistungen</h2><ul><li><a href="umzug/">Privatumzug</a></li><li><a href="umzugsreinigung/">Umzugsreinigung</a></li><li><a href="raeumung-entsorgung/">Räumung &amp; Entsorgung</a></li><li><a href="montage/">Demontage &amp; Montage</a></li><li><a href="international/">Umzug ins Ausland</a></li><li><a href="seniorenumzug/">Seniorenumzug</a></li><li><a href="kleinumzug/">Kleinumzug</a></li><li><a href="klaviertransport/">Klaviertransport</a></li><li><a href="leistungen/">Alle Leistungen</a></li></ul></div>
+      <div><h2 class="fh">Grossaufträge</h2><ul><li><a href="grossauftraege/">Übersicht</a></li><li><a href="villen-anwesen/">Villen &amp; Anwesen</a></li><li><a href="museum-kunst/">Museen &amp; Kunst</a></li><li><a href="firmenumzug/">Firmenumzug</a></li></ul><h2 class="fh">Ratgeber</h2><ul><li><a href="ratgeber/umzugscheckliste/">Umzugscheckliste</a></li><li><a href="ratgeber/umzugskosten/">Umzugskosten</a></li><li><a href="ratgeber/wohnungsabgabe/">Wohnungsabgabe</a></li><li><a href="ratgeber/halteverbot-umzug/">Halteverbot</a></li><li><a href="ratgeber/">Alle Ratgeber</a></li></ul></div>
+      <div><h2 class="fh">Einsatzgebiet</h2><ul><li><a href="umzug-mellingen/">Mellingen</a></li><li><a href="umzug-baden/">Baden</a></li><li><a href="umzug-wettingen/">Wettingen</a></li><li><a href="umzug-brugg/">Brugg</a></li><li><a href="umzug-lenzburg/">Lenzburg</a></li><li><a href="umzug-aarau/">Aarau</a></li><li><a href="umzug-wohlen/">Wohlen</a></li><li><a href="umzug-bremgarten/">Bremgarten</a></li><li><a href="umzug-dietikon/">Dietikon</a></li><li><a href="umzug-zuerich/">Zürich</a></li><li><a href="umzug-zug/">Zug</a></li><li><a href="einsatzgebiet/">Alle Orte</a></li></ul></div>
+      <div><h2 class="fh">Kontakt</h2><ul><li><a href="tel:+41799333111" data-loc="footer">079 933 31 11</a></li><li><a href="https://wa.me/41799333111" rel="noopener" data-loc="footer">WhatsApp</a></li><li><a href="mailto:info@zuegelklar.ch" data-loc="footer">info@zuegelklar.ch</a></li><li>Obere Bahnhofstrasse 24<br />5507 Mellingen</li><li>Antwort meist innert 1 Stunde,<br />Sa/So innert 2 Stunden</li><li><a href="ueber-uns/">Über uns</a></li></ul></div>
     </nav>
   </div>
   <div class="ftr-bot"><span>© 2026 ZÜGELKLAR · Zügelklar Umzug GmbH in Gründung</span><span class="ftr-legal"><a href="agb.html">AGB</a><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></span></div>
@@ -636,7 +640,6 @@ p{margin:0}
 </div>
 <!-- /zk:mbar -->
 
-<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}</style>
 <script src="assets/vendor/gsap.min.js" defer></script>
 <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="assets/vendor/lenis.min.js" defer></script>
@@ -682,7 +685,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // HERO: Wörter steigen auf, Bild atmet
-  gsap.from('#heroTitle .w > span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: .09, delay: .15 });
   gsap.from('.hero-row', { opacity: 0, y: 24, duration: .9, ease: 'power3.out', delay: .7 });
   gsap.from('.perks li', { opacity: 0, y: 12, duration: .6, ease: 'power3.out', stagger: .12, delay: 1.2 });
 
